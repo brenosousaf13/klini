@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ouvidoria — Klini Saúde</title>
+  <meta name="description" content="Canal de Ouvidoria da Klini Saúde. Envie elogios, sugestões, solicitações ou reclamações. Atendimento de segunda a sexta, das 8h às 17h.">
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="assets/css/styles.css">
+  <link rel="stylesheet" href="assets/css/legal.css">
+  <link rel="stylesheet" href="assets/css/ouvidoria.css">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="https://klinisaude.com.br/wp-content/uploads/2023/02/logo_klini-br.png">
+</head>
+<body>
+
+  <!-- ============================================================
+       UTILITY BAR
+       ============================================================ -->
+  <div class="utility-bar" role="complementary" aria-label="Acessos rápidos">
+    <div class="container utility-bar__inner">
+      <div class="utility-bar__portals">
+        <a href="https://beneficiario.klinisaude.com.br/" target="_blank" rel="noopener">Beneficiário</a>
+        <span class="divider" aria-hidden="true"></span>
+        <a href="https://portalplano.klinisaude.com.br/" target="_blank" rel="noopener">Empresa</a>
+        <span class="divider" aria-hidden="true"></span>
+        <a href="https://portalplano.klinisaude.com.br/" target="_blank" rel="noopener">Prestador</a>
+        <span class="divider" aria-hidden="true"></span>
+        <a href="https://klinisaude.com.br/espaco-corretor/" target="_blank" rel="noopener">Corretor</a>
+      </div>
+      <div class="utility-bar__contact">
+        <a href="https://wa.me/552130550790" target="_blank" rel="noopener" aria-label="WhatsApp Klini">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>
+          (21) 3055-0790
+        </a>
+        <a href="tel:08000210320" aria-label="SAC Klini">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+          0800 021 0320
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- ============================================================
+       HEADER
+       ============================================================ -->
+  <header class="header" id="header" role="banner">
+    <div class="container header__inner">
+      <a href="index.html" class="header__logo" aria-label="Klini Saúde — Página inicial">
+        <img src="https://klinisaude.com.br/wp-content/uploads/2023/01/logo-header.webp" alt="Klini Saúde" width="140" height="40">
+      </a>
+
+      <nav class="header__nav" role="navigation" aria-label="Menu principal">
+        <div class="nav-item">
+          <button class="nav-item__trigger" aria-expanded="false" aria-haspopup="true">
+            A Klini
+            <svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2"><polyline points="2 4 6 8 10 4"/></svg>
+          </button>
+          <div class="nav-item__dropdown" role="menu">
+            <a href="https://klinisaude.com.br/sobre-nos/" role="menuitem">Sobre nós</a>
+            <a href="https://klinisaude.com.br/sobre-nos/#centros-medicos" role="menuitem">Nossas unidades</a>
+            <a href="trabalhe-conosco.html" role="menuitem">Trabalhe conosco</a>
+          </div>
+        </div>
+
+        <div class="nav-item">
+          <button class="nav-item__trigger" aria-expanded="false" aria-haspopup="true">
+            Serviços
+            <svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2"><polyline points="2 4 6 8 10 4"/></svg>
+          </button>
+          <div class="nav-item__dropdown" role="menu">
+            <a href="https://klinisaude.com.br/token/" role="menuitem">Token digital</a>
+            <a href="farmacia.html" role="menuitem">Desconto farmácia</a>
+            <a href="teleconsulta.html" role="menuitem">Teleconsulta</a>
+            <a href="https://klinisaude.com.br/rede-credenciada/" role="menuitem">Busca de rede</a>
+            <a href="https://klinisaude.com.br/atualizacao-de-rede/" role="menuitem">Atualização de rede</a>
+          </div>
+        </div>
+
+        <div class="nav-item">
+          <a class="nav-item__trigger" href="planos.html">Planos</a>
+        </div>
+
+        <div class="nav-item">
+          <button class="nav-item__trigger" aria-expanded="false" aria-haspopup="true">
+            Transparência
+            <svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2"><polyline points="2 4 6 8 10 4"/></svg>
+          </button>
+          <div class="nav-item__dropdown" role="menu">
+            <a href="transparencia.html" role="menuitem">Portal da transparência</a>
+            <a href="politica-de-privacidade.html" role="menuitem">Política de privacidade</a>
+            <a href="codigo-de-conduta.html" role="menuitem">Código de conduta</a>
+            <a href="termo-uso.html" role="menuitem">Termos de uso</a>
+            <a href="idss.html" role="menuitem">IDSS</a>
+          </div>
+        </div>
+
+        <div class="nav-item">
+          <button class="nav-item__trigger nav-item__trigger--active" aria-expanded="false" aria-haspopup="true">
+            Atendimento
+            <svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2"><polyline points="2 4 6 8 10 4"/></svg>
+          </button>
+          <div class="nav-item__dropdown" role="menu">
+            <a href="ouvidoria.html" role="menuitem" aria-current="page">Ouvidoria</a>
+            <a href="negocie-sua-divida.html" role="menuitem">Negocie sua dívida</a>
+            <a href="quero-ser-credenciado.html" role="menuitem">Quero me credenciar</a>
+          </div>
+        </div>
+      </nav>
+
+      <div class="header__cta">
+        <a href="#contato" class="btn btn--secondary btn--sm">Quero ser Klini</a>
+      </div>
+
+      <button class="header__mobile-toggle" id="mobileToggle" aria-label="Abrir menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <!-- Mobile drawer -->
+  <div class="mobile-overlay" id="mobileOverlay"></div>
+  <aside class="mobile-drawer" id="mobileDrawer" role="dialog" aria-label="Menu de navegação">
+    <div class="mobile-drawer__header">
+      <img src="https://klinisaude.com.br/wp-content/uploads/2023/01/logo-header.webp" alt="Klini Saúde" height="32">
+      <button class="mobile-drawer__close" id="mobileClose" aria-label="Fechar menu">&times;</button>
+    </div>
+    <nav>
+      <div class="mobile-drawer__nav-group">
+        <div class="mobile-drawer__nav-group-title">A Klini</div>
+        <a href="https://klinisaude.com.br/sobre-nos/">Sobre nós</a>
+        <a href="https://klinisaude.com.br/sobre-nos/#centros-medicos">Nossas unidades</a>
+        <a href="trabalhe-conosco.html">Trabalhe conosco</a>
+      </div>
+      <div class="mobile-drawer__nav-group">
+        <div class="mobile-drawer__nav-group-title">Serviços</div>
+        <a href="https://klinisaude.com.br/token/">Token digital</a>
+        <a href="farmacia.html">Desconto farmácia</a>
+        <a href="teleconsulta.html">Teleconsulta</a>
+        <a href="https://klinisaude.com.br/rede-credenciada/">Busca de rede</a>
+        <a href="https://klinisaude.com.br/atualizacao-de-rede/">Atualização de rede</a>
+      </div>
+      <div class="mobile-drawer__nav-group">
+        <div class="mobile-drawer__nav-group-title">Planos</div>
+        <a href="planos.html">Ver todos os planos</a>
+      </div>
+      <div class="mobile-drawer__nav-group">
+        <div class="mobile-drawer__nav-group-title">Transparência</div>
+        <a href="transparencia.html">Portal da transparência</a>
+        <a href="politica-de-privacidade.html">Política de privacidade</a>
+        <a href="codigo-de-conduta.html">Código de conduta</a>
+        <a href="termo-uso.html">Termos de uso</a>
+        <a href="idss.html">IDSS</a>
+      </div>
+      <div class="mobile-drawer__nav-group">
+        <div class="mobile-drawer__nav-group-title">Atendimento</div>
+        <a href="ouvidoria.html" aria-current="page">Ouvidoria</a>
+        <a href="negocie-sua-divida.html">Negocie sua dívida</a>
+        <a href="quero-ser-credenciado.html">Quero me credenciar</a>
+      </div>
+    </nav>
+    <a href="#contato" class="btn btn--primary" style="margin:20px 24px;">Quero ser Klini</a>
+  </aside>
+
+  <main id="main" role="main">
+
+    <!-- ============================================================
+         PAGE HEADER
+         ============================================================ -->
+    <div class="legal-header">
+      <div class="container">
+        <span class="legal-header__overline">Atendimento</span>
+        <h1 class="legal-header__title">Canal de Ouvidoria</h1>
+        <p class="legal-header__meta">Exclusivo para beneficiários Klini &nbsp;·&nbsp; Seg. a Sex. das 8h às 17h &nbsp;·&nbsp; Resposta em até 7 dias úteis</p>
+      </div>
+    </div>
+
+    <!-- ============================================================
+         CONTENT
+         ============================================================ -->
+    <div class="ouv-layout">
+      <div class="container">
+        <div class="ouv-layout__inner">
+
+          <!-- Info Side -->
+          <div>
+            <p class="ouv-intro">A Ouvidoria Klini Saúde atua em conformidade com as normas da Agência Nacional de Saúde Suplementar (ANS) e do Código de Defesa do Consumidor. Oferecemos um canal independente e imparcial para que você compartilhe sua experiência conosco — seja um elogio, uma sugestão ou uma reclamação.</p>
+
+            <div class="ouv-info-cards">
+
+              <div class="ouv-info-card">
+                <div class="ouv-info-card__icon">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                </div>
+                <div class="ouv-info-card__body">
+                  <p class="ouv-info-card__label">Horário de atendimento</p>
+                  <p class="ouv-info-card__value">Segunda a sexta, das 8h às 17h</p>
+                </div>
+              </div>
+
+              <div class="ouv-info-card">
+                <div class="ouv-info-card__icon">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+                </div>
+                <div class="ouv-info-card__body">
+                  <p class="ouv-info-card__label">Prazo de resposta</p>
+                  <p class="ouv-info-card__value">Até 7 dias úteis</p>
+                </div>
+              </div>
+
+              <div class="ouv-info-card">
+                <div class="ouv-info-card__icon">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+                </div>
+                <div class="ouv-info-card__body">
+                  <p class="ouv-info-card__label">Urgências — SAC</p>
+                  <p class="ouv-info-card__value">0800 021 0320</p>
+                  <p class="ouv-info-card__sub">(21) 3055-0790</p>
+                </div>
+              </div>
+
+            </div>
+
+            <a href="https://wa.me/552130550790" target="_blank" rel="noopener" class="ouv-whatsapp">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413z"/></svg>
+              Falar pelo WhatsApp
+            </a>
+          </div>
+
+          <!-- Form Side -->
+          <div class="ouv-form-card">
+            <h2 class="ouv-form-card__title">Envie sua mensagem</h2>
+            <p class="ouv-form-card__sub">Preencha o formulário abaixo. Todos os campos marcados com <strong style="color:#e05759">*</strong> são obrigatórios.</p>
+
+            <form class="ouv-form" id="ouvForm" novalidate>
+
+              <div class="ouv-form__row">
+                <div class="ouv-field">
+                  <label class="ouv-field__label" for="ouv-nome">Nome completo <span>*</span></label>
+                  <input class="ouv-field__input" type="text" id="ouv-nome" name="nome" placeholder="Seu nome completo" required autocomplete="name">
+                </div>
+                <div class="ouv-field">
+                  <label class="ouv-field__label" for="ouv-cpf">CPF <span>*</span></label>
+                  <input class="ouv-field__input" type="text" id="ouv-cpf" name="cpf" placeholder="000.000.000-00" required inputmode="numeric" maxlength="14">
+                </div>
+              </div>
+
+              <div class="ouv-form__row">
+                <div class="ouv-field">
+                  <label class="ouv-field__label" for="ouv-email">E-mail <span>*</span></label>
+                  <input class="ouv-field__input" type="email" id="ouv-email" name="email" placeholder="seu@email.com" required autocomplete="email">
+                </div>
+                <div class="ouv-field">
+                  <label class="ouv-field__label" for="ouv-telefone">Telefone <span>*</span></label>
+                  <input class="ouv-field__input" type="tel" id="ouv-telefone" name="telefone" placeholder="(21) 99999-9999" required autocomplete="tel">
+                </div>
+              </div>
+
+              <div class="ouv-field">
+                <label class="ouv-field__label" for="ouv-carteirinha">Número do cartão / beneficiário</label>
+                <input class="ouv-field__input" type="text" id="ouv-carteirinha" name="carteirinha" placeholder="Número do seu cartão Klini (se disponível)">
+              </div>
+
+              <div class="ouv-field">
+                <label class="ouv-field__label" for="ouv-tipo">Tipo de manifestação <span>*</span></label>
+                <select class="ouv-field__select" id="ouv-tipo" name="tipo" required>
+                  <option value="" disabled selected>Selecione o tipo</option>
+                  <option value="elogio">Elogio</option>
+                  <option value="sugestao">Sugestão</option>
+                  <option value="informacao">Informação</option>
+                  <option value="solicitacao">Solicitação</option>
+                  <option value="reclamacao">Reclamação</option>
+                </select>
+              </div>
+
+              <div class="ouv-field">
+                <label class="ouv-field__label" for="ouv-mensagem">Mensagem <span>*</span></label>
+                <textarea class="ouv-field__textarea" id="ouv-mensagem" name="mensagem" placeholder="Descreva sua manifestação com o máximo de detalhes possível..." required rows="5"></textarea>
+              </div>
+
+              <div class="ouv-field">
+                <label class="ouv-field__label" for="ouv-arquivo">Anexar arquivo <span style="font-weight:400;color:var(--klini-text-muted)">(opcional · máx. 25 MB)</span></label>
+                <label class="ouv-field__file-label" for="ouv-arquivo">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21.44 11.05l-9.19 9.19a6 6 0 0 1-8.49-8.49l9.19-9.19a4 4 0 0 1 5.66 5.66l-9.2 9.19a2 2 0 0 1-2.83-2.83l8.49-8.48"/></svg>
+                  <span id="ouv-file-name">Selecionar arquivo</span>
+                </label>
+                <input class="ouv-field__file" type="file" id="ouv-arquivo" name="arquivo" accept=".pdf,.jpg,.jpeg,.png,.doc,.docx">
+              </div>
+
+              <p class="ouv-form__lgpd">
+                Seus dados serão tratados em conformidade com a <a href="politica-de-privacidade.html">Política de Privacidade</a> da Klini Saúde e com a Lei nº 13.709/2018 (LGPD), sendo utilizados exclusivamente para o atendimento desta manifestação.
+              </p>
+
+              <div class="ouv-form__submit">
+                <button type="submit" class="btn btn--primary">Enviar manifestação</button>
+              </div>
+
+            </form>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+  </main>
+
+  <!-- ============================================================
+       FOOTER
+       ============================================================ -->
+  <footer class="footer" role="contentinfo">
+    <div class="container">
+      <div class="footer__grid">
+        <div class="footer__brand">
+          <img src="https://klinisaude.com.br/wp-content/uploads/2023/01/logo-header.webp" alt="Klini Saúde" loading="lazy">
+          <p>
+            Klini Planos de Saúde Ltda.<br>
+            CNPJ: 34.539.000/0001-86<br>
+            Av. das Américas, 3200<br>
+            Barra da Tijuca – Rio de Janeiro, RJ
+          </p>
+          <div class="footer__social">
+            <a href="https://www.instagram.com/klinisaude/" target="_blank" rel="noopener" aria-label="Instagram"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg></a>
+            <a href="https://www.facebook.com/klinisaudematriz" target="_blank" rel="noopener" aria-label="Facebook"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg></a>
+            <a href="https://br.linkedin.com/company/klinisaude" target="_blank" rel="noopener" aria-label="LinkedIn"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg></a>
+            <a href="https://www.youtube.com/@KliniSaude" target="_blank" rel="noopener" aria-label="YouTube"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33A2.78 2.78 0 0 0 3.4 19.1c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2 29 29 0 0 0 .46-5.25 29 29 0 0 0-.46-5.43z"/><polygon points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02"/></svg></a>
+          </div>
+        </div>
+        <div class="footer__col">
+          <h4>A Klini</h4>
+          <ul>
+            <li><a href="https://klinisaude.com.br/sobre-nos/">Sobre nós</a></li>
+            <li><a href="https://klinisaude.com.br/sobre-nos/#centros-medicos">Nossas unidades</a></li>
+            <li><a href="trabalhe-conosco.html">Trabalhe conosco</a></li>
+            <li><a href="planos.html">Nossos planos</a></li>
+          </ul>
+        </div>
+        <div class="footer__col">
+          <h4>Serviços</h4>
+          <ul>
+            <li><a href="https://klinisaude.com.br/token/">Token digital</a></li>
+            <li><a href="teleconsulta.html">Teleconsulta</a></li>
+            <li><a href="farmacia.html">Desconto farmácia</a></li>
+            <li><a href="https://klinisaude.com.br/rede-credenciada/">Busca de rede</a></li>
+            <li><a href="https://klinisaude.com.br/atualizacao-de-rede/">Atualização de rede</a></li>
+          </ul>
+        </div>
+        <div class="footer__col">
+          <h4>Atendimento</h4>
+          <ul>
+            <li><a href="ouvidoria.html">Ouvidoria</a></li>
+            <li><a href="negocie-sua-divida.html">Negocie sua dívida</a></li>
+            <li><a href="quero-ser-credenciado.html">Quero me credenciar</a></li>
+            <li><a href="https://wa.me/552130550790" target="_blank" rel="noopener">WhatsApp</a></li>
+            <li><a href="tel:08000210320">SAC: 0800 021 0320</a></li>
+          </ul>
+        </div>
+        <div class="footer__col">
+          <h4>Transparência</h4>
+          <ul>
+            <li><a href="transparencia.html">Portal da transparência</a></li>
+            <li><a href="politica-de-privacidade.html">Política de privacidade</a></li>
+            <li><a href="codigo-de-conduta.html">Código de conduta</a></li>
+            <li><a href="termo-uso.html">Termos de uso</a></li>
+            <li><a href="idss.html">IDSS</a></li>
+          </ul>
+          <div class="footer__apps">
+            <a href="https://apps.apple.com/br/app/klini-saude/id6447484649" target="_blank" rel="noopener"><img src="https://klinisaude.com.br/wp-content/uploads/2023/12/1689885951botao_app-store.png" alt="App Store" loading="lazy"></a>
+            <a href="https://play.google.com/store/apps/details?id=br.com.klinisaude.klini_app&hl=pt_BR&gl=US" target="_blank" rel="noopener"><img src="https://klinisaude.com.br/wp-content/uploads/2023/12/1689885814botao_google-play.png" alt="Google Play" loading="lazy"></a>
+          </div>
+        </div>
+      </div>
+      <div class="footer__bottom">
+        <p>&copy; 2020–2026 Klini Saúde — Todos os direitos reservados.</p>
+        <div class="footer__bottom-badges">
+          <img src="https://klinisaude.com.br/wp-content/uploads/2023/02/ans.png" alt="ANS" loading="lazy">
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="assets/js/main.js"></script>
+  <script>
+    // File input label update
+    document.getElementById('ouv-arquivo').addEventListener('change', function () {
+      var name = this.files[0] ? this.files[0].name : 'Selecionar arquivo';
+      document.getElementById('ouv-file-name').textContent = name;
+    });
+  </script>
+</body>
+</html>

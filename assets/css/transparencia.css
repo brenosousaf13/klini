@@ -1,0 +1,561 @@
+/* ============================================================
+   KLINI SAÚDE — Portal da Transparência CSS
+   ============================================================ */
+
+/* ── Scroll reveal ── */
+.reveal {
+  opacity: 0;
+  transform: translateY(28px);
+  transition: opacity 0.55s ease, transform 0.55s ease;
+}
+.reveal.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+
+/* ============================================================
+   HERO
+   ============================================================ */
+.tp-hero {
+  background: linear-gradient(135deg, #1a7470 0%, #259591 55%, #2daba6 100%);
+  padding: 80px 0 64px;
+  position: relative;
+  overflow: hidden;
+}
+
+.tp-hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image:
+    radial-gradient(circle at 20% 50%, rgba(255,255,255,0.04) 0%, transparent 50%),
+    radial-gradient(circle at 80% 20%, rgba(255,255,255,0.06) 0%, transparent 40%);
+  pointer-events: none;
+}
+
+.tp-hero__inner {
+  position: relative;
+  z-index: 1;
+  max-width: 720px;
+}
+
+.tp-hero__breadcrumb {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-family: var(--klini-font-display, 'Objective', sans-serif);
+  font-size: 0.8rem;
+  color: rgba(255,255,255,0.65);
+  margin-bottom: 24px;
+}
+
+.tp-hero__breadcrumb a {
+  color: rgba(255,255,255,0.65);
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+.tp-hero__breadcrumb a:hover {
+  color: #fff;
+}
+
+.tp-hero__breadcrumb svg {
+  opacity: 0.5;
+  flex-shrink: 0;
+}
+
+.tp-hero__title {
+  font-family: var(--klini-font-display, 'Objective', sans-serif);
+  font-size: clamp(2rem, 5vw, 3rem);
+  font-weight: 800;
+  color: #fff;
+  line-height: 1.15;
+  margin: 0 0 20px;
+}
+
+.tp-hero__title em {
+  font-style: normal;
+  color: rgba(255,255,255,0.75);
+}
+
+.tp-hero__desc {
+  font-family: var(--klini-font-body, 'Merriweather', serif);
+  font-size: 1.05rem;
+  color: rgba(255,255,255,0.85);
+  line-height: 1.75;
+  margin: 0 0 40px;
+  max-width: 600px;
+}
+
+.tp-hero__stats {
+  display: flex;
+  align-items: center;
+  gap: 0;
+  flex-wrap: wrap;
+  background: rgba(255,255,255,0.1);
+  border: 1px solid rgba(255,255,255,0.15);
+  border-radius: 14px;
+  padding: 20px 32px;
+  backdrop-filter: blur(8px);
+  width: fit-content;
+  gap: 0;
+}
+
+.tp-hero__stat {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 0 32px;
+}
+
+.tp-hero__stat:first-child {
+  padding-left: 0;
+}
+
+.tp-hero__stat:last-child {
+  padding-right: 0;
+}
+
+.tp-hero__stat-num {
+  font-family: var(--klini-font-display, 'Objective', sans-serif);
+  font-size: 1.75rem;
+  font-weight: 800;
+  color: #fff;
+  line-height: 1;
+}
+
+.tp-hero__stat-label {
+  font-family: var(--klini-font-display, 'Objective', sans-serif);
+  font-size: 0.72rem;
+  color: rgba(255,255,255,0.65);
+  text-align: center;
+  margin-top: 4px;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
+.tp-hero__stat-divider {
+  width: 1px;
+  height: 40px;
+  background: rgba(255,255,255,0.2);
+  flex-shrink: 0;
+}
+
+
+/* ============================================================
+   SECTION BASE
+   ============================================================ */
+.tp-section {
+  padding: 80px 0;
+}
+
+.tp-section--alt {
+  background: #f7f9fb;
+}
+
+.tp-section__header {
+  display: flex;
+  align-items: flex-start;
+  gap: 20px;
+  margin-bottom: 48px;
+}
+
+
+.tp-section__eyebrow {
+  display: inline-block;
+  font-family: var(--klini-font-display, 'Objective', sans-serif);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: #259591;
+  margin-bottom: 8px;
+}
+
+.tp-section__title {
+  font-family: var(--klini-font-display, 'Objective', sans-serif);
+  font-size: clamp(1.4rem, 3vw, 2rem);
+  font-weight: 800;
+  color: var(--klini-text-primary, #2B2F33);
+  line-height: 1.2;
+  margin: 0 0 10px;
+}
+
+.tp-section__desc {
+  font-family: var(--klini-font-body, 'Merriweather', serif);
+  font-size: 0.95rem;
+  color: var(--klini-text-secondary, #4A5A5F);
+  line-height: 1.7;
+  margin: 0;
+  max-width: 560px;
+}
+
+
+/* ============================================================
+   RN CARDS GRID
+   ============================================================ */
+.tp-rn-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 20px;
+}
+
+.tp-rn-card {
+  display: flex;
+  flex-direction: column;
+  background: #fff;
+  border: 1px solid #e8edf0;
+  border-radius: 14px;
+  padding: 24px;
+  text-decoration: none;
+  color: inherit;
+  transition: border-color 0.2s, box-shadow 0.2s, transform 0.2s;
+  position: relative;
+  overflow: hidden;
+}
+
+.tp-rn-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, #259591, #2daba6);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.25s ease;
+}
+
+.tp-rn-card:hover {
+  border-color: #259591;
+  box-shadow: 0 8px 32px rgba(37,149,145,0.12);
+  transform: translateY(-3px);
+}
+
+.tp-rn-card:hover::before {
+  transform: scaleX(1);
+}
+
+.tp-rn-card__badge {
+  display: inline-flex;
+  align-items: center;
+  height: 26px;
+  padding: 0 10px;
+  background: rgba(37,149,145,0.08);
+  color: #259591;
+  border-radius: 6px;
+  font-family: var(--klini-font-display, 'Objective', sans-serif);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  margin-bottom: 16px;
+  width: fit-content;
+}
+
+.tp-rn-card__body {
+  flex: 1;
+}
+
+.tp-rn-card__title {
+  font-family: var(--klini-font-display, 'Objective', sans-serif);
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--klini-text-primary, #2B2F33);
+  margin: 0 0 8px;
+  line-height: 1.3;
+}
+
+.tp-rn-card__desc {
+  font-family: var(--klini-font-body, 'Merriweather', serif);
+  font-size: 0.85rem;
+  color: var(--klini-text-secondary, #4A5A5F);
+  line-height: 1.65;
+  margin: 0;
+}
+
+.tp-rn-card__footer {
+  margin-top: 20px;
+  padding-top: 16px;
+  border-top: 1px solid #f0f4f5;
+}
+
+.tp-rn-card__action {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-family: var(--klini-font-display, 'Objective', sans-serif);
+  font-size: 0.82rem;
+  font-weight: 700;
+  color: #259591;
+  transition: gap 0.2s;
+}
+
+.tp-rn-card:hover .tp-rn-card__action {
+  gap: 10px;
+}
+
+
+/* ============================================================
+   YEAR TABS
+   ============================================================ */
+.tp-year-tabs {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 32px;
+  flex-wrap: wrap;
+}
+
+.tp-year-tab {
+  font-family: var(--klini-font-display, 'Objective', sans-serif);
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: var(--klini-text-secondary, #4A5A5F);
+  background: #fff;
+  border: 2px solid #e0e8ea;
+  border-radius: 10px;
+  padding: 10px 24px;
+  cursor: pointer;
+  transition: border-color 0.2s, color 0.2s, background 0.2s;
+}
+
+.tp-year-tab:hover {
+  border-color: #259591;
+  color: #259591;
+}
+
+.tp-year-tab--active {
+  background: #259591;
+  border-color: #259591;
+  color: #fff;
+}
+
+.tp-year-tab--active:hover {
+  color: #fff;
+}
+
+
+/* ============================================================
+   FINANCIAL DOCUMENTS
+   ============================================================ */
+.tp-fin-panel {
+  display: block;
+}
+
+.tp-fin-panel[hidden] {
+  display: none;
+}
+
+.tp-doc-list {
+  background: #fff;
+  border: 1px solid #e8edf0;
+  border-radius: 14px;
+  overflow: hidden;
+}
+
+.tp-doc-row {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 20px 24px;
+  text-decoration: none;
+  color: inherit;
+  border-bottom: 1px solid #f0f4f5;
+  transition: background 0.15s;
+}
+
+.tp-doc-row:last-child {
+  border-bottom: none;
+}
+
+.tp-doc-row:hover {
+  background: #f7fbfb;
+}
+
+.tp-doc-row__icon {
+  width: 40px;
+  height: 40px;
+  background: rgba(37,149,145,0.08);
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #259591;
+  flex-shrink: 0;
+}
+
+.tp-doc-row__info {
+  flex: 1;
+  min-width: 0;
+}
+
+.tp-doc-row__name {
+  font-family: var(--klini-font-display, 'Objective', sans-serif);
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--klini-text-primary, #2B2F33);
+  margin: 0 0 4px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.tp-doc-row__meta {
+  font-family: var(--klini-font-display, 'Objective', sans-serif);
+  font-size: 0.78rem;
+  color: var(--klini-text-secondary, #4A5A5F);
+  margin: 0;
+}
+
+.tp-doc-row__action {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-family: var(--klini-font-display, 'Objective', sans-serif);
+  font-size: 0.82rem;
+  font-weight: 700;
+  color: #259591;
+  white-space: nowrap;
+  padding: 8px 14px;
+  border: 1.5px solid rgba(37,149,145,0.3);
+  border-radius: 8px;
+  transition: background 0.2s, border-color 0.2s;
+  flex-shrink: 0;
+}
+
+.tp-doc-row:hover .tp-doc-row__action {
+  background: rgba(37,149,145,0.06);
+  border-color: #259591;
+}
+
+
+/* ============================================================
+   SALARY EQUALITY CARDS
+   ============================================================ */
+.tp-salary-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 24px;
+}
+
+.tp-salary-card {
+  background: #fff;
+  border: 1px solid #e8edf0;
+  border-radius: 14px;
+  padding: 28px;
+  text-decoration: none;
+  color: inherit;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  transition: border-color 0.2s, box-shadow 0.2s, transform 0.2s;
+}
+
+.tp-salary-card:hover {
+  border-color: #259591;
+  box-shadow: 0 8px 32px rgba(37,149,145,0.1);
+  transform: translateY(-3px);
+}
+
+.tp-salary-card__period {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--klini-font-display, 'Objective', sans-serif);
+  font-size: 0.78rem;
+  font-weight: 700;
+  color: var(--klini-text-secondary, #4A5A5F);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.tp-salary-card__period svg {
+  color: #259591;
+  flex-shrink: 0;
+}
+
+.tp-salary-card__title {
+  font-family: var(--klini-font-display, 'Objective', sans-serif);
+  font-size: 1.1rem;
+  font-weight: 800;
+  color: var(--klini-text-primary, #2B2F33);
+  margin: 0;
+  line-height: 1.25;
+}
+
+.tp-salary-card__desc {
+  font-family: var(--klini-font-body, 'Merriweather', serif);
+  font-size: 0.88rem;
+  color: var(--klini-text-secondary, #4A5A5F);
+  line-height: 1.65;
+  margin: 0;
+}
+
+.tp-salary-card__action {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  font-family: var(--klini-font-display, 'Objective', sans-serif);
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: #259591;
+  margin-top: 8px;
+  padding-top: 16px;
+  border-top: 1px solid #f0f4f5;
+  transition: gap 0.2s;
+}
+
+.tp-salary-card:hover .tp-salary-card__action {
+  gap: 11px;
+}
+
+
+/* ============================================================
+   MOBILE RESPONSIVENESS
+   ============================================================ */
+@media (max-width: 600px) {
+  .tp-hero {
+    padding: 60px 0 48px;
+  }
+
+  .tp-hero__stats {
+    padding: 16px 20px;
+  }
+
+  .tp-hero__stat {
+    padding: 0 16px;
+  }
+
+  .tp-section {
+    padding: 56px 0;
+  }
+
+  .tp-section__header {
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  .tp-rn-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .tp-doc-row__name {
+    white-space: normal;
+  }
+
+  .tp-doc-row__action span {
+    display: none;
+  }
+}
+
+@media (min-width: 760px) {
+  .tp-rn-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .tp-salary-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}

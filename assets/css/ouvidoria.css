@@ -1,0 +1,195 @@
+/* ============================================================
+   OUVIDORIA PAGE
+   ============================================================ */
+
+/* ---- Layout ---- */
+.ouv-layout {
+  padding: 64px 0 96px;
+}
+
+/* Centered single-form variant */
+.ouv-layout--centered {
+  padding: 64px 0 96px;
+}
+
+.ouv-layout--centered .ouv-form-card {
+  max-width: 660px;
+  margin: 0 auto;
+}
+
+.ouv-layout__inner {
+  display: grid;
+  grid-template-columns: 1fr 1.1fr;
+  gap: 72px;
+  align-items: start;
+}
+
+/* ---- Info Side ---- */
+.ouv-intro {
+  font-family: var(--klini-font-body); font-size: 1rem;
+  line-height: 1.85; color: var(--klini-text-body);
+  margin-bottom: 40px;
+}
+
+.ouv-info-cards {
+  display: flex; flex-direction: column; gap: 16px;
+  margin-bottom: 40px;
+}
+
+.ouv-info-card {
+  display: flex; gap: 16px; align-items: flex-start;
+  padding: 20px 24px;
+  background: var(--klini-surface-raised, #fff);
+  border: 1px solid var(--klini-border);
+  border-radius: var(--klini-radius-md);
+}
+
+.ouv-info-card__icon {
+  flex-shrink: 0;
+  width: 40px; height: 40px;
+  background: #edfafa;
+  border-radius: var(--klini-radius-sm);
+  display: flex; align-items: center; justify-content: center;
+  color: var(--klini-primary-500);
+}
+
+.ouv-info-card__body {}
+
+.ouv-info-card__label {
+  font-family: var(--klini-font-display); font-size: .6875rem; font-weight: 700;
+  text-transform: uppercase; letter-spacing: .12em; color: var(--klini-text-muted);
+  margin-bottom: 4px;
+}
+
+.ouv-info-card__value {
+  font-family: var(--klini-font-body); font-size: .9375rem;
+  color: var(--klini-text-strong); font-weight: 500; line-height: 1.4;
+}
+
+.ouv-info-card__sub {
+  font-family: var(--klini-font-body); font-size: .8125rem;
+  color: var(--klini-text-muted); margin-top: 2px;
+}
+
+.ouv-whatsapp {
+  display: inline-flex; align-items: center; gap: 10px;
+  background: #25d366; color: #fff;
+  font-family: var(--klini-font-display); font-size: .875rem; font-weight: 600;
+  padding: 12px 20px; border-radius: var(--klini-radius-md);
+  text-decoration: none; transition: opacity .2s;
+}
+
+.ouv-whatsapp:hover { opacity: .88; }
+
+.ouv-whatsapp svg { flex-shrink: 0; }
+
+/* ---- Form Side ---- */
+.ouv-form-card {
+  background: var(--klini-surface-raised, #fff);
+  border: 1px solid var(--klini-border);
+  border-radius: var(--klini-radius-lg);
+  padding: 40px;
+}
+
+.ouv-form-card__title {
+  font-family: var(--klini-font-display); font-size: 1.25rem; font-weight: 700;
+  color: var(--klini-text-strong); margin-bottom: 6px;
+}
+
+.ouv-form-card__sub {
+  font-family: var(--klini-font-body); font-size: .875rem;
+  color: var(--klini-text-muted); margin-bottom: 32px; line-height: 1.6;
+}
+
+/* ---- Form fields ---- */
+.ouv-form { display: flex; flex-direction: column; gap: 20px; }
+
+.ouv-form__row {
+  display: grid; grid-template-columns: 1fr 1fr; gap: 16px;
+}
+
+.ouv-field { display: flex; flex-direction: column; gap: 6px; }
+
+.ouv-field__label {
+  font-family: var(--klini-font-display); font-size: .8125rem; font-weight: 600;
+  color: var(--klini-text-strong); letter-spacing: .01em;
+}
+
+.ouv-field__label span {
+  color: var(--klini-coral-500, #e05759); margin-left: 2px;
+}
+
+.ouv-field__input,
+.ouv-field__select,
+.ouv-field__textarea {
+  font-family: var(--klini-font-body); font-size: .9375rem;
+  color: var(--klini-text-strong);
+  background: #f4f7f7;
+  border: 1.5px solid #c8d8d8;
+  border-radius: var(--klini-radius-sm);
+  padding: 11px 14px;
+  transition: border-color .2s, box-shadow .2s;
+  width: 100%; box-sizing: border-box;
+  outline: none;
+}
+
+.ouv-field__input:focus,
+.ouv-field__select:focus,
+.ouv-field__textarea:focus {
+  border-color: var(--klini-primary-500);
+  background: #fff;
+  box-shadow: 0 0 0 3px rgba(37,149,145,.12);
+}
+
+.ouv-field__input::placeholder,
+.ouv-field__textarea::placeholder { color: var(--klini-text-muted); }
+
+.ouv-field__select { appearance: none; cursor: pointer;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12' fill='none'%3E%3Cpolyline points='2 4 6 8 10 4' stroke='%23999' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+  background-repeat: no-repeat; background-position: right 14px center;
+  padding-right: 36px;
+}
+
+.ouv-field__textarea { resize: vertical; min-height: 120px; }
+
+/* File upload */
+.ouv-field__file-label {
+  display: flex; align-items: center; gap: 10px;
+  padding: 11px 14px;
+  background: #f4f7f7;
+  border: 1.5px dashed #c8d8d8;
+  border-radius: var(--klini-radius-sm);
+  cursor: pointer; transition: border-color .2s;
+  font-family: var(--klini-font-body); font-size: .875rem;
+  color: var(--klini-text-muted);
+}
+
+.ouv-field__file-label:hover { border-color: var(--klini-primary-500); color: var(--klini-primary-500); }
+
+.ouv-field__file { display: none; }
+
+/* LGPD notice */
+.ouv-form__lgpd {
+  font-family: var(--klini-font-body); font-size: .8125rem;
+  color: var(--klini-text-muted); line-height: 1.6;
+  padding-top: 4px;
+}
+
+.ouv-form__lgpd a { color: var(--klini-primary-500); text-decoration: none; }
+.ouv-form__lgpd a:hover { text-decoration: underline; }
+
+/* Submit */
+.ouv-form__submit {
+  align-self: flex-start;
+}
+
+/* ---- Responsive ---- */
+@media (max-width: 960px) {
+  .ouv-layout__inner { grid-template-columns: 1fr; gap: 48px; }
+}
+
+@media (max-width: 640px) {
+  .ouv-layout { padding: 40px 0 72px; }
+  .ouv-form-card { padding: 28px 20px; }
+  .ouv-form__row { grid-template-columns: 1fr; }
+}

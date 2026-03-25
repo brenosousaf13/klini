@@ -1,0 +1,503 @@
+/* ==========================================================================
+   TOKEN DIGITAL - APP & SECURITY
+   Applying rules from klini-system-design.md
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   1. HERO
+   -------------------------------------------------------------------------- */
+.tk-hero {
+  position: relative;
+  padding: 120px 0 80px;
+  background-color: var(--klini-surface-subtle);
+  overflow: hidden;
+}
+
+.tk-hero::before {
+  content: "";
+  position: absolute;
+  top: -30%;
+  right: -20%;
+  width: 70%;
+  height: 160%;
+  background: radial-gradient(circle at center, var(--klini-primary-100) 0%, transparent 70%);
+  opacity: 0.6;
+  z-index: 0;
+  border-radius: 50%;
+  pointer-events: none;
+}
+
+.tk-hero__inner {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 48px;
+  align-items: center;
+}
+
+@media (min-width: 992px) {
+  .tk-hero__inner {
+    grid-template-columns: 1.2fr 0.8fr;
+    gap: 80px;
+  }
+}
+
+.tk-hero__overline {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--klini-font-display);
+  font-weight: 700;
+  font-size: 0.875rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--klini-primary-500);
+  margin-bottom: 24px;
+  background: var(--klini-surface-brandSoft);
+  padding: 6px 16px;
+  border-radius: var(--klini-radius-pill);
+}
+
+.tk-hero__overline svg {
+  width: 16px;
+  height: 16px;
+}
+
+.tk-hero__title {
+  font-family: var(--klini-font-display);
+  font-size: clamp(3rem, 5vw, 4.5rem);
+  font-weight: 700;
+  line-height: 1.05;
+  color: var(--klini-text-strong);
+  margin-bottom: 32px;
+  letter-spacing: -0.02em;
+}
+
+.tk-hero__subtitle {
+  font-family: var(--klini-font-body);
+  font-size: 1.25rem;
+  line-height: 1.6;
+  color: var(--klini-text-muted);
+  max-width: 600px;
+  margin-bottom: 40px;
+}
+
+.tk-hero__actions {
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.tk-hero__visual {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  perspective: 1000px;
+}
+
+/* 3D App Card Mockup */
+.tk-app-card {
+  background: var(--klini-surface-page);
+  border-radius: var(--klini-radius-xl);
+  padding: 40px;
+  width: 100%;
+  max-width: 360px;
+  box-shadow: 0 24px 60px rgba(0,0,0,0.1);
+  transform: rotateY(-15deg) rotateX(5deg);
+  border: 4px solid var(--klini-text-strong);
+  position: relative;
+  overflow: hidden;
+}
+
+.tk-app-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 10px;
+  background: var(--klini-primary-500);
+}
+
+.tk-app-card__header {
+  text-align: center;
+  margin-bottom: 32px;
+}
+
+.tk-app-card__logo {
+  width: 48px;
+  height: 48px;
+  background: var(--klini-primary-500);
+  color: white;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--klini-font-display);
+  font-weight: 700;
+  font-size: 1.5rem;
+  margin: 0 auto 16px;
+}
+
+.tk-app-card__title {
+  font-family: var(--klini-font-display);
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--klini-text-strong);
+}
+
+.tk-app-card__token {
+  background: var(--klini-surface-subtle);
+  border-radius: var(--klini-radius-lg);
+  padding: 32px 24px;
+  text-align: center;
+  margin-bottom: 24px;
+}
+
+.tk-app-card__token-label {
+  font-family: var(--klini-font-display);
+  font-size: 0.875rem;
+  font-weight: 700;
+  color: var(--klini-text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  margin-bottom: 12px;
+  display: block;
+}
+
+.tk-app-card__token-value {
+  font-family: 'Courier New', Courier, monospace;
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: var(--klini-primary-500);
+  letter-spacing: 0.2em;
+}
+
+.tk-app-card__timer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  color: var(--klini-coral-500);
+  font-weight: 600;
+  font-size: 0.875rem;
+  margin-bottom: 32px;
+}
+
+.tk-app-card__btn {
+  background: var(--klini-primary-500);
+  color: white;
+  width: 100%;
+  padding: 16px;
+  border-radius: var(--klini-radius-pill);
+  font-family: var(--klini-font-display);
+  font-weight: 600;
+  text-align: center;
+  display: block;
+}
+
+
+/* --------------------------------------------------------------------------
+   2. STEPS
+   -------------------------------------------------------------------------- */
+.tk-steps {
+  padding: 120px 0;
+  background: var(--klini-surface-page);
+}
+
+.tk-steps__header {
+  text-align: center;
+  max-width: 700px;
+  margin: 0 auto 64px;
+}
+
+.tk-steps__overline {
+  font-family: var(--klini-font-display);
+  font-size: 0.875rem;
+  font-weight: 700;
+  color: var(--klini-primary-500);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  margin-bottom: 16px;
+  display: block;
+}
+
+.tk-steps__title {
+  font-family: var(--klini-font-display);
+  font-size: clamp(2.5rem, 4vw, 3.5rem);
+  font-weight: 700;
+  color: var(--klini-text-strong);
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+}
+
+.tk-steps__grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 24px;
+}
+
+@media (min-width: 768px) {
+  .tk-steps__grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 1024px) {
+  .tk-steps__grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+.tk-step-card {
+  background: var(--klini-surface-subtle);
+  border-radius: var(--klini-radius-xl);
+  padding: 40px 32px;
+  position: relative;
+  transition: transform 0.3s ease;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.tk-step-card:hover {
+  transform: translateY(-8px);
+  background: var(--klini-surface-page);
+  box-shadow: var(--klini-shadow-lg);
+}
+
+.tk-step-card__num {
+  font-family: var(--klini-font-display);
+  font-size: 4rem;
+  font-weight: 700;
+  color: var(--klini-surface-brandSoft);
+  line-height: 1;
+  position: absolute;
+  top: 24px;
+  right: 24px;
+  z-index: 0;
+}
+
+.tk-step-card__icon {
+  width: 56px;
+  height: 56px;
+  background: var(--klini-primary-500);
+  color: white;
+  border-radius: var(--klini-radius-md);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 32px;
+  position: relative;
+  z-index: 1;
+}
+
+.tk-step-card__title {
+  font-family: var(--klini-font-display);
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--klini-text-strong);
+  margin-bottom: 16px;
+  position: relative;
+  z-index: 1;
+}
+
+.tk-step-card__desc {
+  font-family: var(--klini-font-body);
+  font-size: 1rem;
+  color: var(--klini-text-muted);
+  line-height: 1.6;
+  position: relative;
+  z-index: 1;
+  flex-grow: 1;
+}
+
+/* Connectors */
+@media (min-width: 1024px) {
+  .tk-step-card:not(:last-child)::after {
+    content: "";
+    position: absolute;
+    top: 68px;
+    right: -24px;
+    width: 24px;
+    height: 2px;
+    background: dashed 2px var(--klini-primary-200);
+    z-index: 0;
+  }
+}
+
+
+/* --------------------------------------------------------------------------
+   3. FAQ ACCORDION
+   -------------------------------------------------------------------------- */
+.tk-faq {
+  padding: 100px 0;
+  background: var(--klini-surface-subtle);
+}
+
+.tk-faq__inner {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.tk-faq__header {
+  text-align: center;
+  margin-bottom: 64px;
+}
+
+.tk-faq__title {
+  font-family: var(--klini-font-display);
+  font-size: clamp(2rem, 3.5vw, 3rem);
+  font-weight: 700;
+  color: var(--klini-text-strong);
+  margin-bottom: 16px;
+}
+
+.tk-faq__subtitle {
+  font-family: var(--klini-font-body);
+  font-size: 1.125rem;
+  color: var(--klini-text-muted);
+}
+
+.tk-accordion {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.tk-accordion-item {
+  background: var(--klini-surface-page);
+  border-radius: var(--klini-radius-md);
+  box-shadow: var(--klini-shadow-sm);
+  overflow: hidden;
+  border: 1px solid transparent;
+  transition: border-color 0.3s ease;
+}
+
+.tk-accordion-item[open] {
+  border-color: var(--klini-primary-200);
+}
+
+.tk-accordion-item__summary {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 24px 32px;
+  cursor: pointer;
+  font-family: var(--klini-font-display);
+  font-size: 1.125rem;
+  font-weight: 700;
+  color: var(--klini-text-strong);
+  list-style: none; /* remove default arrow */
+}
+
+.tk-accordion-item__summary::-webkit-details-marker {
+  display: none;
+}
+
+.tk-accordion-item__icon {
+  width: 24px;
+  height: 24px;
+  color: var(--klini-primary-500);
+  transition: transform 0.3s ease;
+}
+
+.tk-accordion-item[open] .tk-accordion-item__icon {
+  transform: rotate(180deg);
+}
+
+.tk-accordion-item__content {
+  padding: 0 32px 32px;
+  font-family: var(--klini-font-body);
+  font-size: 1rem;
+  color: var(--klini-text-muted);
+  line-height: 1.7;
+}
+
+/* --------------------------------------------------------------------------
+   4. CTA BANNER
+   -------------------------------------------------------------------------- */
+.tk-cta {
+  padding: 100px 0;
+  background: var(--klini-primary-500);
+  color: white;
+  text-align: center;
+}
+
+.tk-cta__inner {
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.tk-cta__icon {
+  width: 64px;
+  height: 64px;
+  background: rgba(255,255,255,0.2);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 24px;
+}
+
+.tk-cta__title {
+  font-family: var(--klini-font-display);
+  font-size: clamp(2rem, 3.5vw, 3rem);
+  font-weight: 700;
+  margin-bottom: 24px;
+  line-height: 1.1;
+}
+
+.tk-cta__subtitle {
+  font-family: var(--klini-font-body);
+  font-size: 1.125rem;
+  opacity: 0.9;
+  margin-bottom: 40px;
+}
+
+.tk-cta__stores {
+  display: flex;
+  justify-content: center;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.tk-store-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  background: white;
+  color: var(--klini-text-strong);
+  padding: 12px 24px;
+  border-radius: var(--klini-radius-sm);
+  font-family: var(--klini-font-body);
+  font-weight: 600;
+  text-decoration: none;
+  transition: transform 0.3s ease;
+}
+
+.tk-store-btn:hover {
+  transform: translateY(-4px);
+}
+
+.tk-store-btn svg {
+  width: 24px;
+  height: 24px;
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.reveal {
+  opacity: 0;
+  animation: fadeIn 0.8s ease forwards;
+}
+
+.reveal-delay-1 { animation-delay: 0.2s; }
+.reveal-delay-2 { animation-delay: 0.4s; }
+.reveal-delay-3 { animation-delay: 0.6s; }

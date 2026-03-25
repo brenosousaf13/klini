@@ -1,0 +1,788 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Klini Saúde — Cuidado perto de você</title>
+  <meta name="description" content="Klini Saúde oferece planos de saúde com atendimento humanizado, teleconsulta 24h, rede credenciada ampla e cuidado de verdade perto de você.">
+
+  <!-- Fonts loaded via @font-face in CSS (Objective + Merriweather local) -->
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="assets/css/styles.css">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="https://klinisaude.com.br/wp-content/uploads/2023/02/logo_klini-br.png">
+</head>
+<body>
+
+  <!-- ============================================================
+       UTILITY BAR
+       ============================================================ -->
+  <div class="utility-bar" role="complementary" aria-label="Acessos rápidos">
+    <div class="container utility-bar__inner">
+      <div class="utility-bar__portals">
+        <a href="https://beneficiario.klinisaude.com.br/" target="_blank" rel="noopener">Beneficiário</a>
+        <span class="divider" aria-hidden="true"></span>
+        <a href="https://portalplano.klinisaude.com.br/" target="_blank" rel="noopener">Empresa</a>
+        <span class="divider" aria-hidden="true"></span>
+        <a href="https://portalplano.klinisaude.com.br/" target="_blank" rel="noopener">Prestador</a>
+        <span class="divider" aria-hidden="true"></span>
+        <a href="https://klinisaude.com.br/espaco-corretor/" target="_blank" rel="noopener">Corretor</a>
+      </div>
+      <div class="utility-bar__contact">
+        <a href="https://wa.me/552130550790" target="_blank" rel="noopener" aria-label="WhatsApp Klini">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>
+          (21) 3055-0790
+        </a>
+        <a href="tel:08000210320" aria-label="SAC Klini">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+          0800 021 0320
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- ============================================================
+       HEADER
+       ============================================================ -->
+  <header class="header" id="header" role="banner">
+    <div class="container header__inner">
+      <a href="/" class="header__logo" aria-label="Klini Saúde — Página inicial">
+        <img src="https://klinisaude.com.br/wp-content/uploads/2023/01/logo-header.webp" alt="Klini Saúde" width="140" height="40">
+      </a>
+
+      <nav class="header__nav" role="navigation" aria-label="Menu principal">
+        <!-- A Klini -->
+        <div class="nav-item">
+          <button class="nav-item__trigger" aria-expanded="false" aria-haspopup="true">
+            A Klini
+            <svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2"><polyline points="2 4 6 8 10 4"/></svg>
+          </button>
+          <div class="nav-item__dropdown" role="menu">
+            <a href="https://klinisaude.com.br/sobre-nos/" role="menuitem">Sobre nós</a>
+            <a href="https://klinisaude.com.br/sobre-nos/#centros-medicos" role="menuitem">Nossas unidades</a>
+            <a href="trabalhe-conosco.html" role="menuitem">Trabalhe conosco</a>
+          </div>
+        </div>
+
+        <!-- Serviços -->
+        <div class="nav-item">
+          <button class="nav-item__trigger" aria-expanded="false" aria-haspopup="true">
+            Serviços
+            <svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2"><polyline points="2 4 6 8 10 4"/></svg>
+          </button>
+          <div class="nav-item__dropdown" role="menu">
+            <a href="https://klinisaude.com.br/token/" role="menuitem">Token digital</a>
+            <a href="https://klinisaude.com.br/desconto-farmacia/" role="menuitem">Desconto farmácia</a>
+            <a href="https://klinisaude.com.br/teleconsulta/" role="menuitem">Teleconsulta</a>
+            <a href="https://klinisaude.com.br/rede-credenciada/" role="menuitem">Busca de rede</a>
+            <a href="https://klinisaude.com.br/atualizacao-de-rede/" role="menuitem">Atualização de rede</a>
+          </div>
+        </div>
+
+        <!-- Planos -->
+        <div class="nav-item">
+          <a class="nav-item__trigger" href="https://klinisaude.com.br/planos-klini/">Planos</a>
+        </div>
+
+        <!-- Transparência -->
+        <div class="nav-item">
+          <button class="nav-item__trigger" aria-expanded="false" aria-haspopup="true">
+            Transparência
+            <svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2"><polyline points="2 4 6 8 10 4"/></svg>
+          </button>
+          <div class="nav-item__dropdown" role="menu">
+            <a href="https://klinisaude.com.br/portal-transparencia/" role="menuitem">Portal da transparência</a>
+            <a href="politica-de-privacidade.html" role="menuitem">Política de privacidade</a>
+            <a href="codigo-de-conduta.html" role="menuitem">Código de conduta</a>
+            <a href="termo-uso.html" role="menuitem">Termos de uso</a>
+            <a href="idss.html" role="menuitem">IDSS</a>
+          </div>
+        </div>
+
+        <!-- Atendimento -->
+        <div class="nav-item">
+          <button class="nav-item__trigger" aria-expanded="false" aria-haspopup="true">
+            Atendimento
+            <svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2"><polyline points="2 4 6 8 10 4"/></svg>
+          </button>
+          <div class="nav-item__dropdown" role="menu">
+            <a href="ouvidoria.html" role="menuitem">Ouvidoria</a>
+            <a href="negocie-sua-divida.html" role="menuitem">Negocie sua dívida</a>
+            <a href="quero-ser-credenciado.html" role="menuitem">Quero me credenciar</a>
+          </div>
+        </div>
+      </nav>
+
+      <div class="header__cta">
+        <a href="https://klinisaude.com.br/planos-klini/" class="btn btn--primary btn--sm">Quero ser Klini</a>
+      </div>
+
+      <!-- Mobile hamburger -->
+      <button class="header__mobile-toggle" id="mobileToggle" aria-label="Abrir menu" aria-expanded="false">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+  </header>
+
+  <!-- Mobile drawer -->
+  <div class="mobile-overlay" id="mobileOverlay"></div>
+  <aside class="mobile-drawer" id="mobileDrawer" role="dialog" aria-label="Menu de navegação">
+    <div class="mobile-drawer__header">
+      <img src="https://klinisaude.com.br/wp-content/uploads/2023/01/logo-header.webp" alt="Klini Saúde" height="32">
+      <button class="mobile-drawer__close" id="mobileClose" aria-label="Fechar menu">&times;</button>
+    </div>
+
+    <nav>
+      <div class="mobile-drawer__nav-group">
+        <div class="mobile-drawer__nav-group-title">A Klini</div>
+        <a href="https://klinisaude.com.br/sobre-nos/">Sobre nós</a>
+        <a href="https://klinisaude.com.br/sobre-nos/#centros-medicos">Nossas unidades</a>
+        <a href="trabalhe-conosco.html">Trabalhe conosco</a>
+      </div>
+
+      <div class="mobile-drawer__nav-group">
+        <div class="mobile-drawer__nav-group-title">Serviços</div>
+        <a href="https://klinisaude.com.br/token/">Token digital</a>
+        <a href="https://klinisaude.com.br/desconto-farmacia/">Desconto farmácia</a>
+        <a href="https://klinisaude.com.br/teleconsulta/">Teleconsulta</a>
+        <a href="https://klinisaude.com.br/rede-credenciada/">Busca de rede</a>
+        <a href="https://klinisaude.com.br/atualizacao-de-rede/">Atualização de rede</a>
+      </div>
+
+      <div class="mobile-drawer__nav-group">
+        <div class="mobile-drawer__nav-group-title">Planos</div>
+        <a href="https://klinisaude.com.br/planos-klini/">Ver todos os planos</a>
+      </div>
+
+      <div class="mobile-drawer__nav-group">
+        <div class="mobile-drawer__nav-group-title">Transparência</div>
+        <a href="https://klinisaude.com.br/portal-transparencia/">Portal da transparência</a>
+        <a href="politica-de-privacidade.html">Política de privacidade</a>
+        <a href="codigo-de-conduta.html">Código de conduta</a>
+        <a href="termo-uso.html">Termos de uso</a>
+        <a href="idss.html">IDSS</a>
+      </div>
+
+      <div class="mobile-drawer__nav-group">
+        <div class="mobile-drawer__nav-group-title">Atendimento</div>
+        <a href="ouvidoria.html">Ouvidoria</a>
+        <a href="negocie-sua-divida.html">Negocie sua dívida</a>
+        <a href="quero-ser-credenciado.html">Quero me credenciar</a>
+      </div>
+    </nav>
+
+    <div class="mobile-drawer__cta">
+      <a href="https://klinisaude.com.br/planos-klini/" class="btn btn--primary">Quero ser Klini</a>
+      <div class="mobile-drawer__portals">
+        <a href="https://beneficiario.klinisaude.com.br/" target="_blank" rel="noopener">Beneficiário</a>
+        <a href="https://portalplano.klinisaude.com.br/" target="_blank" rel="noopener">Empresa</a>
+        <a href="https://portalplano.klinisaude.com.br/" target="_blank" rel="noopener">Prestador</a>
+        <a href="https://klinisaude.com.br/espaco-corretor/" target="_blank" rel="noopener">Corretor</a>
+      </div>
+    </div>
+  </aside>
+
+  <main>
+    <!-- ============================================================
+         HERO
+         ============================================================ -->
+    <section class="hero" id="hero" aria-label="Banner principal">
+      <div class="hero__bg-pattern" aria-hidden="true"></div>
+      <div class="hero__bg-shapes" aria-hidden="true"></div>
+      <div class="container hero__inner">
+        <div class="hero__content">
+          <div class="hero__badge">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+            Saúde de verdade perto de você
+          </div>
+          <h1 class="hero__title">
+            Cuidar da sua saúde ficou mais <span>simples</span>
+          </h1>
+          <p class="hero__subtitle">
+            Oferecemos cuidados médicos de primeira, com atendimento humanizado e um preço que cabe no seu orçamento. Conheça os planos Klini.
+          </p>
+          <div class="hero__actions">
+            <a href="https://klinisaude.com.br/planos-klini/" class="btn btn--secondary btn--icon-right">
+              Quero ser Klini
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+            </a>
+            <a href="https://klinisaude.com.br/rede-credenciada/" class="btn btn--ghost">
+              Buscar rede
+            </a>
+          </div>
+        </div>
+
+        <div class="hero__image">
+          <div class="hero__image-wrapper">
+            <img src="https://klinisaude.com.br/wp-content/uploads/2025/09/BG_5050925-768x893.webp" alt="Aplicativo Klini Saúde" loading="eager">
+            <div class="hero__image-float hero__image-float--top">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+              Teleconsulta 24h
+            </div>
+            <div class="hero__image-float hero__image-float--bottom">
+              <strong>+1.000 prestadores</strong>
+              Rede credenciada ampla
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         QUICK ACCESS
+         ============================================================ -->
+    <section class="quick-access" id="acessos" aria-label="Acessos rápidos">
+      <div class="container">
+        <div class="quick-access__grid">
+          <!-- Busca de Rede -->
+          <a href="https://klinisaude.com.br/rede-credenciada/" class="quick-access__card quick-access__card--teal reveal" data-hover-color="teal">
+            <div class="quick-access__card-icon quick-access__card-icon--teal">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+            </div>
+            <h3>Busca de Rede</h3>
+            <p>Encontre a rede de atendimento do seu plano de um jeito prático</p>
+            <span class="quick-access__link">Acessar <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></span>
+          </a>
+
+          <!-- Portal do Beneficiário -->
+          <a href="https://beneficiario.klinisaude.com.br/" target="_blank" rel="noopener" class="quick-access__card quick-access__card--accent reveal reveal-delay-1" data-hover-color="accent">
+            <div class="quick-access__card-icon quick-access__card-icon--accent">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+            </div>
+            <h3>Portal do Beneficiário</h3>
+            <p>Acesse os dados do seu contrato, acompanhe autorizações e mais</p>
+            <span class="quick-access__link">Acessar <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></span>
+          </a>
+
+          <!-- Portal da Transparência -->
+          <a href="https://klinisaude.com.br/portal-transparencia/" class="quick-access__card quick-access__card--support reveal reveal-delay-2" data-hover-color="support">
+            <div class="quick-access__card-icon quick-access__card-icon--support">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>
+            </div>
+            <h3>Portal da Transparência</h3>
+            <p>Tudo sobre a Klini de forma clara e transparente</p>
+            <span class="quick-access__link">Acessar <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></span>
+          </a>
+
+          <!-- Teleconsulta -->
+          <a href="https://klinisaude.com.br/teleconsulta/" class="quick-access__card quick-access__card--coral reveal reveal-delay-3" data-hover-color="coral">
+            <div class="quick-access__card-icon quick-access__card-icon--coral">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+            </div>
+            <h3>Teleconsulta</h3>
+            <p>Consultas online 24h com médicos capacitados</p>
+            <span class="quick-access__link">Acessar <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></span>
+          </a>
+
+          <!-- Token Digital -->
+          <a href="https://klinisaude.com.br/token/" class="quick-access__card quick-access__card--accent-warm reveal reveal-delay-4" data-hover-color="accent-warm">
+            <div class="quick-access__card-icon quick-access__card-icon--accent-warm">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+            </div>
+            <h3>Token Digital</h3>
+            <p>Gere seu token de forma rápida e segura pelo app</p>
+            <span class="quick-access__link">Acessar <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></span>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         PLANS
+         ============================================================ -->
+    <section class="plans" id="planos" aria-label="Nossos planos">
+      <div class="container">
+        <div class="plans__layout reveal">
+          <div class="plans__left">
+            <span class="section-label">Planos Klini</span>
+            <h2 class="plans__title">Opções que cabem no seu bolso</h2>
+            <a href="https://klinisaude.com.br/planos-klini/" class="plans__compare-link">Compare Nossos Planos</a>
+            <div class="plans__left-cta">
+              <a href="https://klinisaude.com.br/planos-klini/" class="btn btn--secondary">Quero ser Klini</a>
+            </div>
+          </div>
+
+          <div class="plans__carousel-wrapper">
+            <!-- Nav arrows -->
+            <div class="plans__nav">
+              <div class="plans__dots" id="plansDots"></div>
+              <button class="plans__arrow plans__arrow--prev" id="plansPrev" aria-label="Plano anterior">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg>
+              </button>
+              <button class="plans__arrow plans__arrow--next" id="plansNext" aria-label="Próximo plano">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
+              </button>
+            </div>
+
+            <div class="plans__carousel" id="plansCarousel">
+              <!-- Klini 200 -->
+              <a href="https://klinisaude.com.br/planos-klini/" class="plan-slide">
+                <div class="plan-slide__inner plan-slide__inner--teal">
+                  <div class="plan-slide__logo-wrap">
+                    <img src="https://klinisaude.com.br/wp-content/uploads/2025/09/Klini-200-webp-1.webp" alt="Klini 200" loading="lazy">
+                  </div>
+                  <h3 class="plan-slide__name">Klini <strong>200</strong></h3>
+                  <p class="plan-slide__desc">O plano completo e acessível para cuidar de você e da sua família.</p>
+                  <span class="plan-slide__cta">SAIBA MAIS <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></span>
+                </div>
+              </a>
+
+              <!-- Klini 400 -->
+              <a href="https://klinisaude.com.br/planos-klini/" class="plan-slide">
+                <div class="plan-slide__inner plan-slide__inner--dark">
+                  <div class="plan-slide__logo-wrap">
+                    <img src="https://klinisaude.com.br/wp-content/uploads/2025/09/Klini-400-webp-1.webp" alt="Klini 400" loading="lazy">
+                  </div>
+                  <h3 class="plan-slide__name">Klini <strong>400</strong></h3>
+                  <p class="plan-slide__desc">Mais cobertura, mais rede, mais cuidado para você e sua família.</p>
+                  <span class="plan-slide__cta">SAIBA MAIS <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></span>
+                </div>
+              </a>
+
+              <!-- Klini 600 -->
+              <a href="https://klinisaude.com.br/planos-klini/" class="plan-slide">
+                <div class="plan-slide__inner plan-slide__inner--accent">
+                  <div class="plan-slide__logo-wrap">
+                    <img src="https://klinisaude.com.br/wp-content/uploads/2025/09/Klini-600-webp-1.webp" alt="Klini 600" loading="lazy">
+                  </div>
+                  <h3 class="plan-slide__name">Klini <strong>600</strong></h3>
+                  <p class="plan-slide__desc">O plano mais completo da Klini, com cobertura premium.</p>
+                  <span class="plan-slide__cta">SAIBA MAIS <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></span>
+                </div>
+              </a>
+
+              <!-- Ambulatorial -->
+              <a href="https://klinisaude.com.br/planos-klini/" class="plan-slide">
+                <div class="plan-slide__inner plan-slide__inner--support">
+                  <div class="plan-slide__logo-wrap">
+                    <img src="https://klinisaude.com.br/wp-content/uploads/2024/05/klini-ambulatorial_logo.svg" alt="Klini Ambulatorial" loading="lazy">
+                  </div>
+                  <h3 class="plan-slide__name">Klini <strong>Ambulatorial</strong></h3>
+                  <p class="plan-slide__desc">Consultas e exames com cobertura ambulatorial completa.</p>
+                  <span class="plan-slide__cta">SAIBA MAIS <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></span>
+                </div>
+              </a>
+
+              <!-- Hospitalar -->
+              <a href="https://klinisaude.com.br/planos-klini/" class="plan-slide">
+                <div class="plan-slide__inner plan-slide__inner--teal">
+                  <div class="plan-slide__logo-wrap">
+                    <img src="https://klinisaude.com.br/wp-content/uploads/2023/12/logo_plano-hospitalar_transp-1024x765.webp" alt="Klini Hospitalar" loading="lazy">
+                  </div>
+                  <h3 class="plan-slide__name">Klini <strong>Hospitalar</strong></h3>
+                  <p class="plan-slide__desc">Internações e procedimentos hospitalares com segurança.</p>
+                  <span class="plan-slide__cta">SAIBA MAIS <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></span>
+                </div>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         DIGITAL — APP & TELECONSULTA
+         ============================================================ -->
+    <section class="digital" id="digital" aria-label="Experiência digital">
+      <div class="container">
+        <div class="digital__grid">
+          <div class="digital__content reveal">
+            <span class="section-label">Experiência digital</span>
+            <h2 class="section-title">Resolva tudo pelo celular</h2>
+            <p class="section-subtitle">
+              O aplicativo Klini Saúde oferece acesso facilitado às principais informações do plano. Agende teleconsultas, gere tokens, busque sua rede e muito mais.
+            </p>
+
+            <div class="digital__features">
+              <div class="digital__feature">
+                <div class="digital__feature-icon">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+                </div>
+                <div class="digital__feature-text">
+                  <h4>Teleconsulta 24h</h4>
+                  <p>Consultas online em diversas especialidades, a qualquer hora, sem sair de casa.</p>
+                </div>
+              </div>
+
+              <div class="digital__feature">
+                <div class="digital__feature-icon">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+                </div>
+                <div class="digital__feature-text">
+                  <h4>Carteirinha digital</h4>
+                  <p>Acesse sua carteirinha, extratos de coparticipação e acompanhamento de solicitações.</p>
+                </div>
+              </div>
+
+              <div class="digital__feature">
+                <div class="digital__feature-icon">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+                </div>
+                <div class="digital__feature-text">
+                  <h4>Busca de rede</h4>
+                  <p>Encontre médicos, clínicas e laboratórios da rede credenciada direto no app.</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="digital__app-links">
+              <a href="https://apps.apple.com/br/app/klini-saude/id6447484649" target="_blank" rel="noopener" aria-label="Baixar na App Store">
+                <img src="https://klinisaude.com.br/wp-content/uploads/2023/12/1689885951botao_app-store.png" alt="Disponível na App Store" loading="lazy">
+              </a>
+              <a href="https://play.google.com/store/apps/details?id=br.com.klinisaude.klini_app&hl=pt_BR&gl=US" target="_blank" rel="noopener" aria-label="Baixar no Google Play">
+                <img src="https://klinisaude.com.br/wp-content/uploads/2023/12/1689885814botao_google-play.png" alt="Disponível no Google Play" loading="lazy">
+              </a>
+              <a href="https://beneficiario.klinisaude.com.br/login" target="_blank" rel="noopener" aria-label="Acessar pelo navegador">
+                <img src="https://klinisaude.com.br/wp-content/uploads/2023/05/botao_navegador.png" alt="Acessar pelo navegador" loading="lazy">
+              </a>
+            </div>
+          </div>
+
+          <div class="digital__visual reveal reveal-delay-2">
+            <div class="digital__phone-wrapper">
+              <img src="https://klinisaude.com.br/wp-content/uploads/2025/09/BG_5050925-768x893.webp" alt="Aplicativo Klini Saúde no celular" loading="lazy">
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         CARE & DIFFERENTIALS
+         ============================================================ -->
+    <section class="care" id="cuidado" aria-label="Cuidado e diferenciais">
+      <div class="container">
+        <div class="care__header reveal">
+          <img class="care__preventive-logo" src="https://klinisaude.com.br/wp-content/uploads/2024/05/logo-medicina-preventiva-horizontal2.svg" alt="Medicina Preventiva Klini" loading="lazy">
+          <span class="section-label">Cuidado e prevenção</span>
+          <h2 class="section-title">Sua saúde muito bem acompanhada</h2>
+          <p class="section-subtitle">
+            Além de programas de apoio a pacientes crônicos, o nosso Núcleo de Medicina Preventiva oferece atividades para incentivar o autocuidado e promover mais qualidade de vida.
+          </p>
+        </div>
+
+        <div class="care__grid">
+          <div class="care__card reveal">
+            <div class="care__card-icon">
+              <img src="https://klinisaude.com.br/wp-content/uploads/2024/05/1-MAISVIDA.svg" alt="Mais Vida — Acompanhamento" loading="lazy">
+            </div>
+            <h3>Acompanhamento contínuo</h3>
+            <p>Programas estruturados para pacientes crônicos com acompanhamento médico regular e orientação personalizada.</p>
+          </div>
+
+          <div class="care__card reveal reveal-delay-1">
+            <div class="care__card-icon">
+              <img src="https://klinisaude.com.br/wp-content/uploads/2024/05/2-MAISVIDA.svg" alt="Mais Vida — Prevenção" loading="lazy">
+            </div>
+            <h3>Prevenção ativa</h3>
+            <p>Ações de prevenção e promoção de saúde com atividades que incentivam hábitos saudáveis e autocuidado.</p>
+          </div>
+
+          <div class="care__card reveal reveal-delay-2">
+            <div class="care__card-icon">
+              <img src="https://klinisaude.com.br/wp-content/uploads/2024/05/3-MAISVIDA.svg" alt="Mais Vida — Qualidade" loading="lazy">
+            </div>
+            <h3>Qualidade de vida</h3>
+            <p>Programas voltados para o bem-estar integral do beneficiário, promovendo equilíbrio e saúde mental.</p>
+          </div>
+
+          <div class="care__card reveal reveal-delay-3">
+            <div class="care__card-icon">
+              <img src="https://klinisaude.com.br/wp-content/uploads/2024/05/5-MAISVIDA.svg" alt="Mais Vida — Cuidado" loading="lazy">
+            </div>
+            <h3>Atendimento humanizado</h3>
+            <p>Estrutura de ponta, equipe médica qualificada e um atendimento que coloca o paciente em primeiro lugar.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         UNITS
+         ============================================================ -->
+    <section class="units" id="unidades" aria-label="Nossas unidades">
+      <div class="container">
+        <div class="units__grid">
+          <div class="units__visual reveal">
+            <div class="units__visual-icon" aria-hidden="true">
+              <svg width="56" height="56" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+            </div>
+            <h3>Centros médicos próprios</h3>
+            <p>Atendimento presencial com estrutura completa e equipe qualificada.</p>
+          </div>
+
+          <div class="units__content reveal reveal-delay-1">
+            <span class="section-label">Presença física</span>
+            <h2 class="section-title">Nossas unidades</h2>
+            <p class="section-subtitle">
+              A Klini conta com centros médicos próprios para oferecer atendimento presencial com estrutura de ponta e equipe médica qualificada, perto de você.
+            </p>
+
+            <div class="units__info">
+              <div class="units__info-item">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                <div>
+                  <strong>Barra da Tijuca</strong><br>
+                  Av. das Américas, 3200 – Sala 114 – 1º andar<br>
+                  <span style="color: var(--klini-text-muted); font-size: 13px;">CEP: 22640-102 — Rio de Janeiro, RJ</span>
+                </div>
+              </div>
+              <div class="units__info-item">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                <div>
+                  <strong>Horário de funcionamento</strong><br>
+                  Segunda a sexta, das 8h às 17h
+                </div>
+              </div>
+            </div>
+
+            <div style="display: flex; gap: 12px; flex-wrap: wrap;">
+              <a href="https://klinisaude.com.br/sobre-nos/#centros-medicos" class="btn btn--primary btn--sm">
+                Ver unidades
+              </a>
+              <a href="https://www.google.com/maps/place/Av.+das+Am%C3%A9ricas,+3200+-+Barra+da+Tijuca,+Rio+de+Janeiro+-+RJ,+22640-102/" target="_blank" rel="noopener" class="btn btn--outline btn--sm">
+                Como chegar
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         CONTACT / SUPPORT
+         ============================================================ -->
+    <section class="contact" id="atendimento" aria-label="Canais de atendimento">
+      <div class="container">
+        <div class="contact__header reveal">
+          <span class="section-label">Fale conosco</span>
+          <h2 class="section-title">Canais de atendimento</h2>
+          <p class="section-subtitle">
+            Estamos aqui para ajudar. Escolha o canal mais conveniente para você.
+          </p>
+        </div>
+
+        <div class="contact__grid">
+          <!-- WhatsApp -->
+          <a href="https://wa.me/552130550790" target="_blank" rel="noopener" class="contact__card reveal" style="text-decoration:none;">
+            <div class="contact__card-header">
+              <div class="contact__card-icon contact__card-icon--green">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>
+              </div>
+              <h3>WhatsApp</h3>
+            </div>
+            <span class="phone-number">(21) 3055-0790</span>
+            <p>Atendimento rápido e prático pelo WhatsApp.</p>
+            <span class="hours">Disponível 24h</span>
+          </a>
+
+          <!-- Atendimento presencial -->
+          <div class="contact__card reveal reveal-delay-1">
+            <div class="contact__card-header">
+              <div class="contact__card-icon contact__card-icon--teal">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+              </div>
+              <h3>Atendimento presencial</h3>
+            </div>
+            <p>Av. das Américas, 3200 – Sala 114<br>Barra da Tijuca, Rio de Janeiro – RJ</p>
+            <span class="hours">Segunda a sexta, das 8h às 17h</span>
+          </div>
+
+          <!-- SAC -->
+          <div class="contact__card reveal reveal-delay-2">
+            <div class="contact__card-header">
+              <div class="contact__card-icon contact__card-icon--blue">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+              </div>
+              <h3>SAC</h3>
+            </div>
+            <span class="phone-number">(21) 3055-0790</span>
+            <p>Capitais e regiões metropolitanas</p>
+            <span class="phone-number" style="font-size: 18px;">0800 021 0320</span>
+            <p>Demais regiões</p>
+            <span class="hours">24 horas, 7 dias por semana</span>
+          </div>
+
+          <!-- Ouvidoria -->
+          <a href="ouvidoria.html" class="contact__card reveal reveal-delay-3" style="text-decoration:none;">
+            <div class="contact__card-header">
+              <div class="contact__card-icon contact__card-icon--coral">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 15s1-1 4-1 5 2 8 2 4-1 4-1V3s-1 1-4 1-5-2-8-2-4 1-4 1z"/><line x1="4" y1="22" x2="4" y2="15"/></svg>
+              </div>
+              <h3>Ouvidoria</h3>
+            </div>
+            <p>Para demandas não resolvidas pelos canais regulares de atendimento.</p>
+          </a>
+
+          <!-- Deficiente Auditivo -->
+          <div class="contact__card reveal reveal-delay-4">
+            <div class="contact__card-header">
+              <div class="contact__card-icon contact__card-icon--accent">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"/><path d="M19 10v2a7 7 0 0 1-14 0v-2"/><line x1="12" y1="19" x2="12" y2="23"/><line x1="8" y1="23" x2="16" y2="23"/></svg>
+              </div>
+              <h3>Deficiente auditivo</h3>
+            </div>
+            <span class="phone-number">0800 941 9601</span>
+            <p>Canal exclusivo para atendimento a deficientes auditivos.</p>
+          </div>
+
+          <!-- Imprensa -->
+          <div class="contact__card reveal reveal-delay-4">
+            <div class="contact__card-header">
+              <div class="contact__card-icon contact__card-icon--neutral">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 22h16a2 2 0 0 0 2-2V4a2 2 0 0 0-2-2H8a2 2 0 0 0-2 2v16a2 2 0 0 1-2 2zm0 0a2 2 0 0 1-2-2v-9c0-1.1.9-2 2-2h2"/><path d="M18 14h-8"/><path d="M15 18h-5"/><path d="M10 6h8v4h-8V6z"/></svg>
+              </div>
+              <h3>Imprensa</h3>
+            </div>
+            <p>Lorena Vazquez</p>
+            <p>(21) 99358-4032</p>
+            <p style="word-break: break-all;">lorena.vazquez@klinisaude.com.br</p>
+          </div>
+        </div>
+
+        <div class="contact__footer reveal">
+          <a href="https://wa.me/552130550790" target="_blank" rel="noopener" class="btn btn--primary btn--icon-right">
+            Falar no WhatsApp
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         INSTITUTIONAL
+         ============================================================ -->
+    <section class="institutional" id="institucional" aria-label="Institucional">
+      <div class="container">
+        <div class="institutional__inner reveal">
+          <div class="institutional__brand">
+            <img src="https://klinisaude.com.br/wp-content/uploads/2023/02/logo_klini-br.png" alt="Klini Saúde" loading="lazy">
+            <p>
+              Estrutura de ponta, equipe médica qualificada e atendimento humanizado. A Klini Saúde é plano de saúde com cuidado de verdade perto de você.
+            </p>
+          </div>
+
+          <div class="institutional__badges">
+            <img src="https://klinisaude.com.br/wp-content/uploads/2023/02/ans.png" alt="ANS — Agência Nacional de Saúde Suplementar" loading="lazy">
+            <img src="https://klinisaude.com.br/wp-content/uploads/2025/05/midiakit_klini_sa%C3%BAde_generic_stamp.png" alt="Selo Klini Saúde" loading="lazy">
+            <img src="https://klinisaude.com.br/wp-content/uploads/2023/02/Group-25.jpg" alt="Certificação" loading="lazy" style="border-radius: var(--klini-radius-sm);">
+          </div>
+
+          <div class="institutional__links">
+            <a href="https://klinisaude.com.br/sobre-nos/">Sobre nós</a>
+            <a href="https://klinisaude.com.br/portal-transparencia/">Portal da transparência</a>
+            <a href="politica-de-privacidade.html">Política de privacidade</a>
+            <a href="codigo-de-conduta.html">Código de conduta</a>
+            <a href="termo-uso.html">Termos de uso</a>
+            <a href="idss.html">IDSS</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ============================================================
+       FOOTER
+       ============================================================ -->
+  <footer class="footer" role="contentinfo">
+    <div class="container">
+      <div class="footer__grid">
+        <!-- Brand column -->
+        <div class="footer__brand">
+          <img src="https://klinisaude.com.br/wp-content/uploads/2023/01/logo-header.webp" alt="Klini Saúde" loading="lazy">
+          <p>
+            Klini Planos de Saúde Ltda.<br>
+            CNPJ: 34.539.000/0001-86<br>
+            Av. das Américas, 3200<br>
+            Barra da Tijuca – Rio de Janeiro, RJ
+          </p>
+          <div class="footer__social">
+            <a href="https://www.instagram.com/klinisaude/" target="_blank" rel="noopener" aria-label="Instagram">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+            </a>
+            <a href="https://www.facebook.com/klinisaudematriz" target="_blank" rel="noopener" aria-label="Facebook">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+            </a>
+            <a href="https://br.linkedin.com/company/klinisaude" target="_blank" rel="noopener" aria-label="LinkedIn">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+            </a>
+            <a href="https://www.youtube.com/@KliniSaude" target="_blank" rel="noopener" aria-label="YouTube">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33A2.78 2.78 0 0 0 3.4 19.1c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2 29 29 0 0 0 .46-5.25 29 29 0 0 0-.46-5.43z"/><polygon points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02"/></svg>
+            </a>
+          </div>
+        </div>
+
+        <!-- A Klini -->
+        <div class="footer__col">
+          <h4>A Klini</h4>
+          <ul>
+            <li><a href="https://klinisaude.com.br/sobre-nos/">Sobre nós</a></li>
+            <li><a href="https://klinisaude.com.br/sobre-nos/#centros-medicos">Nossas unidades</a></li>
+            <li><a href="trabalhe-conosco.html">Trabalhe conosco</a></li>
+            <li><a href="https://klinisaude.com.br/planos-klini/">Nossos planos</a></li>
+          </ul>
+        </div>
+
+        <!-- Serviços -->
+        <div class="footer__col">
+          <h4>Serviços</h4>
+          <ul>
+            <li><a href="https://klinisaude.com.br/token/">Token digital</a></li>
+            <li><a href="https://klinisaude.com.br/teleconsulta/">Teleconsulta</a></li>
+            <li><a href="https://klinisaude.com.br/desconto-farmacia/">Desconto farmácia</a></li>
+            <li><a href="https://klinisaude.com.br/rede-credenciada/">Busca de rede</a></li>
+            <li><a href="https://klinisaude.com.br/atualizacao-de-rede/">Atualização de rede</a></li>
+          </ul>
+        </div>
+
+        <!-- Atendimento -->
+        <div class="footer__col">
+          <h4>Atendimento</h4>
+          <ul>
+            <li><a href="ouvidoria.html">Ouvidoria</a></li>
+            <li><a href="negocie-sua-divida.html">Negocie sua dívida</a></li>
+            <li><a href="quero-ser-credenciado.html">Quero me credenciar</a></li>
+            <li><a href="https://wa.me/552130550790" target="_blank" rel="noopener">WhatsApp</a></li>
+            <li><a href="tel:08000210320">SAC: 0800 021 0320</a></li>
+          </ul>
+        </div>
+
+        <!-- Transparência + Apps -->
+        <div class="footer__col">
+          <h4>Transparência</h4>
+          <ul>
+            <li><a href="https://klinisaude.com.br/portal-transparencia/">Portal da transparência</a></li>
+            <li><a href="politica-de-privacidade.html">Política de privacidade</a></li>
+            <li><a href="codigo-de-conduta.html">Código de conduta</a></li>
+            <li><a href="termo-uso.html">Termos de uso</a></li>
+            <li><a href="idss.html">IDSS</a></li>
+          </ul>
+          <div class="footer__apps">
+            <a href="https://apps.apple.com/br/app/klini-saude/id6447484649" target="_blank" rel="noopener">
+              <img src="https://klinisaude.com.br/wp-content/uploads/2023/12/1689885951botao_app-store.png" alt="App Store" loading="lazy">
+            </a>
+            <a href="https://play.google.com/store/apps/details?id=br.com.klinisaude.klini_app&hl=pt_BR&gl=US" target="_blank" rel="noopener">
+              <img src="https://klinisaude.com.br/wp-content/uploads/2023/12/1689885814botao_google-play.png" alt="Google Play" loading="lazy">
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Bottom bar -->
+      <div class="footer__bottom">
+        <p>&copy; 2020–2026 Klini Saúde — Todos os direitos reservados.</p>
+        <div class="footer__bottom-badges">
+          <img src="https://klinisaude.com.br/wp-content/uploads/2023/02/ans.png" alt="ANS" loading="lazy">
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="assets/js/main.js"></script>
+</body>
+</html>

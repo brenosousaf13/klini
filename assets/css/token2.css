@@ -1,0 +1,848 @@
+/* ==========================================================================
+   TOKEN DIGITAL v2 — Klini Saúde
+   Segue klini-system-design.md: Objective + Merriweather, paleta teal/orange
+   ========================================================================== */
+
+
+/* --------------------------------------------------------------------------
+   SCROLL ENTRANCE ANIMATIONS
+   -------------------------------------------------------------------------- */
+
+/* Slide up — padrão para blocos de conteúdo */
+.slide-up {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 0.7s ease, transform 0.7s ease;
+}
+.slide-up--delay {
+  transition-delay: 0.2s;
+}
+.slide-up.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Slide in da esquerda — passos de texto */
+.tk2-enter--left {
+  opacity: 0;
+  transform: translateX(-48px);
+  transition: opacity 0.75s cubic-bezier(0.22, 1, 0.36, 1),
+              transform 0.75s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+/* Slide in da direita — imagens de passo */
+.tk2-enter--right {
+  opacity: 0;
+  transform: translateX(48px);
+  transition: opacity 0.75s cubic-bezier(0.22, 1, 0.36, 1),
+              transform 0.75s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.tk2-enter--left.is-visible,
+.tk2-enter--right.is-visible {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+
+/* --------------------------------------------------------------------------
+   HERO
+   -------------------------------------------------------------------------- */
+.tk2-hero {
+  position: relative;
+  padding: 120px 0 96px;
+  background: var(--klini-surface-subtle);
+  overflow: hidden;
+}
+
+.tk2-hero__bg-shape {
+  position: absolute;
+  top: -25%;
+  right: -10%;
+  width: 60%;
+  height: 150%;
+  background: radial-gradient(ellipse at 60% 40%, var(--klini-primary-100) 0%, transparent 65%);
+  opacity: 0.7;
+  pointer-events: none;
+  border-radius: 50%;
+}
+
+.tk2-hero__inner {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 56px;
+  align-items: center;
+}
+
+@media (min-width: 1024px) {
+  .tk2-hero__inner {
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+  }
+}
+
+.tk2-hero__badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--klini-font-display);
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--klini-primary-500);
+  background: var(--klini-primary-100);
+  padding: 6px 16px;
+  border-radius: var(--klini-radius-pill);
+  margin-bottom: 24px;
+}
+
+.tk2-hero__title {
+  font-family: var(--klini-font-display);
+  font-size: clamp(2.5rem, 5vw, 4rem);
+  font-weight: 700;
+  line-height: 1.08;
+  color: var(--klini-text-strong);
+  letter-spacing: -0.025em;
+  margin-bottom: 24px;
+}
+
+.tk2-hero__emphasis {
+  font-style: italic;
+  color: var(--klini-primary-500);
+  font-weight: 700;
+}
+
+.tk2-hero__subtitle {
+  font-family: var(--klini-font-body);
+  font-size: 1.125rem;
+  line-height: 1.7;
+  color: var(--klini-text-muted);
+  max-width: 520px;
+  margin-bottom: 40px;
+}
+
+.tk2-hero__actions {
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+/* Token card illustration */
+.tk2-hero__visual {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.tk2-hero__token-card {
+  background: var(--klini-surface-page);
+  border-radius: var(--klini-radius-xl);
+  padding: 36px 40px;
+  width: 100%;
+  max-width: 340px;
+  box-shadow: var(--klini-shadow-lg);
+  border: 1px solid var(--klini-primary-100);
+  position: relative;
+  overflow: hidden;
+}
+
+.tk2-hero__token-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, var(--klini-primary-500), var(--klini-support-500));
+}
+
+.tk2-hero__token-card-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 28px;
+}
+
+.tk2-hero__token-label {
+  font-family: var(--klini-font-display);
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  color: var(--klini-text-muted);
+  text-transform: uppercase;
+}
+
+.tk2-hero__token-status {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-family: var(--klini-font-display);
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--klini-primary-500);
+}
+
+.tk2-hero__token-dot {
+  width: 8px;
+  height: 8px;
+  background: var(--klini-primary-500);
+  border-radius: 50%;
+  animation: tk2-pulse 2s ease-in-out infinite;
+}
+
+@keyframes tk2-pulse {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.5; transform: scale(0.85); }
+}
+
+.tk2-hero__token-display {
+  background: var(--klini-primary-100);
+  border-radius: var(--klini-radius-lg);
+  padding: 24px;
+  text-align: center;
+  margin-bottom: 16px;
+}
+
+.tk2-hero__token-code {
+  font-family: 'Courier New', Courier, monospace;
+  font-size: 2.4rem;
+  font-weight: 700;
+  color: var(--klini-primary-500);
+  letter-spacing: 0.18em;
+}
+
+.tk2-hero__token-timer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  font-family: var(--klini-font-display);
+  font-size: 0.8rem;
+  color: var(--klini-accent-500);
+  font-weight: 600;
+  margin-bottom: 20px;
+}
+
+.tk2-hero__token-progress {
+  height: 4px;
+  background: var(--klini-neutral-200, #EEF2F3);
+  border-radius: var(--klini-radius-pill);
+  overflow: hidden;
+}
+
+.tk2-hero__token-progress-bar {
+  height: 100%;
+  width: 60%;
+  background: linear-gradient(90deg, var(--klini-primary-500), var(--klini-support-500));
+  border-radius: var(--klini-radius-pill);
+  animation: tk2-progress 60s linear infinite;
+}
+
+@keyframes tk2-progress {
+  from { width: 100%; }
+  to { width: 0%; }
+}
+
+
+/* --------------------------------------------------------------------------
+   PASSO 1 — DOWNLOAD
+   -------------------------------------------------------------------------- */
+.tk2-step1 {
+  padding: 96px 0;
+  background: var(--klini-surface-page);
+}
+
+.tk2-step1__inner {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 48px;
+  position: relative;
+  background: var(--klini-surface-subtle);
+  border-radius: var(--klini-radius-xl);
+  padding: 56px 48px;
+  overflow: hidden;
+}
+
+.tk2-step1__inner::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  width: 4px;
+  background: linear-gradient(180deg, var(--klini-primary-500), var(--klini-support-500));
+  border-radius: 4px 0 0 4px;
+}
+
+@media (min-width: 900px) {
+  .tk2-step1__inner {
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    gap: 64px;
+  }
+}
+
+.tk2-step1__badge-num {
+  position: absolute;
+  top: 32px;
+  right: 40px;
+  font-family: var(--klini-font-display);
+  font-size: 6rem;
+  font-weight: 800;
+  color: var(--klini-primary-100);
+  line-height: 1;
+  letter-spacing: -0.05em;
+  pointer-events: none;
+  user-select: none;
+}
+
+.tk2-step1__content {
+  position: relative;
+  z-index: 1;
+}
+
+.tk2-step1__title {
+  font-family: var(--klini-font-display);
+  font-size: clamp(1.75rem, 3vw, 2.5rem);
+  font-weight: 700;
+  color: var(--klini-text-strong);
+  line-height: 1.15;
+  margin: 12px 0 16px;
+  letter-spacing: -0.02em;
+}
+
+.tk2-step1__desc {
+  font-family: var(--klini-font-body);
+  font-size: 1rem;
+  line-height: 1.7;
+  color: var(--klini-text-muted);
+  margin-bottom: 32px;
+}
+
+.tk2-step1__stores {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  align-items: center;
+}
+
+.tk2-store-btn {
+  display: block;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+  border-radius: var(--klini-radius-sm);
+  overflow: hidden;
+}
+
+.tk2-store-btn img {
+  height: 44px;
+  width: auto;
+  display: block;
+}
+
+.tk2-store-btn:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--klini-shadow-md);
+}
+
+/* Phone visual for step 1 */
+.tk2-step1__phones {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.tk2-step1__phone-wrap {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+}
+
+.tk2-step1__phone-img {
+  width: 260px;
+  display: block;
+}
+
+.tk2-step1__phone-caption {
+  font-family: var(--klini-font-display);
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--klini-text-muted);
+  background: var(--klini-surface-page);
+  padding: 6px 14px;
+  border-radius: var(--klini-radius-pill);
+  border: 1px solid var(--klini-primary-200);
+  color: var(--klini-primary-500);
+}
+
+
+/* --------------------------------------------------------------------------
+   TIMELINE — PASSOS 2 a 4
+   -------------------------------------------------------------------------- */
+.tk2-steps {
+  padding: 0 0 96px;
+  background: var(--klini-surface-page);
+}
+
+.tk2-steps__header {
+  text-align: center;
+  max-width: 640px;
+  margin: 0 auto 80px;
+  padding-top: 8px;
+}
+
+.tk2-timeline {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+/* Linha vertical conectora */
+.tk2-timeline::before {
+  content: "";
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  top: 32px;
+  bottom: 32px;
+  width: 2px;
+  background: linear-gradient(
+    180deg,
+    var(--klini-primary-200) 0%,
+    var(--klini-support-200) 50%,
+    var(--klini-primary-200) 100%
+  );
+  pointer-events: none;
+}
+
+@media (max-width: 767px) {
+  .tk2-timeline::before {
+    left: 28px;
+  }
+}
+
+/* Cada item da timeline */
+.tk2-timeline__item {
+  position: relative;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 32px;
+  padding: 56px 0;
+  align-items: center;
+}
+
+@media (min-width: 768px) {
+  .tk2-timeline__item {
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+    padding: 72px 0;
+  }
+}
+
+/* Nó central da timeline */
+.tk2-timeline__node {
+  display: none;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 56px;
+  height: 56px;
+  background: var(--klini-surface-page);
+  border: 3px solid var(--klini-primary-500);
+  border-radius: 50%;
+  z-index: 2;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 0 0 6px var(--klini-primary-100);
+}
+
+@media (min-width: 768px) {
+  .tk2-timeline__node {
+    display: flex;
+  }
+}
+
+.tk2-timeline__node-num {
+  font-family: var(--klini-font-display);
+  font-size: 1rem;
+  font-weight: 800;
+  color: var(--klini-primary-500);
+  line-height: 1;
+}
+
+/* Mobile node */
+@media (max-width: 767px) {
+  .tk2-timeline__item {
+    padding-left: 64px;
+    padding-top: 40px;
+    padding-bottom: 40px;
+  }
+  .tk2-timeline__node {
+    display: flex;
+    left: 0;
+    top: 48px;
+    transform: none;
+    width: 44px;
+    height: 44px;
+  }
+  .tk2-timeline__node-num {
+    font-size: 0.875rem;
+  }
+}
+
+/* Texto do passo */
+.tk2-timeline__text {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.tk2-timeline__tag {
+  display: inline-flex;
+  align-self: flex-start;
+  font-family: var(--klini-font-display);
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--klini-primary-500);
+  background: var(--klini-primary-100);
+  padding: 4px 12px;
+  border-radius: var(--klini-radius-pill);
+}
+
+.tk2-timeline__tag--success {
+  color: #1a7a6e;
+  background: #d0f0ed;
+}
+
+.tk2-timeline__title {
+  font-family: var(--klini-font-display);
+  font-size: clamp(1.5rem, 2.5vw, 2.125rem);
+  font-weight: 700;
+  color: var(--klini-text-strong);
+  line-height: 1.2;
+  letter-spacing: -0.02em;
+  margin: 0;
+}
+
+.tk2-timeline__desc {
+  font-family: var(--klini-font-body);
+  font-size: 1rem;
+  line-height: 1.75;
+  color: var(--klini-text-muted);
+  margin: 0;
+}
+
+.tk2-timeline__detail {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--klini-font-display);
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--klini-support-500);
+  background: var(--klini-support-100);
+  padding: 8px 16px;
+  border-radius: var(--klini-radius-sm);
+  align-self: flex-start;
+  margin-top: 4px;
+}
+
+.tk2-timeline__detail svg {
+  flex-shrink: 0;
+  color: var(--klini-primary-500);
+}
+
+/* Imagem do passo */
+.tk2-timeline__visual {
+  display: flex;
+  justify-content: center;
+}
+
+.tk2-timeline__img {
+  width: 280px;
+  height: auto;
+  display: block;
+  transition: transform 0.4s ease;
+}
+
+.tk2-timeline__img:hover {
+  transform: translateY(-6px) scale(1.01);
+}
+
+/* Alinhamento dos itens left/right */
+/* No desktop: item--left tem texto col1 / visual col2 */
+/* item--right tem visual col1 / texto col2 — já definido no HTML */
+
+@media (max-width: 767px) {
+  /* No mobile tudo empilha */
+  .tk2-timeline__item--right .tk2-timeline__visual {
+    order: -1;
+  }
+}
+
+/* Separador entre passos */
+.tk2-timeline__item + .tk2-timeline__item {
+  border-top: 1px solid var(--klini-primary-100);
+}
+
+
+/* --------------------------------------------------------------------------
+   WHATSAPP BANNER
+   -------------------------------------------------------------------------- */
+.tk2-wpp {
+  position: relative;
+  padding: 96px 0;
+  overflow: hidden;
+  background: var(--klini-primary-500);
+}
+
+.tk2-wpp__bg {
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(ellipse at 80% 20%, rgba(255,255,255,0.08) 0%, transparent 50%),
+    radial-gradient(ellipse at 10% 80%, rgba(0,0,0,0.1) 0%, transparent 50%);
+  pointer-events: none;
+}
+
+.tk2-wpp__inner {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 56px;
+  align-items: center;
+}
+
+@media (min-width: 900px) {
+  .tk2-wpp__inner {
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+  }
+}
+
+.tk2-wpp__content {
+  color: white;
+}
+
+.tk2-wpp__overline {
+  display: inline-block;
+  font-family: var(--klini-font-display);
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.7);
+  margin-bottom: 16px;
+}
+
+.tk2-wpp__title {
+  font-family: var(--klini-font-display);
+  font-size: clamp(2rem, 4vw, 3rem);
+  font-weight: 700;
+  color: white;
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+  margin-bottom: 20px;
+}
+
+.tk2-wpp__highlight {
+  color: var(--klini-accent-300, #E1AF7C);
+}
+
+.tk2-wpp__desc {
+  font-family: var(--klini-font-body);
+  font-size: 1.05rem;
+  line-height: 1.7;
+  color: rgba(255,255,255,0.85);
+  margin-bottom: 36px;
+  max-width: 480px;
+}
+
+.tk2-wpp__btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  background: white;
+  color: var(--klini-primary-500);
+  font-family: var(--klini-font-display);
+  font-weight: 700;
+  font-size: 1rem;
+  padding: 14px 28px;
+  border-radius: var(--klini-radius-pill);
+  text-decoration: none;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.12);
+}
+
+.tk2-wpp__btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 14px 32px rgba(0,0,0,0.18);
+}
+
+.tk2-wpp__visual {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.tk2-wpp__phone-img {
+  width: 300px;
+  max-width: 100%;
+  display: block;
+}
+
+
+/* --------------------------------------------------------------------------
+   FAQ
+   -------------------------------------------------------------------------- */
+.tk2-faq {
+  padding: 96px 0;
+  background: var(--klini-surface-subtle);
+}
+
+.tk2-faq__header {
+  text-align: center;
+  max-width: 640px;
+  margin: 0 auto 56px;
+}
+
+.tk2-faq__list {
+  max-width: 760px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+.tk2-faq__list .faq-item {
+  background: var(--klini-surface-page);
+  border-radius: 0;
+  border-bottom: 1px solid var(--klini-primary-100);
+  overflow: hidden;
+}
+
+.tk2-faq__list .faq-item:first-child {
+  border-radius: var(--klini-radius-md) var(--klini-radius-md) 0 0;
+  border-top: 1px solid var(--klini-primary-100);
+}
+
+.tk2-faq__list .faq-item:last-child {
+  border-radius: 0 0 var(--klini-radius-md) var(--klini-radius-md);
+}
+
+.tk2-faq__list .faq-item[open] {
+  background: var(--klini-surface-page);
+}
+
+.tk2-faq__list .faq-item[open] .faq-item__question {
+  color: var(--klini-primary-500);
+}
+
+.tk2-faq__list .faq-item[open] .faq-item__icon {
+  transform: rotate(45deg);
+  color: var(--klini-primary-500);
+}
+
+/* Override global faq-item styles for this page */
+.tk2-faq .faq-item__question {
+  padding: 22px 28px;
+  font-size: 1rem;
+  font-family: var(--klini-font-display);
+  font-weight: 600;
+  color: var(--klini-text-strong);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  list-style: none;
+  border: none;
+  background: transparent;
+  width: 100%;
+  text-align: left;
+  transition: color 0.2s ease;
+}
+
+.tk2-faq .faq-item__question::-webkit-details-marker {
+  display: none;
+}
+
+.tk2-faq .faq-item__icon {
+  flex-shrink: 0;
+  width: 18px;
+  height: 18px;
+  color: var(--klini-primary-400);
+  transition: transform 0.3s ease, color 0.2s ease;
+}
+
+.tk2-faq .faq-item__answer {
+  padding: 0 28px 22px;
+  font-family: var(--klini-font-body);
+  font-size: 0.95rem;
+  line-height: 1.75;
+  color: var(--klini-text-muted);
+}
+
+.tk2-faq .faq-item__answer p {
+  margin: 0;
+}
+
+
+/* --------------------------------------------------------------------------
+   MOBILE ADJUSTMENTS
+   -------------------------------------------------------------------------- */
+@media (max-width: 767px) {
+  .tk2-hero {
+    padding: 80px 0 64px;
+  }
+
+  .tk2-hero__token-card {
+    max-width: 280px;
+  }
+
+  .tk2-step1__inner {
+    padding: 36px 28px;
+  }
+
+  .tk2-step1__badge-num {
+    font-size: 4rem;
+    top: 20px;
+    right: 24px;
+  }
+
+  .tk2-steps {
+    padding-bottom: 64px;
+  }
+
+  .tk2-wpp {
+    padding: 64px 0;
+  }
+
+  .tk2-wpp__phone-img {
+    width: 240px;
+  }
+
+  .tk2-faq {
+    padding: 64px 0;
+  }
+
+  .tk2-timeline__img {
+    width: 220px;
+  }
+
+  .tk2-step1__phone-img {
+    width: 200px;
+  }
+}

@@ -1,0 +1,862 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Planos Klini — Encontre o plano ideal para você</title>
+  <meta name="description" content="Conheça os planos de saúde da Klini: Ambulatorial, Hospitalar, Klini 200, 400, 600 e Senior. Compare coberturas e encontre a melhor opção para você e sua família.">
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="assets/css/styles.css">
+  <link rel="stylesheet" href="assets/css/planos.css">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="https://klinisaude.com.br/wp-content/uploads/2023/02/logo_klini-br.png">
+</head>
+<body>
+
+  <!-- ============================================================
+       UTILITY BAR
+       ============================================================ -->
+  <div class="utility-bar" role="complementary" aria-label="Acessos rápidos">
+    <div class="container utility-bar__inner">
+      <div class="utility-bar__portals">
+        <a href="https://beneficiario.klinisaude.com.br/" target="_blank" rel="noopener">Beneficiário</a>
+        <span class="divider" aria-hidden="true"></span>
+        <a href="https://portalplano.klinisaude.com.br/" target="_blank" rel="noopener">Empresa</a>
+        <span class="divider" aria-hidden="true"></span>
+        <a href="https://portalplano.klinisaude.com.br/" target="_blank" rel="noopener">Prestador</a>
+        <span class="divider" aria-hidden="true"></span>
+        <a href="https://klinisaude.com.br/espaco-corretor/" target="_blank" rel="noopener">Corretor</a>
+      </div>
+      <div class="utility-bar__contact">
+        <a href="https://wa.me/552130550790" target="_blank" rel="noopener" aria-label="WhatsApp Klini">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>
+          (21) 3055-0790
+        </a>
+        <a href="tel:08000210320" aria-label="SAC Klini">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+          0800 021 0320
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- ============================================================
+       HEADER
+       ============================================================ -->
+  <header class="header" id="header" role="banner">
+    <div class="container header__inner">
+      <a href="index.html" class="header__logo" aria-label="Klini Saúde — Página inicial">
+        <img src="https://klinisaude.com.br/wp-content/uploads/2023/01/logo-header.webp" alt="Klini Saúde" width="140" height="40">
+      </a>
+
+      <nav class="header__nav" role="navigation" aria-label="Menu principal">
+        <div class="nav-item">
+          <button class="nav-item__trigger" aria-expanded="false" aria-haspopup="true">
+            A Klini
+            <svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2"><polyline points="2 4 6 8 10 4"/></svg>
+          </button>
+          <div class="nav-item__dropdown" role="menu">
+            <a href="https://klinisaude.com.br/sobre-nos/" role="menuitem">Sobre nós</a>
+            <a href="https://klinisaude.com.br/sobre-nos/#centros-medicos" role="menuitem">Nossas unidades</a>
+            <a href="trabalhe-conosco.html" role="menuitem">Trabalhe conosco</a>
+          </div>
+        </div>
+
+        <div class="nav-item">
+          <button class="nav-item__trigger" aria-expanded="false" aria-haspopup="true">
+            Serviços
+            <svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2"><polyline points="2 4 6 8 10 4"/></svg>
+          </button>
+          <div class="nav-item__dropdown" role="menu">
+            <a href="https://klinisaude.com.br/token/" role="menuitem">Token digital</a>
+            <a href="https://klinisaude.com.br/desconto-farmacia/" role="menuitem">Desconto farmácia</a>
+            <a href="https://klinisaude.com.br/teleconsulta/" role="menuitem">Teleconsulta</a>
+            <a href="https://klinisaude.com.br/rede-credenciada/" role="menuitem">Busca de rede</a>
+            <a href="https://klinisaude.com.br/atualizacao-de-rede/" role="menuitem">Atualização de rede</a>
+          </div>
+        </div>
+
+        <div class="nav-item">
+          <a class="nav-item__trigger nav-item__trigger--active" href="planos.html">Planos</a>
+        </div>
+
+        <div class="nav-item">
+          <button class="nav-item__trigger" aria-expanded="false" aria-haspopup="true">
+            Transparência
+            <svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2"><polyline points="2 4 6 8 10 4"/></svg>
+          </button>
+          <div class="nav-item__dropdown" role="menu">
+            <a href="https://klinisaude.com.br/portal-transparencia/" role="menuitem">Portal da transparência</a>
+            <a href="politica-de-privacidade.html" role="menuitem">Política de privacidade</a>
+            <a href="codigo-de-conduta.html" role="menuitem">Código de conduta</a>
+            <a href="termo-uso.html" role="menuitem">Termos de uso</a>
+            <a href="idss.html" role="menuitem">IDSS</a>
+          </div>
+        </div>
+
+        <div class="nav-item">
+          <button class="nav-item__trigger" aria-expanded="false" aria-haspopup="true">
+            Atendimento
+            <svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2"><polyline points="2 4 6 8 10 4"/></svg>
+          </button>
+          <div class="nav-item__dropdown" role="menu">
+            <a href="ouvidoria.html" role="menuitem">Ouvidoria</a>
+            <a href="negocie-sua-divida.html" role="menuitem">Negocie sua dívida</a>
+            <a href="quero-ser-credenciado.html" role="menuitem">Quero me credenciar</a>
+          </div>
+        </div>
+      </nav>
+
+      <div class="header__cta">
+        <a href="#contato" class="btn btn--secondary btn--sm">Quero ser Klini</a>
+      </div>
+
+      <button class="header__mobile-toggle" id="mobileToggle" aria-label="Abrir menu" aria-expanded="false">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+  </header>
+
+  <!-- Mobile drawer -->
+  <div class="mobile-overlay" id="mobileOverlay"></div>
+  <aside class="mobile-drawer" id="mobileDrawer" role="dialog" aria-label="Menu de navegação">
+    <div class="mobile-drawer__header">
+      <img src="https://klinisaude.com.br/wp-content/uploads/2023/01/logo-header.webp" alt="Klini Saúde" height="32">
+      <button class="mobile-drawer__close" id="mobileClose" aria-label="Fechar menu">&times;</button>
+    </div>
+    <nav>
+      <div class="mobile-drawer__nav-group">
+        <div class="mobile-drawer__nav-group-title">A Klini</div>
+        <a href="https://klinisaude.com.br/sobre-nos/">Sobre nós</a>
+        <a href="https://klinisaude.com.br/sobre-nos/#centros-medicos">Nossas unidades</a>
+        <a href="trabalhe-conosco.html">Trabalhe conosco</a>
+      </div>
+      <div class="mobile-drawer__nav-group">
+        <div class="mobile-drawer__nav-group-title">Serviços</div>
+        <a href="https://klinisaude.com.br/token/">Token digital</a>
+        <a href="https://klinisaude.com.br/desconto-farmacia/">Desconto farmácia</a>
+        <a href="https://klinisaude.com.br/teleconsulta/">Teleconsulta</a>
+        <a href="https://klinisaude.com.br/rede-credenciada/">Busca de rede</a>
+        <a href="https://klinisaude.com.br/atualizacao-de-rede/">Atualização de rede</a>
+      </div>
+      <div class="mobile-drawer__nav-group">
+        <div class="mobile-drawer__nav-group-title">Planos</div>
+        <a href="planos.html">Ver todos os planos</a>
+      </div>
+      <div class="mobile-drawer__nav-group">
+        <div class="mobile-drawer__nav-group-title">Transparência</div>
+        <a href="https://klinisaude.com.br/portal-transparencia/">Portal da transparência</a>
+        <a href="politica-de-privacidade.html">Política de privacidade</a>
+        <a href="codigo-de-conduta.html">Código de conduta</a>
+        <a href="termo-uso.html">Termos de uso</a>
+        <a href="idss.html">IDSS</a>
+      </div>
+      <div class="mobile-drawer__nav-group">
+        <div class="mobile-drawer__nav-group-title">Atendimento</div>
+        <a href="ouvidoria.html">Ouvidoria</a>
+        <a href="negocie-sua-divida.html">Negocie sua dívida</a>
+        <a href="quero-ser-credenciado.html">Quero me credenciar</a>
+      </div>
+    </nav>
+    <div class="mobile-drawer__cta">
+      <a href="#contato" class="btn btn--primary">Quero ser Klini</a>
+      <div class="mobile-drawer__portals">
+        <a href="https://beneficiario.klinisaude.com.br/" target="_blank" rel="noopener">Beneficiário</a>
+        <a href="https://portalplano.klinisaude.com.br/" target="_blank" rel="noopener">Empresa</a>
+        <a href="https://portalplano.klinisaude.com.br/" target="_blank" rel="noopener">Prestador</a>
+        <a href="https://klinisaude.com.br/espaco-corretor/" target="_blank" rel="noopener">Corretor</a>
+      </div>
+    </div>
+  </aside>
+
+  <main>
+    <!-- ==========================================
+         HERO EDITORIAL
+         ========================================== -->
+    <section class="planos-hero">
+        <div class="planos-hero__shape"></div>
+        
+        <div class="container planos-hero__inner">
+            <div class="planos-hero__text reveal">
+                <span class="planos-hero__overline">Planos Klini</span>
+                <h1 class="planos-hero__title">Descubra o plano exato para o <em>seu momento</em> de vida</h1>
+                <p class="planos-hero__subtitle">Do atendimento ambulatorial cirúrgico à cobertura total premium. Explore nossa linha de planos e encontre a proteção ideal para você e sua família.</p>
+                
+                <div class="planos-hero__actions">
+                    <a href="#planos" class="btn btn--primary">Explorar linhas de planos</a>
+                    <a href="#contato" class="btn btn--outline btn--outline-accent">Solicitar cotação</a>
+                </div>
+            </div>
+            
+            <div class="planos-hero__visual reveal" aria-hidden="true">
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================================
+         PLANS EXPLORER — Tab-based plan showcase
+         ============================================================ -->
+    <section class="plans-explorer" id="planos" aria-label="Conheça nossos planos">
+      <div class="container">
+        <!-- Tab navigation -->
+        <nav class="plans-explorer__tabs" role="tablist" aria-label="Linhas de plano">
+          <button class="plans-explorer__tab plans-explorer__tab--active" role="tab" aria-selected="true" aria-controls="panel-ambulatorial" id="tab-ambulatorial">Ambulatorial</button>
+          <button class="plans-explorer__tab" role="tab" aria-selected="false" aria-controls="panel-200" id="tab-200">Klini 200</button>
+          <button class="plans-explorer__tab" role="tab" aria-selected="false" aria-controls="panel-350" id="tab-350">Klini 350</button>
+          <button class="plans-explorer__tab" role="tab" aria-selected="false" aria-controls="panel-400" id="tab-400">Klini 400</button>
+          <button class="plans-explorer__tab" role="tab" aria-selected="false" aria-controls="panel-600" id="tab-600">Klini 600</button>
+        </nav>
+
+        <!-- Panel: Ambulatorial -->
+        <div class="plans-explorer__panel plans-explorer__panel--active" role="tabpanel" id="panel-ambulatorial" aria-labelledby="tab-ambulatorial">
+          <div class="plans-explorer__grid">
+            <div class="plans-explorer__visual">
+              <img src="assets/img/planos/klini-ambulatorial.png" alt="Klini Ambulatorial - Plano acessível">
+            </div>
+            <div class="plans-explorer__text">
+              <span class="plans-explorer__badge">Linha Ambulatorial</span>
+              <h2 class="plans-explorer__title">Klini Ambulatorial</h2>
+              <p class="plans-explorer__desc">O seu plano acessível. Ideal para quem busca cobertura essencial com atendimento ágil, consultas e exames com uma rede de qualidade.</p>
+              <div class="plans-explorer__features">
+                <ul class="plans-explorer__list">
+                  <li><span class="plans-explorer__bullet"></span>Cobertura ambulatorial completa</li>
+                  <li><span class="plans-explorer__bullet"></span>Consultas e exames</li>
+                  <li><span class="plans-explorer__bullet"></span>Teleconsulta 24h</li>
+                  <li><span class="plans-explorer__bullet"></span>Desconto em farmácias</li>
+                </ul>
+              </div>
+              <a href="#contato" class="btn btn--primary">Solicitar cotação</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Panel: Klini 200 -->
+        <div class="plans-explorer__panel" role="tabpanel" id="panel-200" aria-labelledby="tab-200" hidden>
+          <div class="plans-explorer__grid">
+            <div class="plans-explorer__visual">
+              <img src="assets/img/planos/klini-200.png" alt="Klini 200 - A porta de entrada para sua saúde">
+            </div>
+            <div class="plans-explorer__text">
+              <span class="plans-explorer__badge">Klini 200</span>
+              <h2 class="plans-explorer__title">A entrada da linha completa</h2>
+              <p class="plans-explorer__desc">Cobertura ambulatorial e hospitalar com obstetrícia, rede regional acessível e todos os serviços essenciais. O Klini 200 é a porta de entrada para quem quer proteção ampla com custo equilibrado.</p>
+              <div class="plans-explorer__features">
+                <ul class="plans-explorer__list">
+                  <li><span class="plans-explorer__bullet"></span>Ambulatorial + hospitalar</li>
+                  <li><span class="plans-explorer__bullet"></span>Obstetrícia</li>
+                  <li><span class="plans-explorer__bullet"></span>Rede regional</li>
+                  <li><span class="plans-explorer__bullet"></span>Teleconsulta e desconto farmácia</li>
+                </ul>
+              </div>
+              <a href="#contato" class="btn btn--primary">Solicitar cotação</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Panel: Klini 350 -->
+        <div class="plans-explorer__panel" role="tabpanel" id="panel-350" aria-labelledby="tab-350" hidden>
+          <div class="plans-explorer__grid">
+            <div class="plans-explorer__visual">
+              <img src="assets/img/planos/klini-350.png" alt="Klini 350 - O plano que acompanha o crescimento">
+            </div>
+            <div class="plans-explorer__text">
+              <span class="plans-explorer__badge">Klini 350</span>
+              <h2 class="plans-explorer__title">Crescimento acompanhado</h2>
+              <p class="plans-explorer__desc">O plano que acompanha o crescimento do seu filho. Cobertura abrangente com acesso a uma rede mais ampla de hospitais e laboratórios, estruturado para cuidar da sua família.</p>
+              <div class="plans-explorer__features">
+                <ul class="plans-explorer__list">
+                  <li><span class="plans-explorer__bullet"></span>Ampla rede credenciada</li>
+                  <li><span class="plans-explorer__bullet"></span>Hospitais e laboratórios de referência</li>
+                  <li><span class="plans-explorer__bullet"></span>Cobertura obstétrica completa</li>
+                  <li><span class="plans-explorer__bullet"></span>Telemedicina especializada</li>
+                </ul>
+              </div>
+              <a href="#contato" class="btn btn--primary">Solicitar cotação</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Panel: Klini 400 -->
+        <div class="plans-explorer__panel" role="tabpanel" id="panel-400" aria-labelledby="tab-400" hidden>
+          <div class="plans-explorer__grid">
+            <div class="plans-explorer__visual">
+              <img src="assets/img/planos/klini-400.png" alt="Klini 400 - Mais escolhas, mais cuidado">
+            </div>
+            <div class="plans-explorer__text">
+              <span class="plans-explorer__badge plans-explorer__badge--accent">Mais escolhido</span>
+              <h2 class="plans-explorer__title">O equilíbrio ideal</h2>
+              <p class="plans-explorer__desc">Rede ampliada com Linhas de Cuidados para acompanhamento completo. Mais escolhas e mais cuidado com a melhor relação custo-benefício para sua proteção.</p>
+              <div class="plans-explorer__features">
+                <ul class="plans-explorer__list">
+                  <li><span class="plans-explorer__bullet"></span>Ambulatorial + hospitalar</li>
+                  <li><span class="plans-explorer__bullet"></span>Obstetrícia</li>
+                  <li><span class="plans-explorer__bullet"></span>Rede ampliada premium</li>
+                  <li><span class="plans-explorer__bullet"></span>Linhas de Cuidados (LCA)</li>
+                </ul>
+              </div>
+              <a href="#contato" class="btn btn--primary">Solicitar cotação</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Panel: Klini 600 -->
+        <div class="plans-explorer__panel" role="tabpanel" id="panel-600" aria-labelledby="tab-600" hidden>
+          <div class="plans-explorer__grid">
+            <div class="plans-explorer__visual">
+              <img src="assets/img/planos/klini-600.png" alt="Klini 600 - Cobertura total">
+            </div>
+            <div class="plans-explorer__text">
+              <span class="plans-explorer__badge plans-explorer__badge--dark">Mais completo</span>
+              <h2 class="plans-explorer__title">O mais completo da Klini</h2>
+              <p class="plans-explorer__desc">Cobertura total, tranquilidade completa. O Klini 600 é para quem não abre mão de nada — o máximo de conforto com acesso à rede médica mais renomada e ampla da região.</p>
+              <div class="plans-explorer__features">
+                <ul class="plans-explorer__list">
+                  <li><span class="plans-explorer__bullet"></span>Hospitais de excelência</li>
+                  <li><span class="plans-explorer__bullet"></span>Alto valor de reembolso</li>
+                  <li><span class="plans-explorer__bullet"></span>Maior rede credenciada</li>
+                  <li><span class="plans-explorer__bullet"></span>Linhas de Cuidados (LCA) ao extremo</li>
+                </ul>
+              </div>
+              <a href="#contato" class="btn btn--primary">Solicitar cotação</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         COMPARISON TABLE
+         ============================================================ -->
+    <section class="plans-compare" id="comparativo" aria-label="Comparativo de planos">
+      <div class="container">
+        <div class="plans-compare__header reveal">
+          <span class="section-label">Comparativo</span>
+          <h2 class="section-title">Compare os planos Klini</h2>
+          <p class="section-subtitle">Veja lado a lado as principais características de cada plano e escolha o que faz mais sentido para você.</p>
+        </div>
+
+        <div class="plans-compare__table-wrap reveal">
+          <div class="plans-compare__scroll">
+            <table class="plans-compare__table" aria-label="Tabela comparativa de planos">
+              <thead>
+                <tr>
+                  <th class="plans-compare__feature-col">Característica</th>
+                  <th>Ambulatorial</th>
+                  <th>Rede Casa Hospitalar</th>
+                  <th>Klini 200</th>
+                  <th class="plans-compare__highlight">Klini 400</th>
+                  <th>Klini 600</th>
+                  <th>Senior</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td class="plans-compare__feature-name">Cobertura ambulatorial</td>
+                  <td><span class="compare-check" aria-label="Sim">&#10003;</span></td>
+                  <td><span class="compare-dash" aria-label="Não">—</span></td>
+                  <td><span class="compare-check" aria-label="Sim">&#10003;</span></td>
+                  <td class="plans-compare__highlight"><span class="compare-check" aria-label="Sim">&#10003;</span></td>
+                  <td><span class="compare-check" aria-label="Sim">&#10003;</span></td>
+                  <td><span class="compare-check" aria-label="Sim">&#10003;</span></td>
+                </tr>
+                <tr>
+                  <td class="plans-compare__feature-name">Cobertura hospitalar</td>
+                  <td><span class="compare-dash" aria-label="Não">—</span></td>
+                  <td><span class="compare-check" aria-label="Sim">&#10003;</span></td>
+                  <td><span class="compare-check" aria-label="Sim">&#10003;</span></td>
+                  <td class="plans-compare__highlight"><span class="compare-check" aria-label="Sim">&#10003;</span></td>
+                  <td><span class="compare-check" aria-label="Sim">&#10003;</span></td>
+                  <td><span class="compare-check" aria-label="Sim">&#10003;</span></td>
+                </tr>
+                <tr>
+                  <td class="plans-compare__feature-name">Obstetrícia</td>
+                  <td><span class="compare-dash" aria-label="Não">—</span></td>
+                  <td><span class="compare-check" aria-label="Sim">&#10003;</span></td>
+                  <td><span class="compare-check" aria-label="Sim">&#10003;</span></td>
+                  <td class="plans-compare__highlight"><span class="compare-check" aria-label="Sim">&#10003;</span></td>
+                  <td><span class="compare-check" aria-label="Sim">&#10003;</span></td>
+                  <td><span class="compare-dash" aria-label="Não">—</span></td>
+                </tr>
+                <tr>
+                  <td class="plans-compare__feature-name">Teleconsulta</td>
+                  <td><span class="compare-check" aria-label="Sim">&#10003;</span></td>
+                  <td><span class="compare-check" aria-label="Sim">&#10003;</span></td>
+                  <td><span class="compare-check" aria-label="Sim">&#10003;</span></td>
+                  <td class="plans-compare__highlight"><span class="compare-check" aria-label="Sim">&#10003;</span></td>
+                  <td><span class="compare-check" aria-label="Sim">&#10003;</span></td>
+                  <td><span class="compare-check" aria-label="Sim">&#10003;</span></td>
+                </tr>
+                <tr>
+                  <td class="plans-compare__feature-name">Desconto farmácia</td>
+                  <td><span class="compare-check" aria-label="Sim">&#10003;</span></td>
+                  <td><span class="compare-check" aria-label="Sim">&#10003;</span></td>
+                  <td><span class="compare-check" aria-label="Sim">&#10003;</span></td>
+                  <td class="plans-compare__highlight"><span class="compare-check" aria-label="Sim">&#10003;</span></td>
+                  <td><span class="compare-check" aria-label="Sim">&#10003;</span></td>
+                  <td><span class="compare-check" aria-label="Sim">&#10003;</span></td>
+                </tr>
+                <tr>
+                  <td class="plans-compare__feature-name">Linhas de Cuidados (LCA)</td>
+                  <td><span class="compare-dash" aria-label="Não">—</span></td>
+                  <td><span class="compare-check" aria-label="Sim">&#10003;</span></td>
+                  <td><span class="compare-check" aria-label="Sim">&#10003;</span></td>
+                  <td class="plans-compare__highlight"><span class="compare-check" aria-label="Sim">&#10003;</span></td>
+                  <td><span class="compare-check" aria-label="Sim">&#10003;</span></td>
+                  <td><span class="compare-check" aria-label="Sim">&#10003;</span></td>
+                </tr>
+                <tr>
+                  <td class="plans-compare__feature-name">Abrangência de rede</td>
+                  <td>Regional</td>
+                  <td>Regional</td>
+                  <td>Regional</td>
+                  <td class="plans-compare__highlight"><strong>Ampliada</strong></td>
+                  <td><strong>Maior rede</strong></td>
+                  <td>Regional</td>
+                </tr>
+                <tr>
+                  <td class="plans-compare__feature-name">Central exclusiva</td>
+                  <td><span class="compare-dash" aria-label="Não">—</span></td>
+                  <td><span class="compare-dash" aria-label="Não">—</span></td>
+                  <td><span class="compare-dash" aria-label="Não">—</span></td>
+                  <td class="plans-compare__highlight"><span class="compare-dash" aria-label="Não">—</span></td>
+                  <td><span class="compare-dash" aria-label="Não">—</span></td>
+                  <td><span class="compare-check" aria-label="Sim">&#10003;</span></td>
+                </tr>
+                <tr>
+                  <td class="plans-compare__feature-name">Perfil indicado</td>
+                  <td>Uso básico</td>
+                  <td>Uso hospitalar</td>
+                  <td>Famílias</td>
+                  <td class="plans-compare__highlight"><strong>Mais versátil</strong></td>
+                  <td>Cobertura máxima</td>
+                  <td>Público 60+</td>
+                </tr>
+              </tbody>
+              <tfoot>
+                <tr>
+                  <td></td>
+                  <td><a href="#contato" class="btn btn--outline btn--xs">Contratar</a></td>
+                  <td><a href="#contato" class="btn btn--outline btn--xs">Contratar</a></td>
+                  <td><a href="#contato" class="btn btn--outline btn--xs">Contratar</a></td>
+                  <td class="plans-compare__highlight"><a href="#contato" class="btn btn--secondary btn--xs">Contratar</a></td>
+                  <td><a href="#contato" class="btn btn--outline btn--xs">Contratar</a></td>
+                  <td><a href="#contato" class="btn btn--outline btn--xs">Contratar</a></td>
+                </tr>
+              </tfoot>
+            </table>
+          </div>
+          <div class="plans-compare__scroll-hint" aria-hidden="true">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg>
+            Deslize para ver mais planos
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         PROFILE MATCH — "Qual plano é melhor para você?"
+         ============================================================ -->
+    <section class="plans-profile" aria-label="Qual plano é ideal para você">
+      <div class="container">
+        <div class="plans-profile__header reveal">
+          <span class="section-label">Encontre o ideal</span>
+          <h2 class="section-title">Qual plano combina com você?</h2>
+          <p class="section-subtitle">Cada pessoa tem uma necessidade diferente. Veja qual perfil mais se parece com o seu.</p>
+        </div>
+
+        <div class="plans-profile__grid">
+          <div class="plans-profile__card reveal">
+            <div class="plans-profile__icon plans-profile__icon--teal">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="10"/><path d="M8 14s1.5 2 4 2 4-2 4-2"/><line x1="9" y1="9" x2="9.01" y2="9"/><line x1="15" y1="9" x2="15.01" y2="9"/></svg>
+            </div>
+            <h3>Busco uma opção acessível</h3>
+            <p>Para quem quer cuidado essencial com consultas e exames, sem abrir mão da qualidade.</p>
+            <span class="plans-profile__recommend">Indicado: <strong>Ambulatorial</strong> ou <strong>Klini 200</strong></span>
+            <a href="#contato" class="plans-profile__link">
+              Solicitar contato
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+            </a>
+          </div>
+
+          <div class="plans-profile__card reveal">
+            <div class="plans-profile__icon plans-profile__icon--accent">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+            </div>
+            <h3>Tenho família e quero mais cobertura</h3>
+            <p>Para quem precisa de ambulatorial e hospitalar com obstetrícia, cobrindo toda a família.</p>
+            <span class="plans-profile__recommend">Indicado: <strong>Klini 400</strong> ou <strong>Klini 600</strong></span>
+            <a href="#contato" class="plans-profile__link">
+              Solicitar contato
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+            </a>
+          </div>
+
+          <div class="plans-profile__card reveal">
+            <div class="plans-profile__icon plans-profile__icon--coral">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+            </div>
+            <h3>Priorizo uso hospitalar</h3>
+            <p>Para quem busca segurança em internações e procedimentos, com cobertura hospitalar dedicada.</p>
+            <span class="plans-profile__recommend">Indicado: <strong>Rede Casa Hospitalar</strong></span>
+            <a href="#contato" class="plans-profile__link">
+              Solicitar contato
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+            </a>
+          </div>
+
+          <div class="plans-profile__card reveal">
+            <div class="plans-profile__icon plans-profile__icon--support">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+            </div>
+            <h3>Tenho mais de 60 anos</h3>
+            <p>Para quem busca um plano com atendimento diferenciado e central exclusiva para o público sênior.</p>
+            <span class="plans-profile__recommend">Indicado: <strong>Klini Senior</strong></span>
+            <a href="#contato" class="plans-profile__link">
+              Solicitar contato
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         DIFFERENTIALS
+         ============================================================ -->
+    <section class="pd" aria-label="Diferenciais Klini">
+      <div class="container">
+        <div class="pd__header reveal">
+          <span class="section-label">Por que Klini</span>
+          <h2 class="section-title">Muito mais que um plano de saúde</h2>
+        </div>
+
+        <div class="pd__grid">
+          <article class="pd__card reveal">
+            <div class="pd__icon pd__icon--teal">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+            </div>
+            <h3 class="pd__title">Teleconsulta 24h</h3>
+            <p class="pd__desc">Consultas online em diversas especialidades, sem sair de casa. Disponível em todos os planos Klini.</p>
+          </article>
+
+          <article class="pd__card reveal">
+            <div class="pd__icon pd__icon--accent">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M9 20l-5.447-2.724A1 1 0 0 1 3 16.382V5.618a1 1 0 0 1 1.447-.894L9 7"/><path d="M15 4l5.447 2.724A1 1 0 0 1 21 7.618v10.764a1 1 0 0 1-1.447.894L15 17"/><line x1="9" y1="4" x2="9" y2="20"/><line x1="15" y1="4" x2="15" y2="20"/></svg>
+            </div>
+            <h3 class="pd__title">Desconto em farmácias</h3>
+            <p class="pd__desc">Rede conveniada com descontos reais em medicamentos para todos os beneficiários.</p>
+          </article>
+
+          <article class="pd__card reveal">
+            <div class="pd__icon pd__icon--coral">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+            </div>
+            <h3 class="pd__title">Medicina preventiva</h3>
+            <p class="pd__desc">Programas de acompanhamento e promoção de saúde com o Núcleo de Medicina Preventiva.</p>
+          </article>
+
+          <article class="pd__card reveal">
+            <div class="pd__icon pd__icon--primary">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+            </div>
+            <h3 class="pd__title">Rede credenciada de qualidade</h3>
+            <p class="pd__desc">Médicos, clínicas, hospitais e laboratórios de referência na sua região.</p>
+          </article>
+
+          <article class="pd__card reveal">
+            <div class="pd__icon pd__icon--support">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+            </div>
+            <h3 class="pd__title">Atendimento humanizado</h3>
+            <p class="pd__desc">SAC 24h, WhatsApp, ouvidoria e canais exclusivos para deficiente auditivo.</p>
+          </article>
+
+          <article class="pd__card reveal">
+            <div class="pd__icon pd__icon--teal">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="5" y="2" width="14" height="20" rx="2" ry="2"/><line x1="12" y1="18" x2="12.01" y2="18"/></svg>
+            </div>
+            <h3 class="pd__title">Experiência digital</h3>
+            <p class="pd__desc">Carteirinha digital, token, agendamentos e busca de rede — tudo na palma da mão.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         SERVICES CTA
+         ============================================================ -->
+    <section class="plans-services" aria-label="Serviços complementares">
+      <div class="container">
+        <div class="plans-services__inner reveal">
+          <div class="plans-services__text">
+            <h2>Explore todos os serviços Klini</h2>
+            <p>Além dos planos, a Klini oferece um ecossistema completo de serviços digitais para facilitar o seu dia a dia.</p>
+          </div>
+          <div class="plans-services__links">
+            <a href="https://klinisaude.com.br/rede-credenciada/" class="plans-services__link">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+              Busca de Rede
+            </a>
+            <a href="https://klinisaude.com.br/teleconsulta/" class="plans-services__link">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+              Teleconsulta
+            </a>
+            <a href="https://klinisaude.com.br/desconto-farmacia/" class="plans-services__link">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 20l-5.447-2.724A1 1 0 0 1 3 16.382V5.618a1 1 0 0 1 1.447-.894L9 7"/><path d="M15 4l5.447 2.724A1 1 0 0 1 21 7.618v10.764a1 1 0 0 1-1.447.894L15 17"/><line x1="9" y1="4" x2="9" y2="20"/><line x1="15" y1="4" x2="15" y2="20"/></svg>
+              Desconto farmácia
+            </a>
+            <a href="https://klinisaude.com.br/token/" class="plans-services__link">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+              Token digital
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         CONVERSION — Contact Form
+         ============================================================ -->
+    <section class="plans-conversion" id="contato" aria-label="Solicitar contato">
+      <div class="container">
+        <div class="plans-conversion__grid">
+          <div class="plans-conversion__content reveal">
+            <span class="section-label section-label--light">Fale conosco</span>
+            <h2 class="plans-conversion__title">Pronto para ser <span>Klini</span>?</h2>
+            <p class="plans-conversion__desc">
+              Preencha o formulário e nossa equipe entra em contato para ajudar você a encontrar o plano ideal. Sem compromisso.
+            </p>
+            <div class="plans-conversion__channels">
+              <div class="plans-conversion__channel">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>
+                <div>
+                  <strong>WhatsApp</strong>
+                  <span>(21) 3055-0790</span>
+                </div>
+              </div>
+              <div class="plans-conversion__channel">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+                <div>
+                  <strong>SAC</strong>
+                  <span>0800 021 0320</span>
+                </div>
+              </div>
+            </div>
+            <a href="https://wa.me/552130550790" target="_blank" rel="noopener" class="btn btn--ghost-light btn--icon-right" style="margin-top: var(--klini-space-24);">
+              Falar no WhatsApp
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+            </a>
+          </div>
+
+          <div class="plans-conversion__form-wrap reveal">
+            <form class="plans-conversion__form" id="plansForm" novalidate>
+              <h3>Solicitar contato</h3>
+              <div class="form-group">
+                <label for="formName">Nome completo</label>
+                <input type="text" id="formName" name="name" placeholder="Seu nome" required autocomplete="name">
+              </div>
+              <div class="form-group">
+                <label for="formPhone">WhatsApp</label>
+                <input type="tel" id="formPhone" name="phone" placeholder="(00) 00000-0000" required autocomplete="tel">
+              </div>
+              <div class="form-group">
+                <label for="formEmail">E-mail</label>
+                <input type="email" id="formEmail" name="email" placeholder="seu@email.com" required autocomplete="email">
+              </div>
+              <div class="form-group">
+                <label for="formPlan">Plano de interesse</label>
+                <select id="formPlan" name="plan">
+                  <option value="">Selecione um plano</option>
+                  <option value="ambulatorial">Klini Ambulatorial</option>
+                  <option value="hospitalar">Klini Rede Casa Hospitalar</option>
+                  <option value="200">Klini 200</option>
+                  <option value="400">Klini 400</option>
+                  <option value="600">Klini 600</option>
+                  <option value="senior">Klini Senior</option>
+                  <option value="nao-sei">Ainda não sei</option>
+                </select>
+              </div>
+              <button type="submit" class="btn btn--secondary btn--full">Quero ser Klini</button>
+              <p class="form-disclaimer">Ao enviar, você concorda com nossa <a href="politica-de-privacidade.html" target="_blank" rel="noopener">Política de Privacidade</a>.</p>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         FAQ
+         ============================================================ -->
+    <section class="plans-faq" id="faq" aria-label="Perguntas frequentes">
+      <div class="container">
+        <div class="plans-faq__header reveal">
+          <span class="section-label">Dúvidas</span>
+          <h2 class="section-title">Perguntas frequentes</h2>
+        </div>
+
+        <div class="plans-faq__list">
+          <details class="faq-item reveal">
+            <summary class="faq-item__question">
+              Como escolher o plano ideal para mim?
+              <svg class="faq-item__icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+            </summary>
+            <div class="faq-item__answer">
+              <p>Considere seu perfil de uso: se precisa apenas de consultas e exames, um plano ambulatorial pode ser suficiente. Se busca cobertura para internações e cirurgias, opte por um plano hospitalar ou completo. A Klini tem planos para diferentes necessidades — e nossa equipe pode ajudar você a escolher.</p>
+            </div>
+          </details>
+
+          <details class="faq-item reveal">
+            <summary class="faq-item__question">
+              Qual a diferença entre os planos 200, 400 e 600?
+              <svg class="faq-item__icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+            </summary>
+            <div class="faq-item__answer">
+              <p>Todos os três incluem cobertura ambulatorial e hospitalar com obstetrícia. A principal diferença está na abrangência da rede credenciada: o Klini 200 oferece rede regional, o Klini 400 tem rede ampliada e o Klini 600 conta com a maior rede disponível.</p>
+            </div>
+          </details>
+
+          <details class="faq-item reveal">
+            <summary class="faq-item__question">
+              Como consultar a rede credenciada do meu plano?
+              <svg class="faq-item__icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+            </summary>
+            <div class="faq-item__answer">
+              <p>Você pode consultar a rede credenciada diretamente pelo site, na página de <a href="https://klinisaude.com.br/rede-credenciada/">Busca de Rede</a>, ou pelo aplicativo Klini Saúde, disponível para iOS e Android.</p>
+            </div>
+          </details>
+
+          <details class="faq-item reveal">
+            <summary class="faq-item__question">
+              Como contratar um plano Klini?
+              <svg class="faq-item__icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+            </summary>
+            <div class="faq-item__answer">
+              <p>Você pode solicitar contato pelo formulário nesta página, pelo WhatsApp (21) 3055-0790 ou pelo SAC 0800 021 0320. Nossa equipe comercial vai ajudar com todas as informações e condições.</p>
+            </div>
+          </details>
+
+          <details class="faq-item reveal">
+            <summary class="faq-item__question">
+              A Klini oferece teleconsulta?
+              <svg class="faq-item__icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+            </summary>
+            <div class="faq-item__answer">
+              <p>Sim. Todos os planos Klini incluem atendimento por teleconsulta, com consultas online disponíveis 24 horas em diversas especialidades médicas.</p>
+            </div>
+          </details>
+
+          <details class="faq-item reveal">
+            <summary class="faq-item__question">
+              Existe plano especial para idosos?
+              <svg class="faq-item__icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+            </summary>
+            <div class="faq-item__answer">
+              <p>Sim. O Klini Senior foi pensado especialmente para o público com 60 anos ou mais, com central de atendimento exclusiva e cuidado diferenciado para esse perfil.</p>
+            </div>
+          </details>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ============================================================
+       FOOTER
+       ============================================================ -->
+  <footer class="footer" role="contentinfo">
+    <div class="container">
+      <div class="footer__grid">
+        <div class="footer__brand">
+          <img src="https://klinisaude.com.br/wp-content/uploads/2023/01/logo-header.webp" alt="Klini Saúde" loading="lazy">
+          <p>
+            Klini Planos de Saúde Ltda.<br>
+            CNPJ: 34.539.000/0001-86<br>
+            Av. das Américas, 3200<br>
+            Barra da Tijuca – Rio de Janeiro, RJ
+          </p>
+          <div class="footer__social">
+            <a href="https://www.instagram.com/klinisaude/" target="_blank" rel="noopener" aria-label="Instagram">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+            </a>
+            <a href="https://www.facebook.com/klinisaudematriz" target="_blank" rel="noopener" aria-label="Facebook">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+            </a>
+            <a href="https://br.linkedin.com/company/klinisaude" target="_blank" rel="noopener" aria-label="LinkedIn">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+            </a>
+            <a href="https://www.youtube.com/@KliniSaude" target="_blank" rel="noopener" aria-label="YouTube">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33A2.78 2.78 0 0 0 3.4 19.1c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2 29 29 0 0 0 .46-5.25 29 29 0 0 0-.46-5.43z"/><polygon points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02"/></svg>
+            </a>
+          </div>
+        </div>
+
+        <div class="footer__col">
+          <h4>A Klini</h4>
+          <ul>
+            <li><a href="https://klinisaude.com.br/sobre-nos/">Sobre nós</a></li>
+            <li><a href="https://klinisaude.com.br/sobre-nos/#centros-medicos">Nossas unidades</a></li>
+            <li><a href="trabalhe-conosco.html">Trabalhe conosco</a></li>
+            <li><a href="planos.html">Nossos planos</a></li>
+          </ul>
+        </div>
+
+        <div class="footer__col">
+          <h4>Serviços</h4>
+          <ul>
+            <li><a href="https://klinisaude.com.br/token/">Token digital</a></li>
+            <li><a href="https://klinisaude.com.br/teleconsulta/">Teleconsulta</a></li>
+            <li><a href="https://klinisaude.com.br/desconto-farmacia/">Desconto farmácia</a></li>
+            <li><a href="https://klinisaude.com.br/rede-credenciada/">Busca de rede</a></li>
+            <li><a href="https://klinisaude.com.br/atualizacao-de-rede/">Atualização de rede</a></li>
+          </ul>
+        </div>
+
+        <div class="footer__col">
+          <h4>Atendimento</h4>
+          <ul>
+            <li><a href="ouvidoria.html">Ouvidoria</a></li>
+            <li><a href="negocie-sua-divida.html">Negocie sua dívida</a></li>
+            <li><a href="quero-ser-credenciado.html">Quero me credenciar</a></li>
+            <li><a href="https://wa.me/552130550790" target="_blank" rel="noopener">WhatsApp</a></li>
+            <li><a href="tel:08000210320">SAC: 0800 021 0320</a></li>
+          </ul>
+        </div>
+
+        <div class="footer__col">
+          <h4>Transparência</h4>
+          <ul>
+            <li><a href="https://klinisaude.com.br/portal-transparencia/">Portal da transparência</a></li>
+            <li><a href="politica-de-privacidade.html">Política de privacidade</a></li>
+            <li><a href="codigo-de-conduta.html">Código de conduta</a></li>
+            <li><a href="termo-uso.html">Termos de uso</a></li>
+            <li><a href="idss.html">IDSS</a></li>
+          </ul>
+          <div class="footer__apps">
+            <a href="https://apps.apple.com/br/app/klini-saude/id6447484649" target="_blank" rel="noopener">
+              <img src="https://klinisaude.com.br/wp-content/uploads/2023/12/1689885951botao_app-store.png" alt="App Store" loading="lazy">
+            </a>
+            <a href="https://play.google.com/store/apps/details?id=br.com.klinisaude.klini_app&hl=pt_BR&gl=US" target="_blank" rel="noopener">
+              <img src="https://klinisaude.com.br/wp-content/uploads/2023/12/1689885814botao_google-play.png" alt="Google Play" loading="lazy">
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer__bottom">
+        <p>&copy; 2020–2026 Klini Saúde — Todos os direitos reservados.</p>
+        <div class="footer__bottom-badges">
+          <img src="https://klinisaude.com.br/wp-content/uploads/2023/02/ans.png" alt="ANS" loading="lazy">
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="assets/js/main.js"></script>
+  <script src="assets/js/planos.js"></script>
+</body>
+</html>

@@ -1,0 +1,1209 @@
+/* ==========================================================================
+   SOBRE NÓS - ESTILO EDITORIAL
+   Aplicando regras do klini-system-design.md
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   1. HERO INSTITUCIONAL
+   -------------------------------------------------------------------------- */
+.sb-hero {
+  position: relative;
+  padding: 120px 0 80px;
+  background-color: var(--klini-surface-subtle);
+  overflow: hidden;
+}
+
+.sb-hero::before {
+  content: "";
+  position: absolute;
+  top: -20%;
+  right: -10%;
+  width: 60%;
+  height: 140%;
+  background: radial-gradient(circle at center, var(--klini-primary-100) 0%, transparent 70%);
+  opacity: 0.6;
+  z-index: 0;
+  border-radius: 50%;
+  pointer-events: none;
+}
+
+.sb-hero__inner {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 48px;
+  align-items: center;
+}
+
+@media (min-width: 992px) {
+  .sb-hero__inner {
+    grid-template-columns: 1.2fr 0.8fr;
+    gap: 80px;
+  }
+}
+
+.sb-hero__overline {
+  display: inline-block;
+  font-family: var(--klini-font-display);
+  font-weight: 700;
+  font-size: 0.875rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--klini-primary-500);
+  margin-bottom: 24px;
+}
+
+.sb-hero__title {
+  font-family: var(--klini-font-display);
+  font-size: clamp(3rem, 5vw, 4.5rem);
+  font-weight: 700;
+  line-height: 1.05;
+  color: var(--klini-text-strong);
+  margin-bottom: 32px;
+  letter-spacing: -0.02em;
+}
+
+.sb-hero__title em {
+  font-style: normal;
+  color: var(--klini-primary-500);
+}
+
+.sb-hero__subtitle {
+  font-family: var(--klini-font-body);
+  font-size: 1.25rem;
+  line-height: 1.6;
+  color: var(--klini-text-muted);
+  max-width: 600px;
+  margin-bottom: 40px;
+}
+
+.sb-hero__actions {
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.sb-hero__stat-cards {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.sb-stat-card {
+  background: var(--klini-surface-page);
+  padding: 32px;
+  border-radius: var(--klini-radius-lg);
+  box-shadow: var(--klini-shadow-sm);
+  display: flex;
+  align-items: flex-start;
+  gap: 20px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.sb-stat-card:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--klini-shadow-md);
+}
+
+.sb-stat-card__icon {
+  width: 48px;
+  height: 48px;
+  background: var(--klini-primary-100);
+  color: var(--klini-primary-500);
+  border-radius: var(--klini-radius-sm);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.sb-stat-card__content {
+  display: flex;
+  flex-direction: column;
+}
+
+.sb-stat-card__num {
+  font-family: var(--klini-font-display);
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--klini-text-strong);
+  line-height: 1;
+  margin-bottom: 8px;
+}
+
+.sb-stat-card__desc {
+  font-family: var(--klini-font-body);
+  font-size: 0.9375rem;
+  color: var(--klini-text-muted);
+  line-height: 1.5;
+}
+
+
+/* --------------------------------------------------------------------------
+   2. VIDEO SPLIT (Used for Estrutura and Rede Casa)
+   -------------------------------------------------------------------------- */
+.sb-video-split {
+  padding: 100px 0;
+  background: var(--klini-surface-page);
+  overflow: hidden;
+}
+
+.sb-video-split__inner {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 64px;
+  align-items: center;
+  max-width: var(--klini-content-wide);
+  margin: 0 auto;
+  padding: 0 var(--klini-space-24);
+}
+
+@media (min-width: 992px) {
+  .sb-video-split__inner {
+    grid-template-columns: 1fr 1fr;
+    gap: 100px;
+    padding: 0 var(--klini-space-40);
+  }
+  
+  .sb-video-split--reverse .sb-video-split__media {
+    order: -1;
+  }
+}
+
+.sb-video-split__content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.sb-video-split__media {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  z-index: 1;
+}
+
+.sb-video-split__media::after {
+  content: "";
+  position: absolute;
+  inset: -20px 20px 20px -20px;
+  background: var(--klini-surface-brand-soft);
+  border-radius: var(--klini-radius-xl);
+  z-index: -1;
+}
+
+.sb-video-split--reverse .sb-video-split__media::after {
+  inset: -20px -20px 20px 20px;
+  background: var(--klini-surface-accent-soft);
+}
+
+.sb-video-split__media video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: var(--klini-radius-xl);
+  z-index: 2;
+  box-shadow: var(--klini-shadow-lg);
+}
+
+.sb-video-split__overline {
+  font-family: var(--klini-font-display);
+  font-size: 0.875rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--klini-primary-500);
+  margin-bottom: 24px;
+  display: block;
+}
+
+.sb-video-split--reverse .sb-video-split__overline {
+  color: var(--klini-accent-500);
+}
+
+.sb-video-split__title {
+  font-family: var(--klini-font-display);
+  font-size: clamp(2.5rem, 4vw, 3.5rem);
+  font-weight: 700;
+  color: var(--klini-text-strong);
+  line-height: 1.1;
+  margin-bottom: 32px;
+  letter-spacing: -0.02em;
+}
+
+.sb-video-split__body {
+  font-family: var(--klini-font-body);
+  font-size: 1.125rem;
+  line-height: 1.7;
+  color: var(--klini-text-muted);
+  margin-bottom: 24px;
+}
+
+.sb-video-split__quote {
+  font-family: var(--klini-font-body);
+  font-size: 1.5rem;
+  font-style: italic;
+  color: var(--klini-primary-500);
+  border-left: 4px solid var(--klini-primary-500);
+  padding-left: 24px;
+  margin: 40px 0;
+  line-height: 1.4;
+}
+
+.sb-video-split--reverse .sb-video-split__quote {
+  color: var(--klini-accent-500);
+  border-left-color: var(--klini-accent-500);
+}
+
+.sb-video-split__list {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 40px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.sb-video-split__list li {
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+  font-family: var(--klini-font-body);
+  font-size: 1rem;
+  color: var(--klini-text-strong);
+  line-height: 1.5;
+}
+
+.sb-video-split__list-icon {
+  color: var(--klini-primary-500);
+  flex-shrink: 0;
+  width: 24px;
+  height: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--klini-surface-brand-soft);
+  border-radius: 50%;
+}
+
+.sb-video-split--reverse .sb-video-split__list-icon {
+  color: var(--klini-accent-500);
+  background: var(--klini-surface-accent-soft);
+}
+
+
+/* --------------------------------------------------------------------------
+   3. NOSSA ESSÊNCIA
+   -------------------------------------------------------------------------- */
+.sb-essence {
+  padding: 120px 0;
+  background: var(--klini-surface-page);
+}
+
+.sb-essence__header {
+  text-align: center;
+  max-width: 700px;
+  margin: 0 auto 64px;
+}
+
+.sb-essence__overline {
+  font-family: var(--klini-font-display);
+  font-weight: 700;
+  font-size: 0.875rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--klini-primary-500);
+  margin-bottom: 16px;
+  display: block;
+}
+
+.sb-essence__title {
+  font-family: var(--klini-font-display);
+  font-size: clamp(2rem, 3.5vw, 3rem);
+  font-weight: 700;
+  color: var(--klini-text-strong);
+  line-height: 1.1;
+  letter-spacing: -0.01em;
+}
+
+.sb-essence__grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 32px;
+}
+
+@media (min-width: 768px) {
+  .sb-essence__grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.sb-essence__card {
+  background: var(--klini-surface-subtle);
+  padding: 48px 32px;
+  border-radius: var(--klini-radius-lg);
+  transition: transform 0.3s ease, background 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.sb-essence__card:hover {
+  transform: translateY(-8px);
+  background: var(--klini-surface-page);
+  box-shadow: var(--klini-shadow-md);
+}
+
+.sb-essence__card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 4px;
+  background: var(--klini-primary-500);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.4s ease;
+}
+
+.sb-essence__card:hover::before {
+  transform: scaleX(1);
+}
+
+.sb-essence__card--visao::before { background: var(--klini-accent-500); }
+.sb-essence__card--valores::before { background: var(--klini-coral-500); }
+
+.sb-essence__icon {
+  width: 56px;
+  height: 56px;
+  background: var(--klini-surface-page);
+  border-radius: var(--klini-radius-sm);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--klini-primary-500);
+  margin-bottom: 32px;
+  box-shadow: var(--klini-shadow-sm);
+}
+
+.sb-essence__card--visao .sb-essence__icon { color: var(--klini-accent-500); }
+.sb-essence__card--valores .sb-essence__icon { color: var(--klini-coral-500); }
+
+.sb-essence__kicker {
+  font-family: var(--klini-font-display);
+  font-size: 0.8125rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--klini-text-muted);
+  margin-bottom: 12px;
+  display: block;
+}
+
+.sb-essence__heading {
+  font-family: var(--klini-font-display);
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--klini-text-strong);
+  margin-bottom: 20px;
+  line-height: 1.2;
+}
+
+.sb-essence__body {
+  font-family: var(--klini-font-body);
+  font-size: 1rem;
+  color: var(--klini-text-muted);
+  line-height: 1.7;
+}
+
+
+/* --------------------------------------------------------------------------
+   4. UNIDADES (Reestilizado)
+   -------------------------------------------------------------------------- */
+.sb-units {
+  padding: 120px 0;
+  background: var(--klini-surface-subtle);
+}
+
+.sb-units__header {
+  text-align: center;
+  max-width: 800px;
+  margin: 0 auto 64px;
+}
+
+.sb-units__overline {
+  font-family: var(--klini-font-display);
+  font-size: 0.875rem;
+  font-weight: 700;
+  color: var(--klini-primary-500);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  margin-bottom: 16px;
+  display: block;
+}
+
+.sb-units__title {
+  font-family: var(--klini-font-display);
+  font-size: clamp(2.5rem, 4vw, 3.5rem);
+  font-weight: 700;
+  color: var(--klini-text-strong);
+  line-height: 1.1;
+  margin-bottom: 24px;
+  letter-spacing: -0.02em;
+}
+
+.sb-units__subtitle {
+  font-family: var(--klini-font-body);
+  font-size: 1.125rem;
+  color: var(--klini-text-muted);
+  line-height: 1.6;
+}
+
+/* Tabs */
+.sb-units__tabs {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  margin-bottom: 48px;
+  flex-wrap: wrap;
+}
+
+.sb-units__tab {
+  background: var(--klini-surface-page);
+  border: 1px solid var(--klini-surface-page);
+  padding: 16px 32px;
+  border-radius: var(--klini-radius-pill);
+  font-family: var(--klini-font-display);
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--klini-text-muted);
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: var(--klini-shadow-sm);
+}
+
+.sb-units__tab:hover {
+  transform: translateY(-2px);
+  color: var(--klini-primary-500);
+}
+
+.sb-units__tab.is-active {
+  background: var(--klini-primary-500);
+  color: var(--klini-surface-page);
+  border-color: var(--klini-primary-500);
+  box-shadow: 0 8px 20px rgba(37, 149, 145, 0.2);
+}
+
+/* Panels */
+.sb-units__panel {
+  display: none;
+  animation: fadeIn 0.4s ease forwards;
+}
+
+.sb-units__panel.is-active {
+  display: block;
+}
+
+.sb-units__grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 24px;
+}
+
+@media (min-width: 640px) {
+  .sb-units__grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 1024px) {
+  .sb-units__grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+/* Unit Card */
+.sb-unit-card {
+  background: var(--klini-surface-page);
+  padding: 32px;
+  border-radius: var(--klini-radius-md);
+  box-shadow: var(--klini-shadow-sm);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.sb-unit-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--klini-shadow-md);
+}
+
+.sb-unit-card__tag {
+  display: inline-block;
+  padding: 6px 12px;
+  border-radius: var(--klini-radius-sm);
+  font-family: var(--klini-font-display);
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-bottom: 20px;
+  align-self: flex-start;
+}
+
+.sb-unit-card__tag--medical { background: var(--klini-surface-brandSoft); color: var(--klini-primary-500); }
+.sb-unit-card__tag--physio { background: var(--klini-surface-accentSoft); color: var(--klini-accent-500); }
+.sb-unit-card__tag--therapy { background: var(--klini-surface-coralSoft); color: var(--klini-coral-500); }
+
+.sb-unit-card__name {
+  font-family: var(--klini-font-display);
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--klini-text-strong);
+  margin-bottom: 12px;
+  line-height: 1.3;
+}
+
+.sb-unit-card__loc {
+  font-family: var(--klini-font-body);
+  font-size: 0.9375rem;
+  color: var(--klini-text-muted);
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  line-height: 1.5;
+  margin-top: auto;
+}
+
+.sb-unit-card__loc svg {
+  flex-shrink: 0;
+  color: var(--klini-primary-400);
+  margin-top: 2px;
+}
+
+
+/* --------------------------------------------------------------------------
+   5. CREDENTIALS
+   -------------------------------------------------------------------------- */
+.sb-credentials {
+  padding: 80px 0;
+  background: var(--klini-surface-page);
+  border-top: 1px solid var(--klini-surface-subtle);
+  border-bottom: 1px solid var(--klini-surface-subtle);
+}
+
+.sb-credentials__inner {
+  text-align: center;
+}
+
+.sb-credentials__label {
+  font-family: var(--klini-font-display);
+  font-size: 0.875rem;
+  font-weight: 700;
+  color: var(--klini-text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  display: block;
+  margin-bottom: 40px;
+}
+
+.sb-credentials__logos {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 40px 64px;
+}
+
+.sb-credentials__logo {
+  max-width: 140px;
+  height: auto;
+  opacity: 0.7;
+  transition: opacity 0.3s ease;
+  filter: grayscale(100%);
+}
+
+.sb-credentials__logo:hover {
+  opacity: 1;
+  filter: grayscale(0%);
+}
+
+
+/* --------------------------------------------------------------------------
+   6. CONTACT STRIP
+   -------------------------------------------------------------------------- */
+.sb-contact {
+  padding: 120px 0;
+  background: var(--klini-surface-subtle);
+}
+
+.sb-contact__header {
+  text-align: center;
+  margin-bottom: 64px;
+}
+
+.sb-contact__overline {
+  font-family: var(--klini-font-display);
+  font-size: 0.875rem;
+  font-weight: 700;
+  color: var(--klini-primary-500);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  margin-bottom: 16px;
+  display: block;
+}
+
+.sb-contact__title {
+  font-family: var(--klini-font-display);
+  font-size: clamp(2rem, 3.5vw, 3rem);
+  font-weight: 700;
+  color: var(--klini-text-strong);
+  line-height: 1.1;
+  margin-bottom: 24px;
+}
+
+.sb-contact__grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 32px;
+}
+
+@media (min-width: 768px) {
+  .sb-contact__grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 1024px) {
+  .sb-contact__grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+.sb-contact-card {
+  background: var(--klini-surface-page);
+  padding: 40px 32px;
+  border-radius: var(--klini-radius-lg);
+  box-shadow: var(--klini-shadow-sm);
+  display: flex;
+  flex-direction: column;
+}
+
+.sb-contact-card__icon {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 24px;
+}
+
+.sb-contact-card__icon--teal { background: var(--klini-surface-brandSoft); color: var(--klini-primary-500); }
+.sb-contact-card__icon--support { background: var(--klini-surface-supportSoft); color: var(--klini-support-500); }
+.sb-contact-card__icon--accent { background: var(--klini-surface-accentSoft); color: var(--klini-accent-500); }
+.sb-contact-card__icon--neutral { background: var(--klini-surface-subtle); color: var(--klini-text-strong); }
+
+.sb-contact-card__title {
+  font-family: var(--klini-font-display);
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--klini-text-strong);
+  margin-bottom: 16px;
+}
+
+.sb-contact-card__info {
+  font-family: var(--klini-font-body);
+  font-size: 0.9375rem;
+  color: var(--klini-text-muted);
+  line-height: 1.6;
+  margin-bottom: 24px;
+  flex-grow: 1;
+}
+
+.sb-contact-card__divider {
+  height: 1px;
+  background: var(--klini-surface-subtle);
+  border: none;
+  margin: 0 0 24px;
+}
+
+.sb-contact-card__phone {
+  display: block;
+  font-family: var(--klini-font-display);
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--klini-primary-500);
+  margin-bottom: 4px;
+}
+
+.sb-contact-card__desc {
+  font-family: var(--klini-font-body);
+  font-size: 0.875rem;
+  color: var(--klini-text-muted);
+  display: block;
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.reveal {
+  opacity: 0;
+  animation: fadeIn 0.8s ease forwards;
+}
+
+.reveal-delay-1 { animation-delay: 0.2s; }
+.reveal-delay-2 { animation-delay: 0.4s; }
+.reveal-delay-3 { animation-delay: 0.6s; }
+
+
+/* ==========================================================================
+   MAPA INTERATIVO DE UNIDADES
+   ========================================================================== */
+
+/* Filtros de categoria */
+.sb-map-filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 24px;
+}
+
+.sb-map-filter {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--klini-font-display);
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--klini-text-muted);
+  background: var(--klini-surface-page);
+  border: 1.5px solid var(--klini-neutral-300, #DCE3E6);
+  padding: 8px 18px;
+  border-radius: var(--klini-radius-pill);
+  cursor: pointer;
+  transition: border-color 0.2s ease, color 0.2s ease, background 0.2s ease;
+  white-space: nowrap;
+}
+
+.sb-map-filter:hover {
+  border-color: var(--klini-primary-400);
+  color: var(--klini-primary-500);
+}
+
+.sb-map-filter--active {
+  background: var(--klini-primary-500);
+  border-color: var(--klini-primary-500);
+  color: #fff;
+}
+
+.sb-map-filter--active:hover {
+  background: var(--klini-primary-500);
+  color: #fff;
+}
+
+.sb-map-filter__dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.sb-map-filter__dot--medical  { background: #259591; }
+.sb-map-filter__dot--physio   { background: #CD7925; }
+.sb-map-filter__dot--therapy  { background: #E05759; }
+
+/* Layout mapa + painel */
+.sb-map-layout {
+  display: grid;
+  grid-template-columns: 1fr;
+  border-radius: var(--klini-radius-lg);
+  overflow: hidden;
+  border: 1px solid var(--klini-neutral-300, #DCE3E6);
+  box-shadow: var(--klini-shadow-sm);
+}
+
+@media (min-width: 900px) {
+  .sb-map-layout {
+    grid-template-columns: 1fr 380px;
+    height: 540px;
+    overflow: hidden;
+  }
+}
+
+/* Wrapper do mapa + hint */
+.sb-map-layout__map {
+  height: 360px;
+  position: relative;
+  z-index: 0;
+}
+
+/* Container Leaflet ocupa 100% do wrapper */
+#kliniMap {
+  width: 100%;
+  height: 100%;
+}
+
+/* Hint overlay no mapa */
+.sb-map-hint {
+  position: absolute;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 500;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(255,255,255,0.92);
+  backdrop-filter: blur(4px);
+  border: 1px solid var(--klini-neutral-300, #DCE3E6);
+  border-radius: 100px;
+  padding: 8px 18px;
+  font-size: 0.8125rem;
+  color: var(--klini-text-secondary, #4A5A5F);
+  white-space: nowrap;
+  pointer-events: none;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+  transition: opacity 0.2s ease;
+}
+.sb-map-hint svg { flex-shrink: 0; opacity: 0.6; }
+.sb-map-hint--hidden { display: none; }
+
+@media (min-width: 900px) {
+  .sb-map-layout__map {
+    height: 540px;
+  }
+}
+
+/* Painel lateral */
+.sb-map-layout__panel {
+  background: var(--klini-surface-page);
+  border-left: 1px solid var(--klini-neutral-300, #DCE3E6);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+@media (max-width: 899px) {
+  .sb-map-layout__panel {
+    border-left: none;
+    border-top: 1px solid var(--klini-neutral-300, #DCE3E6);
+    max-height: 320px;
+  }
+}
+
+/* Lista de unidades */
+.sb-map-list {
+  overflow-y: auto;
+  flex: 1;
+}
+
+.sb-map-list::-webkit-scrollbar {
+  width: 4px;
+}
+
+.sb-map-list::-webkit-scrollbar-track {
+  background: var(--klini-surface-subtle);
+}
+
+.sb-map-list::-webkit-scrollbar-thumb {
+  background: var(--klini-primary-200);
+  border-radius: 2px;
+}
+
+/* Item da lista */
+.sb-map-list-item {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 14px 20px;
+  cursor: pointer;
+  border-bottom: 1px solid var(--klini-neutral-200, #EEF2F3);
+  transition: background 0.18s ease;
+  text-align: left;
+  width: 100%;
+  background: transparent;
+  border-left: 3px solid transparent;
+}
+
+.sb-map-list-item:last-child {
+  border-bottom: none;
+}
+
+.sb-map-list-item:hover {
+  background: var(--klini-surface-subtle);
+}
+
+.sb-map-list-item--active {
+  background: var(--klini-primary-100) !important;
+  border-left-color: var(--klini-primary-500);
+}
+
+.sb-map-list-item__pin {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.sb-map-list-item__pin--medical  { background: rgba(37,149,145,.12); color: #259591; }
+.sb-map-list-item__pin--physio   { background: rgba(205,121,37,.12); color: #CD7925; }
+.sb-map-list-item__pin--therapy  { background: rgba(224,87,89,.12); color: #E05759; }
+
+.sb-map-list-item__info {
+  flex: 1;
+  min-width: 0;
+}
+
+.sb-map-list-item__name {
+  font-family: var(--klini-font-display);
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: var(--klini-text-strong);
+  line-height: 1.3;
+  margin: 0 0 3px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.sb-map-list-item__loc {
+  font-family: var(--klini-font-display);
+  font-size: 0.775rem;
+  color: var(--klini-text-muted);
+  margin: 0;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.sb-map-list-item__arrow {
+  color: var(--klini-primary-400);
+  flex-shrink: 0;
+  opacity: 0;
+  transition: opacity 0.18s ease, transform 0.18s ease;
+}
+
+.sb-map-list-item:hover .sb-map-list-item__arrow,
+.sb-map-list-item--active .sb-map-list-item__arrow {
+  opacity: 1;
+  transform: translateX(2px);
+}
+
+/* Estado vazio da lista (após filtro) */
+.sb-map-list__empty {
+  padding: 40px 24px;
+  text-align: center;
+  font-family: var(--klini-font-body);
+  font-size: 0.9rem;
+  color: var(--klini-text-muted);
+}
+
+/* Painel de detalhe */
+.sb-map-detail {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  overflow-y: auto;
+}
+
+.sb-map-detail__back {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--klini-font-display);
+  font-size: 0.825rem;
+  font-weight: 600;
+  color: var(--klini-primary-500);
+  cursor: pointer;
+  padding: 14px 20px;
+  background: transparent;
+  border: none;
+  border-bottom: 1px solid var(--klini-neutral-200, #EEF2F3);
+  width: 100%;
+  text-align: left;
+  transition: background 0.18s ease;
+}
+
+.sb-map-detail__back:hover {
+  background: var(--klini-surface-subtle);
+}
+
+.sb-map-detail__body {
+  padding: 24px 20px;
+  flex: 1;
+}
+
+.sb-map-detail__tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-family: var(--klini-font-display);
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  padding: 4px 12px;
+  border-radius: var(--klini-radius-pill);
+  margin-bottom: 14px;
+}
+
+.sb-map-detail__tag--medical { background: rgba(37,149,145,.1); color: #259591; }
+.sb-map-detail__tag--physio  { background: rgba(205,121,37,.1); color: #CD7925; }
+.sb-map-detail__tag--therapy { background: rgba(224,87,89,.1); color: #E05759; }
+
+.sb-map-detail__name {
+  font-family: var(--klini-font-display);
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--klini-text-strong);
+  margin: 0 0 20px;
+  line-height: 1.25;
+}
+
+.sb-map-detail__row {
+  display: flex;
+  gap: 12px;
+  align-items: flex-start;
+  margin-bottom: 14px;
+}
+
+.sb-map-detail__row-icon {
+  width: 18px;
+  height: 18px;
+  flex-shrink: 0;
+  margin-top: 2px;
+  color: var(--klini-primary-500);
+}
+
+.sb-map-detail__row-text {
+  font-family: var(--klini-font-body);
+  font-size: 0.9rem;
+  line-height: 1.55;
+  color: var(--klini-text-default);
+  margin: 0;
+}
+
+.sb-map-detail__row-text strong {
+  display: block;
+  font-family: var(--klini-font-display);
+  font-size: 0.775rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--klini-text-muted);
+  margin-bottom: 3px;
+}
+
+.sb-map-detail__actions {
+  margin-top: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+/* Marcadores customizados Leaflet */
+.klini-marker {
+  width: 32px;
+  height: 32px;
+  border-radius: 50% 50% 50% 0;
+  transform: rotate(-45deg);
+  border: 3px solid white;
+  box-shadow: 0 3px 10px rgba(0,0,0,0.25);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.klini-marker--medical  { background: #259591; }
+.klini-marker--physio   { background: #CD7925; }
+.klini-marker--therapy  { background: #E05759; }
+
+.klini-marker--active {
+  transform: rotate(-45deg) scale(1.3);
+  box-shadow: 0 6px 18px rgba(0,0,0,0.3);
+}
+
+/* Override popup do Leaflet */
+.leaflet-popup-content-wrapper {
+  border-radius: 12px !important;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.12) !important;
+  padding: 0 !important;
+  overflow: hidden;
+}
+
+.leaflet-popup-content {
+  margin: 0 !important;
+  width: auto !important;
+  min-width: 200px;
+}
+
+.klini-popup {
+  padding: 16px 18px;
+}
+
+.klini-popup__name {
+  font-family: var(--klini-font-display, 'Objective', sans-serif);
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: #2B2F33;
+  margin: 0 0 4px;
+}
+
+.klini-popup__loc {
+  font-family: var(--klini-font-display, 'Objective', sans-serif);
+  font-size: 0.8rem;
+  color: #74808A;
+  margin: 0;
+}
+
+/* ── Welcome state (painel sem seleção) ── */
+.sb-map-welcome {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 32px 28px;
+  height: 100%;
+}
+.sb-map-welcome__icon {
+  width: 68px;
+  height: 68px;
+  border-radius: 50%;
+  background: var(--klini-primary-50, #E6F5F4);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 16px;
+  color: #259591;
+}
+.sb-map-welcome__title {
+  font-family: var(--klini-font-display, 'Objective', sans-serif);
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--klini-text-primary, #2B2F33);
+  margin: 0 0 8px;
+}
+.sb-map-welcome__desc {
+  font-family: var(--klini-font-display, 'Objective', sans-serif);
+  font-size: 0.8125rem;
+  color: var(--klini-text-secondary, #4A5A5F);
+  line-height: 1.55;
+  margin: 0;
+}
+
+.leaflet-popup-close-button {
+  top: 8px !important;
+  right: 10px !important;
+  color: #74808A !important;
+}

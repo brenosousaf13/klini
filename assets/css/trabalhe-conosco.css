@@ -1,0 +1,126 @@
+/* ============================================================
+   TRABALHE CONOSCO PAGE
+   ============================================================ */
+
+/* ---- Main layout ---- */
+.tc-layout {
+  padding: 64px 0 96px;
+}
+
+.tc-layout__inner {
+  display: grid;
+  grid-template-columns: 1fr 420px;
+  gap: 80px;
+  align-items: start;
+}
+
+/* ---- Text side ---- */
+.tc-lead {
+  font-family: var(--klini-font-body); font-size: 1.125rem;
+  line-height: 1.8; color: var(--klini-text-body);
+  margin-bottom: 40px;
+}
+
+.tc-values {
+  display: flex; flex-direction: column; gap: 16px;
+  margin-bottom: 40px;
+}
+
+.tc-value {
+  display: flex; gap: 14px; align-items: flex-start;
+}
+
+.tc-value__dot {
+  flex-shrink: 0;
+  margin-top: 6px;
+  width: 10px; height: 10px;
+  border-radius: 50%;
+  background: var(--klini-primary-500);
+}
+
+.tc-value__text {
+  font-family: var(--klini-font-body); font-size: 1rem;
+  line-height: 1.65; color: var(--klini-text-body);
+}
+
+.tc-value__text strong {
+  font-weight: 600; color: var(--klini-text-strong);
+}
+
+.tc-cta-box {
+  background: #edfafa;
+  border-left: 4px solid var(--klini-primary-500);
+  border-radius: 0 var(--klini-radius-md) var(--klini-radius-md) 0;
+  padding: 28px 32px;
+}
+
+.tc-cta-box__title {
+  font-family: var(--klini-font-display); font-size: 1.125rem; font-weight: 700;
+  color: var(--klini-text-strong); margin-bottom: 10px;
+}
+
+.tc-cta-box__desc {
+  font-family: var(--klini-font-body); font-size: .9375rem;
+  line-height: 1.7; color: var(--klini-text-body);
+  margin-bottom: 24px;
+}
+
+/* ---- Photo side ---- */
+.tc-photos {
+  position: sticky; top: 100px;
+}
+
+.tc-photo-slider {
+  position: relative;
+  border-radius: var(--klini-radius-lg);
+  overflow: hidden;
+  aspect-ratio: 3 / 4;
+  background: var(--klini-border);
+}
+
+.tc-photo-slider__img {
+  position: absolute; inset: 0;
+  width: 100%; height: 100%;
+  object-fit: cover;
+  opacity: 0;
+  transition: opacity .8s ease;
+}
+
+.tc-photo-slider__img.is-active {
+  opacity: 1;
+}
+
+.tc-photo-slider__dots {
+  position: absolute; bottom: 16px; left: 50%; transform: translateX(-50%);
+  display: flex; gap: 8px;
+}
+
+.tc-photo-slider__dot {
+  width: 8px; height: 8px; border-radius: 50%;
+  background: rgba(255,255,255,.5); border: none; padding: 0;
+  cursor: pointer; transition: background .2s;
+}
+
+.tc-photo-slider__dot.is-active {
+  background: #fff;
+}
+
+/* ---- Responsive ---- */
+@media (max-width: 960px) {
+  .tc-layout__inner {
+    grid-template-columns: 1fr;
+    gap: 48px;
+  }
+  .tc-photos {
+    position: static;
+    order: -1;
+  }
+  .tc-photo-slider {
+    aspect-ratio: 4 / 3;
+  }
+}
+
+@media (max-width: 640px) {
+  .tc-layout { padding: 40px 0 72px; }
+  .tc-cta-box { padding: 20px 20px; }
+}
