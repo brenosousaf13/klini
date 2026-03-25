@@ -501,19 +501,32 @@ h1, h2, h3, h4, h5, h6 {
 
 .nav-item__dropdown {
   position: absolute;
-  top: calc(100% + 8px);
+  top: 100%;
   left: 0;
+  padding-top: 8px;
   min-width: 220px;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(4px);
+  /* delay on close so mouse has time to travel from trigger to dropdown */
+  transition: opacity .15s ease .15s, visibility .15s ease .15s, transform .15s ease .15s;
+  pointer-events: none;
+  z-index: 1000;
+}
+
+/* visual box sits below the 8px transparent bridge */
+.nav-item__dropdown::after {
+  content: '';
+  position: absolute;
+  top: 8px;
+  left: 0;
+  right: 0;
+  bottom: 0;
   background: var(--klini-surface-page);
   border-radius: var(--klini-radius-md);
   box-shadow: var(--klini-shadow-lg);
   border: 1px solid var(--klini-neutral-200);
-  padding: var(--klini-space-8);
-  opacity: 0;
-  visibility: hidden;
-  transform: translateY(8px);
-  transition: all var(--klini-motion-normal) ease;
-  pointer-events: none;
+  z-index: -1;
 }
 
 .nav-item:hover .nav-item__dropdown,
@@ -522,6 +535,8 @@ h1, h2, h3, h4, h5, h6 {
   visibility: visible;
   transform: translateY(0);
   pointer-events: auto;
+  /* no delay on open */
+  transition: opacity .15s ease, visibility .15s ease, transform .15s ease;
 }
 
 .nav-item__dropdown a {
