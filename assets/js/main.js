@@ -230,30 +230,41 @@
     handleReveal();
   }
 
-  // ── Dropdown accessibility (keyboard) ─────────────────────
+  // ── Dropdown hover with reliable close delay ──────────────
   var navItems = document.querySelectorAll('.nav-item');
 
   navItems.forEach(function (item) {
     var trigger = item.querySelector('.nav-item__trigger');
     var dropdown = item.querySelector('.nav-item__dropdown');
+    var closeTimer;
 
     if (!trigger || !dropdown) return;
 
-    item.addEventListener('mouseenter', function () {
+    function openMenu() {
+      clearTimeout(closeTimer);
+      item.classList.add('nav-item--open');
       trigger.setAttribute('aria-expanded', 'true');
-    });
+    }
 
-    item.addEventListener('mouseleave', function () {
-      trigger.setAttribute('aria-expanded', 'false');
-    });
+    function closeMenu() {
+      closeTimer = setTimeout(function () {
+        item.classList.remove('nav-item--open');
+        trigger.setAttribute('aria-expanded', 'false');
+      }, 300);
+    }
+
+    item.addEventListener('mouseenter', openMenu);
+    item.addEventListener('mouseleave', closeMenu);
 
     trigger.addEventListener('keydown', function (e) {
       if (e.key === 'Enter' || e.key === ' ') {
         e.preventDefault();
-        var isOpen = trigger.getAttribute('aria-expanded') === 'true';
-        trigger.setAttribute('aria-expanded', isOpen ? 'false' : 'true');
-
-        if (!isOpen) {
+        var isOpen = item.classList.contains('nav-item--open');
+        if (isOpen) {
+          item.classList.remove('nav-item--open');
+          trigger.setAttribute('aria-expanded', 'false');
+        } else {
+          openMenu();
           var firstLink = dropdown.querySelector('a');
           if (firstLink) firstLink.focus();
         }
@@ -262,6 +273,7 @@
 
     dropdown.addEventListener('keydown', function (e) {
       if (e.key === 'Escape') {
+        item.classList.remove('nav-item--open');
         trigger.setAttribute('aria-expanded', 'false');
         trigger.focus();
       }
