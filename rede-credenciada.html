@@ -1,0 +1,505 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Rede Credenciada — Klini Saúde</title>
+  <meta name="description" content="Encontre profissionais e serviços de saúde credenciados ao seu plano Klini em todo o Brasil. Filtre por especialidade, tipo de serviço e localização.">
+
+  <link rel="stylesheet" href="assets/css/styles.css">
+  <link rel="stylesheet" href="assets/css/rede-credenciada.css">
+
+  <link rel="icon" type="image/png" href="https://klinisaude.com.br/wp-content/uploads/2023/02/logo_klini-br.png">
+</head>
+<body>
+
+  <!-- ============================================================
+       UTILITY BAR
+       ============================================================ -->
+  <div class="utility-bar" role="complementary" aria-label="Acessos rápidos">
+    <div class="container utility-bar__inner">
+      <div class="utility-bar__portals">
+        <a href="https://beneficiario.klinisaude.com.br/" target="_blank" rel="noopener">Beneficiário</a>
+        <span class="divider" aria-hidden="true"></span>
+        <a href="https://portalplano.klinisaude.com.br/" target="_blank" rel="noopener">Empresa</a>
+        <span class="divider" aria-hidden="true"></span>
+        <a href="https://portalplano.klinisaude.com.br/" target="_blank" rel="noopener">Prestador</a>
+        <span class="divider" aria-hidden="true"></span>
+        <a href="https://klinisaude.com.br/espaco-corretor/" target="_blank" rel="noopener">Corretor</a>
+      </div>
+      <div class="utility-bar__contact">
+        <a href="https://wa.me/552130550790" target="_blank" rel="noopener" aria-label="WhatsApp Klini">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>
+          (21) 3055-0790
+        </a>
+        <a href="tel:08000210320" aria-label="SAC Klini">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+          0800 021 0320
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- ============================================================
+       HEADER
+       ============================================================ -->
+  <header class="header" id="header" role="banner">
+    <div class="container header__inner">
+      <a href="index.html" class="header__logo" aria-label="Klini Saúde — Página inicial">
+        <img src="https://klinisaude.com.br/wp-content/uploads/2023/01/logo-header.webp" alt="Klini Saúde" width="140" height="40">
+      </a>
+
+      <nav class="header__nav" role="navigation" aria-label="Menu principal">
+        <div class="nav-item">
+          <button class="nav-item__trigger" aria-expanded="false" aria-haspopup="true">
+            A Klini
+            <svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2"><polyline points="2 4 6 8 10 4"/></svg>
+          </button>
+          <div class="nav-item__dropdown" role="menu">
+            <a href="sobre.html" role="menuitem">Sobre nós</a>
+            <a href="sobre.html#unidades" role="menuitem">Nossas unidades</a>
+            <a href="trabalhe-conosco.html" role="menuitem">Trabalhe conosco</a>
+          </div>
+        </div>
+
+        <div class="nav-item">
+          <button class="nav-item__trigger nav-item__trigger--active" aria-expanded="false" aria-haspopup="true">
+            Serviços
+            <svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2"><polyline points="2 4 6 8 10 4"/></svg>
+          </button>
+          <div class="nav-item__dropdown" role="menu">
+            <a href="token2.html" role="menuitem">Token digital</a>
+            <a href="farmacia.html" role="menuitem">Desconto farmácia</a>
+            <a href="teleconsulta.html" role="menuitem">Teleconsulta</a>
+            <a href="rede-credenciada.html" role="menuitem" aria-current="page">Busca de rede</a>
+            <a href="https://klinisaude.com.br/atualizacao-de-rede/" role="menuitem">Atualização de rede</a>
+          </div>
+        </div>
+
+        <div class="nav-item">
+          <a class="nav-item__trigger" href="planos.html">Planos</a>
+        </div>
+
+        <div class="nav-item">
+          <button class="nav-item__trigger" aria-expanded="false" aria-haspopup="true">
+            Transparência
+            <svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2"><polyline points="2 4 6 8 10 4"/></svg>
+          </button>
+          <div class="nav-item__dropdown" role="menu">
+            <a href="transparencia.html" role="menuitem">Portal da transparência</a>
+            <a href="politica-de-privacidade.html" role="menuitem">Política de privacidade</a>
+            <a href="codigo-de-conduta.html" role="menuitem">Código de conduta</a>
+            <a href="termo-uso.html" role="menuitem">Termos de uso</a>
+            <a href="idss.html" role="menuitem">IDSS</a>
+          </div>
+        </div>
+
+        <div class="nav-item">
+          <button class="nav-item__trigger" aria-expanded="false" aria-haspopup="true">
+            Atendimento
+            <svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2"><polyline points="2 4 6 8 10 4"/></svg>
+          </button>
+          <div class="nav-item__dropdown" role="menu">
+            <a href="ouvidoria.html" role="menuitem">Ouvidoria</a>
+            <a href="negocie-sua-divida.html" role="menuitem">Negocie sua dívida</a>
+            <a href="quero-ser-credenciado.html" role="menuitem">Quero me credenciar</a>
+          </div>
+        </div>
+      </nav>
+
+      <div class="header__cta">
+        <a href="planos.html" class="btn btn--secondary btn--sm">Quero ser Klini</a>
+      </div>
+
+      <button class="header__mobile-toggle" id="mobileToggle" aria-label="Abrir menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <!-- Mobile drawer -->
+  <div class="mobile-overlay" id="mobileOverlay"></div>
+  <aside class="mobile-drawer" id="mobileDrawer" role="dialog" aria-label="Menu de navegação">
+    <div class="mobile-drawer__header">
+      <img src="https://klinisaude.com.br/wp-content/uploads/2023/01/logo-header.webp" alt="Klini Saúde" height="32">
+      <button class="mobile-drawer__close" id="mobileClose" aria-label="Fechar menu">&times;</button>
+    </div>
+    <nav>
+      <div class="mobile-drawer__nav-group">
+        <div class="mobile-drawer__nav-group-title">A Klini</div>
+        <a href="sobre.html">Sobre nós</a>
+        <a href="sobre.html#unidades">Nossas unidades</a>
+        <a href="trabalhe-conosco.html">Trabalhe conosco</a>
+      </div>
+      <div class="mobile-drawer__nav-group">
+        <div class="mobile-drawer__nav-group-title">Serviços</div>
+        <a href="token2.html">Token digital</a>
+        <a href="farmacia.html">Desconto farmácia</a>
+        <a href="teleconsulta.html">Teleconsulta</a>
+        <a href="rede-credenciada.html">Busca de rede</a>
+        <a href="https://klinisaude.com.br/atualizacao-de-rede/">Atualização de rede</a>
+      </div>
+      <div class="mobile-drawer__nav-group">
+        <div class="mobile-drawer__nav-group-title">Planos</div>
+        <a href="planos.html">Ver todos os planos</a>
+      </div>
+      <div class="mobile-drawer__nav-group">
+        <div class="mobile-drawer__nav-group-title">Transparência</div>
+        <a href="transparencia.html">Portal da transparência</a>
+        <a href="politica-de-privacidade.html">Política de privacidade</a>
+        <a href="codigo-de-conduta.html">Código de conduta</a>
+        <a href="termo-uso.html">Termos de uso</a>
+        <a href="idss.html">IDSS</a>
+      </div>
+      <div class="mobile-drawer__nav-group">
+        <div class="mobile-drawer__nav-group-title">Atendimento</div>
+        <a href="ouvidoria.html">Ouvidoria</a>
+        <a href="negocie-sua-divida.html">Negocie sua dívida</a>
+        <a href="quero-ser-credenciado.html">Quero me credenciar</a>
+      </div>
+    </nav>
+    <a href="planos.html" class="btn btn--primary" style="margin:20px 24px;">Quero ser Klini</a>
+  </aside>
+
+  <main id="main" role="main">
+
+    <!-- ============================================================
+         HERO
+         ============================================================ -->
+    <section class="rc-hero">
+      <div class="container rc-hero__inner">
+        <div class="rc-hero__text reveal">
+          <span class="rc-hero__overline">Serviços</span>
+          <h1 class="rc-hero__title">Rede Credenciada</h1>
+          <p class="rc-hero__subtitle">Encontre médicos, clínicas, laboratórios e outros serviços de saúde credenciados ao seu plano Klini em todo o Brasil.</p>
+        </div>
+        <div class="rc-hero__stats reveal" aria-hidden="true">
+          <div class="rc-stat">
+            <span class="rc-stat__value">+5.000</span>
+            <span class="rc-stat__label">Prestadores</span>
+          </div>
+          <div class="rc-stat__divider"></div>
+          <div class="rc-stat">
+            <span class="rc-stat__value">+50</span>
+            <span class="rc-stat__label">Especialidades</span>
+          </div>
+          <div class="rc-stat__divider"></div>
+          <div class="rc-stat">
+            <span class="rc-stat__value">RJ</span>
+            <span class="rc-stat__label">Estado de cobertura</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         SEARCH FORM
+         ============================================================ -->
+    <section class="rc-search" id="buscar">
+      <div class="container">
+        <div class="rc-search__card reveal">
+          <div class="rc-search__header">
+            <h2 class="rc-search__title">Buscar prestador</h2>
+            <p class="rc-search__desc">Selecione os filtros abaixo para encontrar prestadores disponíveis no seu plano.</p>
+          </div>
+
+          <form id="rc-form" class="rc-form" novalidate>
+
+            <!-- Row 1: Plano e cobertura -->
+            <div class="rc-form__row rc-form__row--4">
+
+              <div class="rc-form__field" id="tipo-produto-wrapper">
+                <label class="rc-form__label" for="tipo-produto-input">
+                  Tipo de produto
+                  <span class="rc-form__required" aria-hidden="true">*</span>
+                </label>
+                <div class="rc-select-wrapper">
+                  <select id="tipo-produto-input" name="tipo-produto" required class="rc-select">
+                    <option value="" disabled selected>Selecione</option>
+                    <option value="M">Médico</option>
+                    <option value="O">Odontológico</option>
+                  </select>
+                  <svg class="rc-select__arrow" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2"><polyline points="2 4 6 8 10 4"/></svg>
+                </div>
+              </div>
+
+              <div class="rc-form__field" id="rede-wrapper">
+                <label class="rc-form__label" for="rede-input">
+                  Rede
+                  <span class="rc-form__required" aria-hidden="true">*</span>
+                </label>
+                <div class="rc-select-wrapper rc-select-wrapper--loading" id="rede-loader">
+                  <select id="rede-input" name="rede" required disabled class="rc-select">
+                    <option value="" disabled selected>Selecione a rede</option>
+                  </select>
+                  <svg class="rc-select__arrow" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2"><polyline points="2 4 6 8 10 4"/></svg>
+                  <span class="rc-select__spinner" aria-hidden="true"></span>
+                </div>
+              </div>
+
+              <div class="rc-form__field" id="tipo-servico-wrapper">
+                <label class="rc-form__label" for="tipo-servico-input">
+                  Tipo de serviço
+                  <span class="rc-form__required" aria-hidden="true">*</span>
+                </label>
+                <div class="rc-select-wrapper rc-select-wrapper--loading" id="tipo-servico-loader">
+                  <select id="tipo-servico-input" name="tipo-servico" required disabled class="rc-select">
+                    <option value="" disabled selected>Selecione o tipo</option>
+                  </select>
+                  <svg class="rc-select__arrow" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2"><polyline points="2 4 6 8 10 4"/></svg>
+                  <span class="rc-select__spinner" aria-hidden="true"></span>
+                </div>
+              </div>
+
+              <div class="rc-form__field" id="especialidade-wrapper">
+                <label class="rc-form__label" for="especialidade-input">
+                  Especialidade
+                  <span class="rc-form__required" aria-hidden="true">*</span>
+                </label>
+                <div class="rc-select-wrapper rc-select-wrapper--loading" id="especialidade-loader">
+                  <select id="especialidade-input" name="especialidade" required disabled class="rc-select">
+                    <option value="" disabled selected>Selecione a especialidade</option>
+                  </select>
+                  <svg class="rc-select__arrow" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2"><polyline points="2 4 6 8 10 4"/></svg>
+                  <span class="rc-select__spinner" aria-hidden="true"></span>
+                </div>
+              </div>
+
+            </div>
+
+            <!-- Row 2: Localização -->
+            <div class="rc-form__row rc-form__row--3">
+
+              <div class="rc-form__field" id="estado-wrapper">
+                <label class="rc-form__label" for="estado-input">
+                  Estado (UF)
+                  <span class="rc-form__required" aria-hidden="true">*</span>
+                </label>
+                <div class="rc-select-wrapper rc-select-wrapper--loading" id="estado-loader">
+                  <select id="estado-input" name="estado" required disabled class="rc-select">
+                    <option value="" disabled selected>Selecione o estado</option>
+                  </select>
+                  <svg class="rc-select__arrow" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2"><polyline points="2 4 6 8 10 4"/></svg>
+                  <span class="rc-select__spinner" aria-hidden="true"></span>
+                </div>
+              </div>
+
+              <div class="rc-form__field" id="municipio-wrapper">
+                <label class="rc-form__label" for="municipio-input">
+                  Município
+                  <span class="rc-form__required" aria-hidden="true">*</span>
+                </label>
+                <div class="rc-select-wrapper rc-select-wrapper--loading" id="municipio-loader">
+                  <select id="municipio-input" name="municipio" required disabled class="rc-select">
+                    <option value="" disabled selected>Selecione o município</option>
+                  </select>
+                  <svg class="rc-select__arrow" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2"><polyline points="2 4 6 8 10 4"/></svg>
+                  <span class="rc-select__spinner" aria-hidden="true"></span>
+                </div>
+              </div>
+
+              <div class="rc-form__field" id="bairro-wrapper">
+                <label class="rc-form__label" for="bairro-input">
+                  Bairro
+                  <span class="rc-form__optional">(opcional)</span>
+                </label>
+                <div class="rc-select-wrapper rc-select-wrapper--loading" id="bairro-loader">
+                  <select id="bairro-input" name="bairro" disabled class="rc-select">
+                    <option value="" disabled selected>Selecione o bairro</option>
+                  </select>
+                  <svg class="rc-select__arrow" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2"><polyline points="2 4 6 8 10 4"/></svg>
+                  <span class="rc-select__spinner" aria-hidden="true"></span>
+                </div>
+              </div>
+
+            </div>
+
+            <!-- Submit -->
+            <div class="rc-form__actions">
+              <button type="submit" id="rc-submit" class="rc-submit" disabled>
+                <svg class="rc-submit__spinner" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10" stroke-dasharray="60" stroke-dashoffset="60"><animate attributeName="stroke-dashoffset" dur="1.2s" values="60;0;60" repeatCount="indefinite"/></circle></svg>
+                <svg class="rc-submit__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+                <span id="rc-submit-text">Buscar prestador</span>
+              </button>
+              <button type="button" id="rc-clear" class="rc-clear" style="display:none;">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+                Limpar filtros
+              </button>
+            </div>
+
+          </form>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         RESULTS
+         ============================================================ -->
+    <section class="rc-results" id="resultados" aria-live="polite" aria-label="Resultados da busca">
+      <div class="container">
+
+        <!-- Empty state (default) -->
+        <div class="rc-state rc-state--empty" id="rc-state-empty">
+          <div class="rc-state__icon" aria-hidden="true">
+            <svg viewBox="0 0 80 80" fill="none">
+              <circle cx="40" cy="40" r="36" fill="var(--klini-primary-100)"/>
+              <circle cx="36" cy="34" r="14" stroke="var(--klini-primary-500)" stroke-width="2.5"/>
+              <line x1="46.9" y1="44.9" x2="58" y2="56" stroke="var(--klini-primary-500)" stroke-width="2.5" stroke-linecap="round"/>
+              <line x1="30" y1="34" x2="42" y2="34" stroke="var(--klini-primary-400)" stroke-width="2" stroke-linecap="round"/>
+              <line x1="36" y1="28" x2="36" y2="40" stroke="var(--klini-primary-400)" stroke-width="2" stroke-linecap="round"/>
+            </svg>
+          </div>
+          <h3 class="rc-state__title">Encontre prestadores perto de você</h3>
+          <p class="rc-state__desc">Preencha os filtros acima para buscar médicos, clínicas e serviços de saúde disponíveis na sua região.</p>
+        </div>
+
+        <!-- Loading state -->
+        <div class="rc-state rc-state--loading" id="rc-state-loading" style="display:none;">
+          <div class="rc-skeleton-grid">
+            <div class="rc-skeleton-card"><div class="rc-skeleton rc-skeleton--badge"></div><div class="rc-skeleton rc-skeleton--title"></div><div class="rc-skeleton rc-skeleton--line"></div><div class="rc-skeleton rc-skeleton--line rc-skeleton--short"></div></div>
+            <div class="rc-skeleton-card"><div class="rc-skeleton rc-skeleton--badge"></div><div class="rc-skeleton rc-skeleton--title"></div><div class="rc-skeleton rc-skeleton--line"></div><div class="rc-skeleton rc-skeleton--line rc-skeleton--short"></div></div>
+            <div class="rc-skeleton-card"><div class="rc-skeleton rc-skeleton--badge"></div><div class="rc-skeleton rc-skeleton--title"></div><div class="rc-skeleton rc-skeleton--line"></div><div class="rc-skeleton rc-skeleton--line rc-skeleton--short"></div></div>
+            <div class="rc-skeleton-card"><div class="rc-skeleton rc-skeleton--badge"></div><div class="rc-skeleton rc-skeleton--title"></div><div class="rc-skeleton rc-skeleton--line"></div><div class="rc-skeleton rc-skeleton--line rc-skeleton--short"></div></div>
+            <div class="rc-skeleton-card"><div class="rc-skeleton rc-skeleton--badge"></div><div class="rc-skeleton rc-skeleton--title"></div><div class="rc-skeleton rc-skeleton--line"></div><div class="rc-skeleton rc-skeleton--line rc-skeleton--short"></div></div>
+            <div class="rc-skeleton-card"><div class="rc-skeleton rc-skeleton--badge"></div><div class="rc-skeleton rc-skeleton--title"></div><div class="rc-skeleton rc-skeleton--line"></div><div class="rc-skeleton rc-skeleton--line rc-skeleton--short"></div></div>
+          </div>
+        </div>
+
+        <!-- No results state -->
+        <div class="rc-state rc-state--noresults" id="rc-state-noresults" style="display:none;">
+          <div class="rc-state__icon" aria-hidden="true">
+            <svg viewBox="0 0 80 80" fill="none">
+              <circle cx="40" cy="40" r="36" fill="var(--klini-primary-100)"/>
+              <circle cx="36" cy="34" r="14" stroke="var(--klini-primary-400)" stroke-width="2.5"/>
+              <line x1="46.9" y1="44.9" x2="58" y2="56" stroke="var(--klini-primary-400)" stroke-width="2.5" stroke-linecap="round"/>
+              <line x1="30" y1="34" x2="42" y2="34" stroke="var(--klini-primary-400)" stroke-width="2" stroke-linecap="round"/>
+            </svg>
+          </div>
+          <h3 class="rc-state__title">Nenhum prestador encontrado</h3>
+          <p class="rc-state__desc">Não encontramos prestadores com os filtros selecionados. Tente ajustar a especialidade, o tipo de serviço ou a localização.</p>
+          <button type="button" class="rc-state__btn" id="rc-state-reset">Ajustar filtros</button>
+        </div>
+
+        <!-- Results content -->
+        <div id="rc-results-content" style="display:none;">
+          <div class="rc-results__header">
+            <div class="rc-results__summary">
+              <span id="rc-results-count" class="rc-results__count">0 prestadores encontrados</span>
+              <span id="rc-results-filters" class="rc-results__filters"></span>
+            </div>
+          </div>
+          <div class="rc-grid" id="rc-grid">
+            <!-- Result cards injected by JS -->
+          </div>
+          <div class="rc-pagination" id="rc-pagination" style="display:none;">
+            <button id="rc-load-more" class="rc-load-more">
+              Carregar mais resultados
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+            </button>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ============================================================
+         HELP STRIP
+         ============================================================ -->
+    <section class="rc-help reveal">
+      <div class="container rc-help__inner">
+        <div class="rc-help__text">
+          <h2 class="rc-help__title">Precisa de ajuda para encontrar um prestador?</h2>
+          <p class="rc-help__desc">Nossa equipe está disponível para orientar você na busca pelo profissional ideal para o seu plano.</p>
+        </div>
+        <div class="rc-help__actions">
+          <a href="https://wa.me/552130550790" target="_blank" rel="noopener" class="rc-help__btn rc-help__btn--primary">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>
+            Falar no WhatsApp
+          </a>
+          <a href="tel:08000210320" class="rc-help__btn rc-help__btn--outline">
+            0800 021 0320
+          </a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ============================================================
+       FOOTER
+       ============================================================ -->
+  <footer class="footer" role="contentinfo">
+    <div class="container">
+      <div class="footer__grid">
+        <div class="footer__brand">
+          <img src="https://klinisaude.com.br/wp-content/uploads/2023/01/logo-header.webp" alt="Klini Saúde" loading="lazy">
+          <p>
+            Klini Planos de Saúde Ltda.<br>
+            CNPJ: 34.539.000/0001-86<br>
+            Av. das Américas, 3200<br>
+            Barra da Tijuca – Rio de Janeiro, RJ
+          </p>
+          <div class="footer__social">
+            <a href="https://www.instagram.com/klinisaude/" target="_blank" rel="noopener" aria-label="Instagram"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg></a>
+            <a href="https://www.facebook.com/klinisaudematriz" target="_blank" rel="noopener" aria-label="Facebook"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg></a>
+            <a href="https://br.linkedin.com/company/klinisaude" target="_blank" rel="noopener" aria-label="LinkedIn"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg></a>
+            <a href="https://www.youtube.com/@KliniSaude" target="_blank" rel="noopener" aria-label="YouTube"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33A2.78 2.78 0 0 0 3.4 19.1c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2 29 29 0 0 0 .46-5.25 29 29 0 0 0-.46-5.43z"/><polygon points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02"/></svg></a>
+          </div>
+        </div>
+        <div class="footer__col">
+          <h4>A Klini</h4>
+          <ul>
+            <li><a href="sobre.html">Sobre nós</a></li>
+            <li><a href="sobre.html#unidades">Nossas unidades</a></li>
+            <li><a href="trabalhe-conosco.html">Trabalhe conosco</a></li>
+            <li><a href="planos.html">Nossos planos</a></li>
+          </ul>
+        </div>
+        <div class="footer__col">
+          <h4>Serviços</h4>
+          <ul>
+            <li><a href="token2.html">Token digital</a></li>
+            <li><a href="teleconsulta.html">Teleconsulta</a></li>
+            <li><a href="farmacia.html">Desconto farmácia</a></li>
+            <li><a href="rede-credenciada.html">Busca de rede</a></li>
+            <li><a href="https://klinisaude.com.br/atualizacao-de-rede/">Atualização de rede</a></li>
+          </ul>
+        </div>
+        <div class="footer__col">
+          <h4>Atendimento</h4>
+          <ul>
+            <li><a href="ouvidoria.html">Ouvidoria</a></li>
+            <li><a href="negocie-sua-divida.html">Negocie sua dívida</a></li>
+            <li><a href="quero-ser-credenciado.html">Quero me credenciar</a></li>
+            <li><a href="https://wa.me/552130550790" target="_blank" rel="noopener">WhatsApp</a></li>
+            <li><a href="tel:08000210320">SAC: 0800 021 0320</a></li>
+          </ul>
+        </div>
+        <div class="footer__col">
+          <h4>Transparência</h4>
+          <ul>
+            <li><a href="transparencia.html">Portal da transparência</a></li>
+            <li><a href="politica-de-privacidade.html">Política de privacidade</a></li>
+            <li><a href="codigo-de-conduta.html">Código de conduta</a></li>
+            <li><a href="termo-uso.html">Termos de uso</a></li>
+            <li><a href="idss.html">IDSS</a></li>
+          </ul>
+          <div class="footer__apps">
+            <a href="https://apps.apple.com/br/app/klini-saude/id6447484649" target="_blank" rel="noopener"><img src="https://klinisaude.com.br/wp-content/uploads/2023/12/1689885951botao_app-store.png" alt="App Store" loading="lazy"></a>
+            <a href="https://play.google.com/store/apps/details?id=br.com.klinisaude.klini_app&hl=pt_BR&gl=US" target="_blank" rel="noopener"><img src="https://klinisaude.com.br/wp-content/uploads/2023/12/1689885814botao_google-play.png" alt="Google Play" loading="lazy"></a>
+          </div>
+        </div>
+      </div>
+      <div class="footer__bottom">
+        <p>&copy; 2020–2026 Klini Saúde — Todos os direitos reservados.</p>
+        <div class="footer__bottom-badges">
+          <img src="https://klinisaude.com.br/wp-content/uploads/2023/02/ans.png" alt="ANS" loading="lazy">
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="assets/js/main.js"></script>
+  <script src="assets/js/rede-credenciada.js"></script>
+</body>
+</html>
