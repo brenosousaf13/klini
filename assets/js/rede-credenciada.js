@@ -118,13 +118,11 @@
 
     apiFetch(apiBase(tp) + '/redes?tipoProduto=' + tp, tp)
       .then(function (data) {
-        hideCorsWarning();
         populate(redeSel, redeLoader, data, 'id', 'nome');
       })
       .catch(function () {
         setLoading(redeLoader, redeSel, false);
         redeSel.disabled = true;
-        showCorsWarning(tp);
       });
   });
 
@@ -438,38 +436,7 @@
     console.warn('[Rede Credenciada]', msg);
   }
 
-  // ── CORS warning banner ────────────────────────────────────────
-  function showCorsWarning(tipoProduto) {
-    var banner = document.getElementById('rc-cors-warning');
-    if (banner) { banner.style.display = 'flex'; return; }
-
-    banner = document.createElement('div');
-    banner.id = 'rc-cors-warning';
-    banner.className = 'rc-cors-banner';
-    banner.innerHTML =
-      '<div class="rc-cors-banner__icon" aria-hidden="true">' +
-        '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>' +
-      '</div>' +
-      '<div class="rc-cors-banner__body">' +
-        '<strong>Busca indisponível neste ambiente</strong>' +
-        '<span>A API de rede credenciada só aceita requisições do domínio oficial. ' +
-        'Para usar a busca completa, acesse diretamente pelo portal Klini.</span>' +
-      '</div>' +
-      '<a href="https://klinisaude.com.br/rede-credenciada/" target="_blank" rel="noopener" class="rc-cors-banner__btn">' +
-        'Abrir busca completa' +
-        '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="14" height="14"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg>' +
-      '</a>';
-
-    var card = document.querySelector('.rc-search__card');
-    if (card) card.insertAdjacentElement('afterend', banner);
-  }
-
-  function hideCorsWarning() {
-    var banner = document.getElementById('rc-cors-warning');
-    if (banner) banner.style.display = 'none';
-  }
-
-  function setSubmitLoading(loading) {
+function setSubmitLoading(loading) {
     submitBtn.classList.toggle('is-loading', loading);
     submitBtn.disabled = loading;
     submitText.textContent = loading ? 'Buscando...' : 'Buscar prestador';

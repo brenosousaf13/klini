@@ -3,15 +3,12 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Ouvidoria — Klini Saúde</title>
-  <meta name="description" content="Canal de Ouvidoria da Klini Saúde. Envie elogios, sugestões, solicitações ou reclamações. Atendimento de segunda a sexta, das 8h às 17h.">
+  <title>Atualização de Rede — Klini Saúde</title>
+  <meta name="description" content="Consulte alterações recentes na rede credenciada Klini. Saiba quais prestadores foram excluídos ou substituídos na sua região.">
 
-  <!-- Styles -->
   <link rel="stylesheet" href="assets/css/styles.css">
-  <link rel="stylesheet" href="assets/css/legal.css">
-  <link rel="stylesheet" href="assets/css/ouvidoria.css">
+  <link rel="stylesheet" href="assets/css/atualizacao-de-rede.css">
 
-  <!-- Favicon -->
   <link rel="icon" type="image/png" href="https://klinisaude.com.br/wp-content/uploads/2023/02/logo_klini-br.png">
 </head>
 <body>
@@ -66,7 +63,7 @@
         </div>
 
         <div class="nav-item">
-          <button class="nav-item__trigger" aria-expanded="false" aria-haspopup="true">
+          <button class="nav-item__trigger nav-item__trigger--active" aria-expanded="false" aria-haspopup="true">
             Serviços
             <svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2"><polyline points="2 4 6 8 10 4"/></svg>
           </button>
@@ -75,7 +72,7 @@
             <a href="farmacia.html" role="menuitem">Desconto farmácia</a>
             <a href="teleconsulta.html" role="menuitem">Teleconsulta</a>
             <a href="rede-credenciada.html" role="menuitem">Busca de rede</a>
-            <a href="atualizacao-de-rede.html" role="menuitem">Atualização de rede</a>
+            <a href="atualizacao-de-rede.html" role="menuitem" aria-current="page">Atualização de rede</a>
           </div>
         </div>
 
@@ -98,12 +95,12 @@
         </div>
 
         <div class="nav-item">
-          <button class="nav-item__trigger nav-item__trigger--active" aria-expanded="false" aria-haspopup="true">
+          <button class="nav-item__trigger" aria-expanded="false" aria-haspopup="true">
             Atendimento
             <svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2"><polyline points="2 4 6 8 10 4"/></svg>
           </button>
           <div class="nav-item__dropdown" role="menu">
-            <a href="ouvidoria.html" role="menuitem" aria-current="page">Ouvidoria</a>
+            <a href="ouvidoria.html" role="menuitem">Ouvidoria</a>
             <a href="negocie-sua-divida.html" role="menuitem">Negocie sua dívida</a>
             <a href="quero-ser-credenciado.html" role="menuitem">Quero me credenciar</a>
           </div>
@@ -111,7 +108,7 @@
       </nav>
 
       <div class="header__cta">
-        <a href="#contato" class="btn btn--secondary btn--sm">Quero ser Klini</a>
+        <a href="planos.html" class="btn btn--secondary btn--sm">Quero ser Klini</a>
       </div>
 
       <button class="header__mobile-toggle" id="mobileToggle" aria-label="Abrir menu" aria-expanded="false">
@@ -156,153 +153,178 @@
       </div>
       <div class="mobile-drawer__nav-group">
         <div class="mobile-drawer__nav-group-title">Atendimento</div>
-        <a href="ouvidoria.html" aria-current="page">Ouvidoria</a>
+        <a href="ouvidoria.html">Ouvidoria</a>
         <a href="negocie-sua-divida.html">Negocie sua dívida</a>
         <a href="quero-ser-credenciado.html">Quero me credenciar</a>
       </div>
     </nav>
-    <a href="#contato" class="btn btn--primary" style="margin:20px 24px;">Quero ser Klini</a>
+    <a href="planos.html" class="btn btn--primary" style="margin:20px 24px;">Quero ser Klini</a>
   </aside>
 
   <main id="main" role="main">
 
     <!-- ============================================================
-         PAGE HEADER
+         HERO
          ============================================================ -->
-    <div class="legal-header">
-      <div class="container">
-        <span class="legal-header__overline">Atendimento</span>
-        <h1 class="legal-header__title">Canal de Ouvidoria</h1>
-        <p class="legal-header__meta">Exclusivo para beneficiários Klini &nbsp;·&nbsp; Seg. a Sex. das 8h às 17h &nbsp;·&nbsp; Resposta em até 7 dias úteis</p>
+    <section class="ar-hero">
+      <div class="container ar-hero__inner">
+        <div class="ar-hero__text reveal">
+          <span class="ar-hero__overline">Serviços</span>
+          <h1 class="ar-hero__title">Atualização de Rede</h1>
+          <p class="ar-hero__subtitle">Consulte as alterações recentes na rede credenciada Klini. Informamos com transparência quando prestadores são excluídos ou substituídos.</p>
+        </div>
       </div>
-    </div>
+    </section>
 
     <!-- ============================================================
-         CONTENT
+         SEARCH FORM
          ============================================================ -->
-    <div class="ouv-layout">
+    <section class="ar-search" id="consultar">
       <div class="container">
-        <div class="ouv-layout__inner">
+        <div class="ar-search__card reveal">
+          <div class="ar-search__header">
+            <h2 class="ar-search__title">Consultar alterações</h2>
+            <p class="ar-search__desc">Selecione a rede, município e bairro para visualizar as mudanças recentes.</p>
+          </div>
 
-          <!-- Info Side -->
-          <div>
-            <p class="ouv-intro">A Ouvidoria Klini Saúde atua em conformidade com as normas da Agência Nacional de Saúde Suplementar (ANS) e do Código de Defesa do Consumidor. Oferecemos um canal independente e imparcial para que você compartilhe sua experiência conosco — seja um elogio, uma sugestão ou uma reclamação.</p>
+          <form id="ar-form" class="ar-form" novalidate>
+            <div class="ar-form__row">
 
-            <div class="ouv-info-cards">
-
-              <div class="ouv-info-card">
-                <div class="ouv-info-card__icon">
-                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
-                </div>
-                <div class="ouv-info-card__body">
-                  <p class="ouv-info-card__label">Horário de atendimento</p>
-                  <p class="ouv-info-card__value">Segunda a sexta, das 8h às 17h</p>
-                </div>
-              </div>
-
-              <div class="ouv-info-card">
-                <div class="ouv-info-card__icon">
-                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
-                </div>
-                <div class="ouv-info-card__body">
-                  <p class="ouv-info-card__label">Prazo de resposta</p>
-                  <p class="ouv-info-card__value">Até 7 dias úteis</p>
+              <div class="ar-form__field" id="rede-wrapper">
+                <label class="ar-form__label" for="rede-input">
+                  Rede
+                  <span class="ar-form__required" aria-hidden="true">*</span>
+                </label>
+                <div class="ar-select-wrapper ar-select-wrapper--loading" id="rede-loader">
+                  <select id="rede-input" name="rede" required disabled class="ar-select">
+                    <option value="" disabled selected>Carregando...</option>
+                  </select>
+                  <svg class="ar-select__arrow" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2"><polyline points="2 4 6 8 10 4"/></svg>
+                  <span class="ar-select__spinner" aria-hidden="true"></span>
                 </div>
               </div>
 
-              <div class="ouv-info-card">
-                <div class="ouv-info-card__icon">
-                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+              <div class="ar-form__field" id="municipio-wrapper">
+                <label class="ar-form__label" for="municipio-input">
+                  Município
+                  <span class="ar-form__required" aria-hidden="true">*</span>
+                </label>
+                <div class="ar-select-wrapper ar-select-wrapper--loading" id="municipio-loader">
+                  <select id="municipio-input" name="municipio" required disabled class="ar-select">
+                    <option value="" disabled selected>Selecione o município</option>
+                  </select>
+                  <svg class="ar-select__arrow" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2"><polyline points="2 4 6 8 10 4"/></svg>
+                  <span class="ar-select__spinner" aria-hidden="true"></span>
                 </div>
-                <div class="ouv-info-card__body">
-                  <p class="ouv-info-card__label">Urgências — SAC</p>
-                  <p class="ouv-info-card__value">0800 021 0320</p>
-                  <p class="ouv-info-card__sub">(21) 3055-0790</p>
+              </div>
+
+              <div class="ar-form__field" id="bairro-wrapper">
+                <label class="ar-form__label" for="bairro-input">
+                  Bairro
+                  <span class="ar-form__required" aria-hidden="true">*</span>
+                </label>
+                <div class="ar-select-wrapper ar-select-wrapper--loading" id="bairro-loader">
+                  <select id="bairro-input" name="bairro" required disabled class="ar-select">
+                    <option value="" disabled selected>Selecione o bairro</option>
+                  </select>
+                  <svg class="ar-select__arrow" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2"><polyline points="2 4 6 8 10 4"/></svg>
+                  <span class="ar-select__spinner" aria-hidden="true"></span>
                 </div>
               </div>
 
             </div>
 
-            <a href="https://wa.me/552130550790" target="_blank" rel="noopener" class="ouv-whatsapp">
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413z"/></svg>
-              Falar pelo WhatsApp
-            </a>
-          </div>
-
-          <!-- Form Side -->
-          <div class="ouv-form-card">
-            <h2 class="ouv-form-card__title">Envie sua mensagem</h2>
-            <p class="ouv-form-card__sub">Preencha o formulário abaixo. Todos os campos marcados com <strong style="color:#e05759">*</strong> são obrigatórios.</p>
-
-            <form class="ouv-form" id="ouvForm" novalidate>
-
-              <div class="ouv-form__row">
-                <div class="ouv-field">
-                  <label class="ouv-field__label" for="ouv-nome">Nome completo <span>*</span></label>
-                  <input class="ouv-field__input" type="text" id="ouv-nome" name="nome" placeholder="Seu nome completo" required autocomplete="name">
-                </div>
-                <div class="ouv-field">
-                  <label class="ouv-field__label" for="ouv-cpf">CPF <span>*</span></label>
-                  <input class="ouv-field__input" type="text" id="ouv-cpf" name="cpf" placeholder="000.000.000-00" required inputmode="numeric" maxlength="14">
-                </div>
-              </div>
-
-              <div class="ouv-form__row">
-                <div class="ouv-field">
-                  <label class="ouv-field__label" for="ouv-email">E-mail <span>*</span></label>
-                  <input class="ouv-field__input" type="email" id="ouv-email" name="email" placeholder="seu@email.com" required autocomplete="email">
-                </div>
-                <div class="ouv-field">
-                  <label class="ouv-field__label" for="ouv-telefone">Telefone <span>*</span></label>
-                  <input class="ouv-field__input" type="tel" id="ouv-telefone" name="telefone" placeholder="(21) 99999-9999" required autocomplete="tel">
-                </div>
-              </div>
-
-              <div class="ouv-field">
-                <label class="ouv-field__label" for="ouv-carteirinha">Número do cartão / beneficiário</label>
-                <input class="ouv-field__input" type="text" id="ouv-carteirinha" name="carteirinha" placeholder="Número do seu cartão Klini (se disponível)">
-              </div>
-
-              <div class="ouv-field">
-                <label class="ouv-field__label" for="ouv-tipo">Tipo de manifestação <span>*</span></label>
-                <select class="ouv-field__select" id="ouv-tipo" name="tipo" required>
-                  <option value="" disabled selected>Selecione o tipo</option>
-                  <option value="elogio">Elogio</option>
-                  <option value="sugestao">Sugestão</option>
-                  <option value="informacao">Informação</option>
-                  <option value="solicitacao">Solicitação</option>
-                  <option value="reclamacao">Reclamação</option>
-                </select>
-              </div>
-
-              <div class="ouv-field">
-                <label class="ouv-field__label" for="ouv-mensagem">Mensagem <span>*</span></label>
-                <textarea class="ouv-field__textarea" id="ouv-mensagem" name="mensagem" placeholder="Descreva sua manifestação com o máximo de detalhes possível..." required rows="5"></textarea>
-              </div>
-
-              <div class="ouv-field">
-                <label class="ouv-field__label" for="ouv-arquivo">Anexar arquivo <span style="font-weight:400;color:var(--klini-text-muted)">(opcional · máx. 25 MB)</span></label>
-                <label class="ouv-field__file-label" for="ouv-arquivo">
-                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21.44 11.05l-9.19 9.19a6 6 0 0 1-8.49-8.49l9.19-9.19a4 4 0 0 1 5.66 5.66l-9.2 9.19a2 2 0 0 1-2.83-2.83l8.49-8.48"/></svg>
-                  <span id="ouv-file-name">Selecionar arquivo</span>
-                </label>
-                <input class="ouv-field__file" type="file" id="ouv-arquivo" name="arquivo" accept=".pdf,.jpg,.jpeg,.png,.doc,.docx">
-              </div>
-
-              <p class="ouv-form__lgpd">
-                Seus dados serão tratados em conformidade com a <a href="politica-de-privacidade.html">Política de Privacidade</a> da Klini Saúde e com a Lei nº 13.709/2018 (LGPD), sendo utilizados exclusivamente para o atendimento desta manifestação.
-              </p>
-
-              <div class="ouv-form__submit">
-                <button type="submit" class="btn btn--primary">Enviar manifestação</button>
-              </div>
-
-            </form>
-          </div>
-
+            <div class="ar-form__actions">
+              <button type="submit" id="ar-submit" class="ar-submit" disabled>
+                <svg class="ar-submit__spinner" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10" stroke-dasharray="60" stroke-dashoffset="60"><animate attributeName="stroke-dashoffset" dur="1.2s" values="60;0;60" repeatCount="indefinite"/></circle></svg>
+                <svg class="ar-submit__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+                <span id="ar-submit-text">Consultar mudanças</span>
+              </button>
+              <button type="button" id="ar-clear" class="ar-clear" style="display:none;">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+                Limpar
+              </button>
+            </div>
+          </form>
         </div>
       </div>
-    </div>
+    </section>
+
+    <!-- ============================================================
+         RESULTS
+         ============================================================ -->
+    <section class="ar-results" id="resultados" aria-live="polite" aria-label="Resultados da consulta">
+      <div class="container">
+
+        <!-- Empty state -->
+        <div class="ar-state ar-state--empty" id="ar-state-empty">
+          <div class="ar-state__icon" aria-hidden="true">
+            <svg viewBox="0 0 80 80" fill="none">
+              <circle cx="40" cy="40" r="36" fill="var(--klini-primary-100)"/>
+              <rect x="24" y="20" width="32" height="40" rx="3" stroke="var(--klini-primary-500)" stroke-width="2.5"/>
+              <line x1="30" y1="30" x2="50" y2="30" stroke="var(--klini-primary-400)" stroke-width="2" stroke-linecap="round"/>
+              <line x1="30" y1="37" x2="50" y2="37" stroke="var(--klini-primary-400)" stroke-width="2" stroke-linecap="round"/>
+              <line x1="30" y1="44" x2="42" y2="44" stroke="var(--klini-primary-300)" stroke-width="2" stroke-linecap="round"/>
+            </svg>
+          </div>
+          <h3 class="ar-state__title">Consulte alterações na rede</h3>
+          <p class="ar-state__desc">Selecione a rede, município e bairro acima para visualizar os prestadores que foram excluídos ou substituídos.</p>
+        </div>
+
+        <!-- Loading state -->
+        <div class="ar-state ar-state--loading" id="ar-state-loading" style="display:none;">
+          <div class="ar-skeleton-grid">
+            <div class="ar-skeleton-card"><div class="ar-skeleton ar-skeleton--badge"></div><div class="ar-skeleton ar-skeleton--title"></div><div class="ar-skeleton ar-skeleton--line"></div><div class="ar-skeleton ar-skeleton--line ar-skeleton--short"></div><div class="ar-skeleton ar-skeleton--line ar-skeleton--short"></div></div>
+            <div class="ar-skeleton-card"><div class="ar-skeleton ar-skeleton--badge"></div><div class="ar-skeleton ar-skeleton--title"></div><div class="ar-skeleton ar-skeleton--line"></div><div class="ar-skeleton ar-skeleton--line ar-skeleton--short"></div><div class="ar-skeleton ar-skeleton--line ar-skeleton--short"></div></div>
+            <div class="ar-skeleton-card ar-skeleton-card--wide"><div class="ar-skeleton ar-skeleton--badge"></div><div class="ar-skeleton ar-skeleton--title"></div><div class="ar-skeleton ar-skeleton--line"></div><div class="ar-skeleton ar-skeleton--line ar-skeleton--short"></div></div>
+          </div>
+        </div>
+
+        <!-- No results -->
+        <div class="ar-state ar-state--noresults" id="ar-state-noresults" style="display:none;">
+          <div class="ar-state__icon" aria-hidden="true">
+            <svg viewBox="0 0 80 80" fill="none">
+              <circle cx="40" cy="40" r="36" fill="var(--klini-primary-100)"/>
+              <path d="M28 40h24M40 28v24" stroke="var(--klini-primary-400)" stroke-width="2.5" stroke-linecap="round"/>
+            </svg>
+          </div>
+          <h3 class="ar-state__title">Nenhuma alteração encontrada</h3>
+          <p class="ar-state__desc">Não há mudanças registradas para os filtros selecionados no momento.</p>
+          <button type="button" class="ar-state__btn" id="ar-state-reset">Ajustar filtros</button>
+        </div>
+
+        <!-- Results -->
+        <div id="ar-results-content" style="display:none;">
+          <div class="ar-results__header">
+            <span id="ar-results-count" class="ar-results__count"></span>
+            <span id="ar-results-filters" class="ar-results__filters"></span>
+          </div>
+          <div class="ar-grid" id="ar-grid"></div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ============================================================
+         HELP STRIP
+         ============================================================ -->
+    <section class="ar-help reveal">
+      <div class="container ar-help__inner">
+        <div class="ar-help__text">
+          <h2 class="ar-help__title">Dúvidas sobre sua rede credenciada?</h2>
+          <p class="ar-help__desc">Nossa equipe está disponível para orientar você sobre mudanças e alternativas na rede.</p>
+        </div>
+        <div class="ar-help__actions">
+          <a href="https://wa.me/552130550790" target="_blank" rel="noopener" class="ar-help__btn ar-help__btn--primary">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>
+            Falar no WhatsApp
+          </a>
+          <a href="rede-credenciada.html" class="ar-help__btn ar-help__btn--outline">
+            Buscar rede credenciada
+          </a>
+        </div>
+      </div>
+    </section>
 
   </main>
 
@@ -380,14 +402,7 @@
     </div>
   </footer>
 
-  <!-- Scripts -->
   <script src="assets/js/main.js"></script>
-  <script>
-    // File input label update
-    document.getElementById('ouv-arquivo').addEventListener('change', function () {
-      var name = this.files[0] ? this.files[0].name : 'Selecionar arquivo';
-      document.getElementById('ouv-file-name').textContent = name;
-    });
-  </script>
+  <script src="assets/js/atualizacao-de-rede.js"></script>
 </body>
 </html>
