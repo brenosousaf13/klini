@@ -734,6 +734,86 @@
   color: #fff;
 }
 
+/* ── CORS Warning Banner ────────────────────────────────────── */
+.rc-cors-banner {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  background: #fff8f0;
+  border: 1.5px solid var(--klini-accent-300, #E1AF7C);
+  border-radius: var(--klini-radius-md);
+  padding: 20px 24px;
+  margin: 16px 0 0;
+}
+
+.rc-cors-banner__icon {
+  flex-shrink: 0;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: var(--klini-accent-100, #F5E4D3);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--klini-accent-500, #CD7925);
+}
+
+.rc-cors-banner__icon svg {
+  width: 18px;
+  height: 18px;
+}
+
+.rc-cors-banner__body {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  font-family: var(--klini-font-display);
+  font-size: 14px;
+}
+
+.rc-cors-banner__body strong {
+  color: var(--klini-text-strong);
+  font-weight: 600;
+}
+
+.rc-cors-banner__body span {
+  color: var(--klini-text-muted);
+  line-height: 1.5;
+}
+
+.rc-cors-banner__btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  flex-shrink: 0;
+  height: 40px;
+  padding: 0 20px;
+  background: var(--klini-accent-500, #CD7925);
+  color: #fff;
+  font-family: var(--klini-font-display);
+  font-size: 13px;
+  font-weight: 600;
+  border-radius: var(--klini-radius-pill);
+  text-decoration: none;
+  transition: background var(--klini-motion-fast) ease;
+}
+
+.rc-cors-banner__btn:hover {
+  background: #b9681f;
+}
+
+@media (max-width: 640px) {
+  .rc-cors-banner {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .rc-cors-banner__btn {
+    width: 100%;
+    justify-content: center;
+  }
+}
+
 /* ================================================================
    RESPONSIVE
    ================================================================ */
