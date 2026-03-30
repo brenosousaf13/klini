@@ -1,52 +1,48 @@
 /**
  * Klini Saúde — Rede Credenciada
- * Handles cascade selects, API calls and results rendering
+ * Cascade selects + search using the real Klini API endpoints
  */
 (function () {
   'use strict';
 
   // ── API Configuration ──────────────────────────────────────────
-  // Endpoints from the original Klini guia médico system.
-  // All calls go to the WordPress backend via admin-ajax.php or a custom REST route.
-  var API = {
-    base: 'https://klinisaude.com.br/wp-admin/admin-ajax.php',
-    actions: {
-      redes:        'klini_gm_redes',
-      tiposServico: 'klini_gm_tipos_servico',
-      especialidades:'klini_gm_especialidades',
-      estados:      'klini_gm_estados',
-      municipios:   'klini_gm_municipios',
-      bairros:      'klini_gm_bairros',
-      buscar:       'klini_gm_buscar'
-    }
-  };
+  var API_ODONTO = 'https://klinisaude.com.br/wp-json/guiaMedico/v1';
+  var API_TASY   = 'https://prd-medicalguideservice.klinisaude.com.br';
+  var TASY_KEY   = 'UG7JqAQzcAuXJlvKqOa8dBqoTzHvw2vO';
 
-  // IBGE API (public, CORS-enabled) for estados and municipios as fallback
-  var IBGE = {
-    estados:    'https://servicodados.ibge.gov.br/api/v1/localidades/estados?orderBy=nome',
-    municipios: 'https://servicodados.ibge.gov.br/api/v1/localidades/estados/{uf}/municipios?orderBy=nome'
-  };
+  function apiBase(tipoProduto) {
+    return tipoProduto === 'O' ? API_ODONTO : API_TASY + '/v1/guiamedico';
+  }
 
-  // ── DOM References ─────────────────────────────────────────────
-  var form            = document.getElementById('rc-form');
-  var submitBtn       = document.getElementById('rc-submit');
-  var submitText      = document.getElementById('rc-submit-text');
-  var clearBtn        = document.getElementById('rc-clear');
+  function apiFetch(url, tipoProduto) {
+    var opts = { headers: {} };
+    if (tipoProduto !== 'O') opts.headers['X-ApiKey'] = TASY_KEY;
+    return fetch(url, opts).then(function (r) {
+      if (!r.ok) throw new Error('HTTP ' + r.status);
+      return r.json();
+    });
+  }
 
-  var tipoProdutoSel  = document.getElementById('tipo-produto-input');
-  var redeSel         = document.getElementById('rede-input');
-  var tipoServicoSel  = document.getElementById('tipo-servico-input');
-  var especialidadeSel= document.getElementById('especialidade-input');
-  var estadoSel       = document.getElementById('estado-input');
-  var municipioSel    = document.getElementById('municipio-input');
-  var bairroSel       = document.getElementById('bairro-input');
+  // ── DOM ────────────────────────────────────────────────────────
+  var form             = document.getElementById('rc-form');
+  var submitBtn        = document.getElementById('rc-submit');
+  var submitText       = document.getElementById('rc-submit-text');
+  var clearBtn         = document.getElementById('rc-clear');
 
-  var redeLoader       = document.getElementById('rede-loader');
-  var tipoServicoLoader= document.getElementById('tipo-servico-loader');
-  var especialidadeLoader = document.getElementById('especialidade-loader');
-  var estadoLoader     = document.getElementById('estado-loader');
-  var municipioLoader  = document.getElementById('municipio-loader');
-  var bairroLoader     = document.getElementById('bairro-loader');
+  var tipoProdutoSel   = document.getElementById('tipo-produto-input');
+  var redeSel          = document.getElementById('rede-input');
+  var tipoServicoSel   = document.getElementById('tipo-servico-input');
+  var especialidadeSel = document.getElementById('especialidade-input');
+  var estadoSel        = document.getElementById('estado-input');
+  var municipioSel     = document.getElementById('municipio-input');
+  var bairroSel        = document.getElementById('bairro-input');
+
+  var redeLoader        = document.getElementById('rede-loader');
+  var tipoServicoLoader = document.getElementById('tipo-servico-loader');
+  var espLoader         = document.getElementById('especialidade-loader');
+  var estadoLoader      = document.getElementById('estado-loader');
+  var municipioLoader   = document.getElementById('municipio-loader');
+  var bairroLoader      = document.getElementById('bairro-loader');
 
   var stateEmpty      = document.getElementById('rc-state-empty');
   var stateLoading    = document.getElementById('rc-state-loading');
@@ -56,364 +52,281 @@
   var resultsFilters  = document.getElementById('rc-results-filters');
   var resultsGrid     = document.getElementById('rc-grid');
   var pagination      = document.getElementById('rc-pagination');
-  var loadMoreBtn     = document.getElementById('rc-load-more');
   var stateReset      = document.getElementById('rc-state-reset');
 
-  // Pagination state
-  var currentPage   = 1;
-  var perPage       = 12;
-  var allResults    = [];
-
-  // ── Helper: API request via fetch ──────────────────────────────
-  function apiPost(action, params) {
-    var body = new URLSearchParams({ action: action });
-    if (params) {
-      Object.keys(params).forEach(function (k) {
-        body.append(k, params[k]);
-      });
-    }
-    return fetch(API.base, {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-      body: body.toString()
-    }).then(function (res) {
-      if (!res.ok) throw new Error('HTTP ' + res.status);
-      return res.json();
-    });
-  }
-
-  // ── Helper: select utilities ───────────────────────────────────
+  // ── Select helpers ─────────────────────────────────────────────
   function setLoading(loaderEl, selectEl, loading) {
+    selectEl.disabled = true;
     if (loading) {
       loaderEl.classList.add('rc-select-wrapper--loading');
       loaderEl.classList.remove('rc-select-wrapper--ready');
-      selectEl.disabled = true;
     } else {
       loaderEl.classList.remove('rc-select-wrapper--loading');
       loaderEl.classList.add('rc-select-wrapper--ready');
     }
   }
 
-  function populateSelect(selectEl, options, valueKey, labelKey) {
-    var current = selectEl.value;
-    // Keep placeholder
-    while (selectEl.options.length > 1) {
-      selectEl.remove(1);
-    }
-    options.forEach(function (opt) {
+  function populate(selectEl, loaderEl, items, valueKey, labelKey) {
+    while (selectEl.options.length > 1) selectEl.remove(1);
+    items.forEach(function (item) {
       var o = document.createElement('option');
-      o.value = opt[valueKey] !== undefined ? opt[valueKey] : opt;
-      o.textContent = opt[labelKey] !== undefined ? opt[labelKey] : opt;
+      o.value = item[valueKey];
+      o.textContent = item[labelKey];
       selectEl.appendChild(o);
     });
-    // Restore previous value if still available
-    if (current) selectEl.value = current;
+    selectEl.disabled = false;
+    setLoading(loaderEl, selectEl, false);
   }
 
-  function resetSelect(selectEl, loaderEl, placeholder) {
+  function resetSel(selectEl, loaderEl, placeholder) {
     while (selectEl.options.length > 1) selectEl.remove(1);
-    selectEl.options[0].textContent = placeholder || selectEl.options[0].textContent;
+    selectEl.options[0].textContent = placeholder;
     selectEl.value = '';
     selectEl.disabled = true;
-    setLoading(loaderEl, selectEl, false);
-    loaderEl.classList.remove('rc-select-wrapper--ready');
+    loaderEl.classList.remove('rc-select-wrapper--loading', 'rc-select-wrapper--ready');
   }
 
   function checkSubmitReady() {
-    var ready = tipoProdutoSel.value && redeSel.value &&
-                tipoServicoSel.value && especialidadeSel.value &&
-                estadoSel.value && municipioSel.value;
-    submitBtn.disabled = !ready;
+    submitBtn.disabled = !(
+      tipoProdutoSel.value &&
+      redeSel.value &&
+      tipoServicoSel.value &&
+      especialidadeSel.value &&
+      estadoSel.value &&
+      municipioSel.value
+    );
   }
 
-  // ── Step 1: Load Redes when tipo-produto changes ───────────────
+  // ── Step 1 — Tipo de Produto → Redes ──────────────────────────
   tipoProdutoSel.addEventListener('change', function () {
-    var tipoProduto = this.value;
-    if (!tipoProduto) return;
+    var tp = this.value;
+    submitBtn.disabled = true;
 
-    // Reset downstream selects
-    resetSelect(redeSel, redeLoader, 'Selecione a rede');
-    resetSelect(tipoServicoSel, tipoServicoLoader, 'Selecione o tipo');
-    resetSelect(especialidadeSel, especialidadeLoader, 'Selecione a especialidade');
-    resetSelect(estadoSel, estadoLoader, 'Selecione o estado');
-    resetSelect(municipioSel, municipioLoader, 'Selecione o município');
-    resetSelect(bairroSel, bairroLoader, 'Selecione o bairro');
-    checkSubmitReady();
+    resetSel(redeSel,        redeLoader,        'Selecione a rede');
+    resetSel(tipoServicoSel, tipoServicoLoader, 'Selecione o tipo');
+    resetSel(especialidadeSel, espLoader,       'Selecione a especialidade');
+    resetSel(estadoSel,      estadoLoader,      'Selecione o estado');
+    resetSel(municipioSel,   municipioLoader,   'Selecione o município');
+    resetSel(bairroSel,      bairroLoader,      'Selecione o bairro');
 
     setLoading(redeLoader, redeSel, true);
 
-    apiPost(API.actions.redes, { tipo_produto: tipoProduto })
+    apiFetch(apiBase(tp) + '/redes?tipoProduto=' + tp, tp)
       .then(function (data) {
-        var redes = Array.isArray(data) ? data : (data.data || []);
-        populateSelect(redeSel, redes, 'value', 'label');
-        redeSel.disabled = false;
-        setLoading(redeLoader, redeSel, false);
-        loadTiposServico(tipoProduto, null);
-        loadEstados();
+        populate(redeSel, redeLoader, data, 'id', 'nome');
       })
       .catch(function () {
-        // Fallback: enable rede with generic options
-        populateSelect(redeSel, [
-          { value: 'basica', label: 'Rede Básica' },
-          { value: 'preferencial', label: 'Rede Preferencial' },
-          { value: 'nacional', label: 'Rede Nacional' }
-        ], 'value', 'label');
-        redeSel.disabled = false;
         setLoading(redeLoader, redeSel, false);
-        loadTiposServico(tipoProduto, null);
-        loadEstados();
+        redeSel.disabled = true;
+        showError('Erro ao carregar redes. Tente novamente.');
       });
   });
 
-  // ── Step 1b: Load Tipos de Serviço ────────────────────────────
-  function loadTiposServico(tipoProduto, rede) {
+  // ── Step 2 — Rede → Tipos de Serviço ──────────────────────────
+  redeSel.addEventListener('change', function () {
+    var tp   = tipoProdutoSel.value;
+    var rede = this.value;
+    submitBtn.disabled = true;
+
+    resetSel(tipoServicoSel, tipoServicoLoader, 'Selecione o tipo');
+    resetSel(especialidadeSel, espLoader,       'Selecione a especialidade');
+    resetSel(estadoSel,      estadoLoader,      'Selecione o estado');
+    resetSel(municipioSel,   municipioLoader,   'Selecione o município');
+    resetSel(bairroSel,      bairroLoader,      'Selecione o bairro');
+
     setLoading(tipoServicoLoader, tipoServicoSel, true);
 
-    apiPost(API.actions.tiposServico, { tipo_produto: tipoProduto, rede: rede || '' })
+    // Note: Odonto uses "tipoServicos", Tasy uses "tiposervicos"
+    var endpoint = tp === 'O' ? '/tipoServicos' : '/tiposervicos';
+    apiFetch(apiBase(tp) + endpoint + '?redeId=' + rede + '&tipoProduto=' + tp, tp)
       .then(function (data) {
-        var tipos = Array.isArray(data) ? data : (data.data || []);
-        populateSelect(tipoServicoSel, tipos, 'value', 'label');
-        tipoServicoSel.disabled = false;
-        setLoading(tipoServicoLoader, tipoServicoSel, false);
+        populate(tipoServicoSel, tipoServicoLoader, data, 'id', 'nome');
       })
       .catch(function () {
-        // Fallback with common service types
-        var fallback = [
-          { value: 'consulta', label: 'Consulta Médica' },
-          { value: 'exame', label: 'Exames' },
-          { value: 'terapia', label: 'Terapias' },
-          { value: 'internacao', label: 'Internação' },
-          { value: 'pronto-socorro', label: 'Pronto-Socorro' },
-          { value: 'cirurgia', label: 'Cirurgia' }
-        ];
-        populateSelect(tipoServicoSel, fallback, 'value', 'label');
-        tipoServicoSel.disabled = false;
         setLoading(tipoServicoLoader, tipoServicoSel, false);
+        tipoServicoSel.disabled = true;
+        showError('Erro ao carregar tipos de serviço.');
       });
-  }
-
-  // When rede changes, reload tipos serviço filtered
-  redeSel.addEventListener('change', function () {
-    var tipoProduto = tipoProdutoSel.value;
-    var rede = this.value;
-
-    resetSelect(tipoServicoSel, tipoServicoLoader, 'Selecione o tipo');
-    resetSelect(especialidadeSel, especialidadeLoader, 'Selecione a especialidade');
-    checkSubmitReady();
-
-    if (tipoProduto) loadTiposServico(tipoProduto, rede);
   });
 
-  // ── Step 2: Load Especialidades when tipo-servico changes ──────
+  // ── Step 3 — Tipo de Serviço → Especialidades ─────────────────
   tipoServicoSel.addEventListener('change', function () {
-    var tipoProduto = tipoProdutoSel.value;
-    var rede        = redeSel.value;
-    var tipoServico = this.value;
+    var tp       = tipoProdutoSel.value;
+    var rede     = redeSel.value;
+    var tipoServ = this.value;
+    submitBtn.disabled = true;
 
-    resetSelect(especialidadeSel, especialidadeLoader, 'Selecione a especialidade');
-    checkSubmitReady();
+    resetSel(especialidadeSel, espLoader,     'Selecione a especialidade');
+    resetSel(estadoSel,        estadoLoader,  'Selecione o estado');
+    resetSel(municipioSel,     municipioLoader,'Selecione o município');
+    resetSel(bairroSel,        bairroLoader,  'Selecione o bairro');
 
-    setLoading(especialidadeLoader, especialidadeSel, true);
+    setLoading(espLoader, especialidadeSel, true);
 
-    apiPost(API.actions.especialidades, {
-      tipo_produto: tipoProduto,
-      rede: rede,
-      tipo_servico: tipoServico
-    })
+    apiFetch(
+      apiBase(tp) + '/especialidades?redeId=' + rede +
+      '&tipoServicoId=' + tipoServ + '&tipoProduto=' + tp, tp
+    )
       .then(function (data) {
-        var esp = Array.isArray(data) ? data : (data.data || []);
-        populateSelect(especialidadeSel, esp, 'value', 'label');
-        especialidadeSel.disabled = false;
-        setLoading(especialidadeLoader, especialidadeSel, false);
+        populate(especialidadeSel, espLoader, data, 'id', 'nome');
       })
       .catch(function () {
-        // Fallback with common medical specialties
-        var fallback = [
-          { value: 'clinica-geral', label: 'Clínica Geral' },
-          { value: 'cardiologia', label: 'Cardiologia' },
-          { value: 'dermatologia', label: 'Dermatologia' },
-          { value: 'endocrinologia', label: 'Endocrinologia' },
-          { value: 'ginecologia', label: 'Ginecologia e Obstetrícia' },
-          { value: 'gastroenterologia', label: 'Gastroenterologia' },
-          { value: 'neurologia', label: 'Neurologia' },
-          { value: 'oftalmologia', label: 'Oftalmologia' },
-          { value: 'ortopedia', label: 'Ortopedia e Traumatologia' },
-          { value: 'otorrinolaringologia', label: 'Otorrinolaringologia' },
-          { value: 'pediatria', label: 'Pediatria' },
-          { value: 'psiquiatria', label: 'Psiquiatria' },
-          { value: 'reumatologia', label: 'Reumatologia' },
-          { value: 'urologia', label: 'Urologia' }
-        ];
-        populateSelect(especialidadeSel, fallback, 'value', 'label');
-        especialidadeSel.disabled = false;
-        setLoading(especialidadeLoader, especialidadeSel, false);
+        setLoading(espLoader, especialidadeSel, false);
+        especialidadeSel.disabled = true;
+        showError('Erro ao carregar especialidades.');
       });
   });
 
-  especialidadeSel.addEventListener('change', checkSubmitReady);
+  // ── Step 4 — Especialidade → Estados ──────────────────────────
+  especialidadeSel.addEventListener('change', function () {
+    var tp     = tipoProdutoSel.value;
+    var rede   = redeSel.value;
+    var tipoS  = tipoServicoSel.value;
+    var espId  = this.value;
+    submitBtn.disabled = true;
 
-  // ── Step 3: Load Estados via IBGE ─────────────────────────────
-  function loadEstados() {
+    resetSel(estadoSel,    estadoLoader,   'Selecione o estado');
+    resetSel(municipioSel, municipioLoader,'Selecione o município');
+    resetSel(bairroSel,    bairroLoader,   'Selecione o bairro');
+
     setLoading(estadoLoader, estadoSel, true);
 
-    fetch(IBGE.estados)
-      .then(function (res) { return res.json(); })
+    apiFetch(
+      apiBase(tp) + '/estados?redeId=' + rede +
+      '&tipoServicoId=' + tipoS + '&especialidadeId=' + espId + '&tipoProduto=' + tp, tp
+    )
       .then(function (data) {
-        var estados = data.map(function (e) {
-          return { value: e.sigla, label: e.nome + ' (' + e.sigla + ')' };
-        });
-        populateSelect(estadoSel, estados, 'value', 'label');
-        estadoSel.disabled = false;
-        setLoading(estadoLoader, estadoSel, false);
+        // Estados return {sigla, sigla} — value and label are both the sigla
+        populate(estadoSel, estadoLoader, data, 'sigla', 'sigla');
       })
       .catch(function () {
-        // Hardcoded BR states as ultimate fallback
-        var estados = [
-          {value:'AC',label:'Acre (AC)'},{value:'AL',label:'Alagoas (AL)'},
-          {value:'AP',label:'Amapá (AP)'},{value:'AM',label:'Amazonas (AM)'},
-          {value:'BA',label:'Bahia (BA)'},{value:'CE',label:'Ceará (CE)'},
-          {value:'DF',label:'Distrito Federal (DF)'},{value:'ES',label:'Espírito Santo (ES)'},
-          {value:'GO',label:'Goiás (GO)'},{value:'MA',label:'Maranhão (MA)'},
-          {value:'MT',label:'Mato Grosso (MT)'},{value:'MS',label:'Mato Grosso do Sul (MS)'},
-          {value:'MG',label:'Minas Gerais (MG)'},{value:'PA',label:'Pará (PA)'},
-          {value:'PB',label:'Paraíba (PB)'},{value:'PR',label:'Paraná (PR)'},
-          {value:'PE',label:'Pernambuco (PE)'},{value:'PI',label:'Piauí (PI)'},
-          {value:'RJ',label:'Rio de Janeiro (RJ)'},{value:'RN',label:'Rio Grande do Norte (RN)'},
-          {value:'RS',label:'Rio Grande do Sul (RS)'},{value:'RO',label:'Rondônia (RO)'},
-          {value:'RR',label:'Roraima (RR)'},{value:'SC',label:'Santa Catarina (SC)'},
-          {value:'SP',label:'São Paulo (SP)'},{value:'SE',label:'Sergipe (SE)'},
-          {value:'TO',label:'Tocantins (TO)'}
-        ];
-        populateSelect(estadoSel, estados, 'value', 'label');
-        estadoSel.disabled = false;
         setLoading(estadoLoader, estadoSel, false);
+        estadoSel.disabled = true;
+        showError('Erro ao carregar estados.');
       });
-  }
+  });
 
-  // ── Step 4: Load Municípios when estado changes ────────────────
+  // ── Step 5 — Estado → Municípios ──────────────────────────────
   estadoSel.addEventListener('change', function () {
-    var uf = this.value;
+    var tp     = tipoProdutoSel.value;
+    var rede   = redeSel.value;
+    var tipoS  = tipoServicoSel.value;
+    var espId  = especialidadeSel.value;
+    var estado = this.value;
+    submitBtn.disabled = true;
 
-    resetSelect(municipioSel, municipioLoader, 'Selecione o município');
-    resetSelect(bairroSel, bairroLoader, 'Selecione o bairro');
-    checkSubmitReady();
-
-    if (!uf) return;
+    resetSel(municipioSel, municipioLoader, 'Selecione o município');
+    resetSel(bairroSel,    bairroLoader,    'Selecione o bairro');
 
     setLoading(municipioLoader, municipioSel, true);
 
-    var url = IBGE.municipios.replace('{uf}', uf);
-    fetch(url)
-      .then(function (res) { return res.json(); })
+    apiFetch(
+      apiBase(tp) + '/municipios?redeId=' + rede +
+      '&tipoServicoId=' + tipoS + '&especialidadeId=' + espId +
+      '&estado=' + estado + '&tipoProduto=' + tp, tp
+    )
       .then(function (data) {
-        var municipios = data.map(function (m) {
-          return { value: m.nome, label: m.nome };
-        });
-        populateSelect(municipioSel, municipios, 'value', 'label');
-        municipioSel.disabled = false;
-        setLoading(municipioLoader, municipioSel, false);
+        populate(municipioSel, municipioLoader, data, 'id', 'nome');
       })
       .catch(function () {
-        municipioSel.disabled = false;
         setLoading(municipioLoader, municipioSel, false);
+        municipioSel.disabled = true;
+        showError('Erro ao carregar municípios.');
       });
   });
 
-  // ── Step 5: Load Bairros when município changes ────────────────
+  // ── Step 6 — Município → Bairros + Habilita busca ─────────────
   municipioSel.addEventListener('change', function () {
-    var tipoProduto = tipoProdutoSel.value;
-    var uf          = estadoSel.value;
-    var municipio   = this.value;
+    var tp       = tipoProdutoSel.value;
+    var rede     = redeSel.value;
+    var tipoS    = tipoServicoSel.value;
+    var espId    = especialidadeSel.value;
+    var estado   = estadoSel.value;
+    var municId  = this.value;
 
-    resetSelect(bairroSel, bairroLoader, 'Selecione o bairro');
+    // Enable submit as soon as municipio is selected (bairro is optional)
     checkSubmitReady();
 
-    if (!municipio) return;
-
+    resetSel(bairroSel, bairroLoader, 'Selecione o bairro');
     setLoading(bairroLoader, bairroSel, true);
 
-    apiPost(API.actions.bairros, {
-      tipo_produto: tipoProduto,
-      estado: uf,
-      municipio: municipio
-    })
+    apiFetch(
+      apiBase(tp) + '/bairros?redeId=' + rede +
+      '&tipoServicoId=' + tipoS + '&especialidadeId=' + espId +
+      '&estado=' + estado + '&municipioId=' + municId + '&tipoProduto=' + tp, tp
+    )
       .then(function (data) {
-        var bairros = Array.isArray(data) ? data : (data.data || []);
-        if (bairros.length) {
-          populateSelect(bairroSel, bairros, 'value', 'label');
-        }
-        bairroSel.disabled = false;
-        setLoading(bairroLoader, bairroSel, false);
+        populate(bairroSel, bairroLoader, data, 'id', 'nome');
       })
       .catch(function () {
-        bairroSel.disabled = false;
         setLoading(bairroLoader, bairroSel, false);
+        bairroSel.disabled = true;
+        // Not an error — bairro is optional
       });
   });
 
-  // ── Form submit ────────────────────────────────────────────────
+  // Bairro selection also fine (submit already enabled)
+  bairroSel.addEventListener('change', checkSubmitReady);
+
+  // ── Form submit — Search prestadores ──────────────────────────
   form.addEventListener('submit', function (e) {
     e.preventDefault();
-    currentPage = 1;
-    allResults = [];
     performSearch();
   });
 
   function performSearch() {
-    var params = {
-      tipo_produto: tipoProdutoSel.value,
-      rede:         redeSel.value,
-      tipo_servico: tipoServicoSel.value,
-      especialidade:especialidadeSel.value,
-      estado:       estadoSel.value,
-      municipio:    municipioSel.value,
-      bairro:       bairroSel.value || '',
-      page:         currentPage,
-      per_page:     perPage
-    };
+    var tp      = tipoProdutoSel.value;
+    var rede    = redeSel.value;
+    var tipoS   = tipoServicoSel.value;
+    var espId   = especialidadeSel.value;
+    var estado  = estadoSel.value;
+    var municId = municipioSel.value;
+    var bairroId= bairroSel.value || '';
+
+    if (!tp || !rede || !tipoS || !espId || !municId) return;
 
     showState('loading');
     setSubmitLoading(true);
     clearBtn.style.display = 'inline-flex';
 
-    apiPost(API.actions.buscar, params)
+    var url = apiBase(tp) + '/prestadores?redeId=' + rede +
+      '&tipoServicoId=' + tipoS +
+      '&estado=' + estado +
+      '&especialidadeId=' + espId +
+      '&municipioId=' + municId +
+      '&tipoProduto=' + tp;
+
+    if (bairroId) url += '&bairro=' + bairroId;
+
+    apiFetch(url, tp)
       .then(function (data) {
-        var results = Array.isArray(data) ? data : (data.data || data.results || []);
-        var total   = data.total || results.length;
-        allResults  = allResults.concat(results);
-        renderResults(total, results, params);
+        renderResults(Array.isArray(data) ? data : []);
       })
       .catch(function () {
-        // Could not reach Klini API — show friendly guidance
-        showFallbackMessage(params);
-      })
-      .finally(function () {
         setSubmitLoading(false);
+        showState('error');
       });
   }
 
-  function renderResults(total, results, params) {
-    if (!results || results.length === 0) {
+  function renderResults(results) {
+    setSubmitLoading(false);
+
+    if (!results.length) {
       showState('noresults');
       return;
     }
 
-    resultsCount.textContent = total + ' prestador' + (total !== 1 ? 'es' : '') + ' encontrado' + (total !== 1 ? 's' : '');
-    resultsFilters.textContent = buildFilterSummary(params);
+    var total = results.length;
+    resultsCount.textContent = 'Foram encontrados ' + total + ' prestador' + (total !== 1 ? 'es' : '') + ' na sua busca';
+    resultsFilters.textContent = buildFilterSummary();
 
-    if (currentPage === 1) {
-      resultsGrid.innerHTML = '';
-    }
-
+    resultsGrid.innerHTML = '';
     results.forEach(function (r) {
       resultsGrid.appendChild(buildCard(r));
     });
 
-    pagination.style.display = allResults.length < total ? 'flex' : 'none';
-
+    pagination.style.display = 'none';
     showState('results');
-
-    // Smooth scroll to results
     document.getElementById('resultados').scrollIntoView({ behavior: 'smooth', block: 'start' });
   }
 
@@ -421,95 +334,111 @@
     var card = document.createElement('div');
     card.className = 'rc-card reveal';
 
-    var tipo = r.tipo_produto === 'O' ? 'Odontológico' : 'Médico';
-    var mapUrl = r.latitude && r.longitude
-      ? 'https://www.google.com/maps?q=' + r.latitude + ',' + r.longitude
-      : 'https://www.google.com/maps?q=' + encodeURIComponent((r.endereco || '') + ' ' + (r.municipio || '') + ' ' + (r.estado || ''));
+    // Address
+    var end = r.endereco || {};
+    var linhas = [];
+    var rua = end.logradouro || '';
+    if (end.numero)     rua += ', ' + end.numero;
+    if (end.complemento) rua += ' – ' + end.complemento;
+    if (end.bairro)     rua += ' – ' + end.bairro;
+    if (rua) linhas.push(rua);
+    if (end.municipio)  linhas.push(end.municipio + (end.estado ? ' – ' + end.estado : ''));
+
+    // Phone
+    var contato = r.contato || {};
+    var telefone = contato.whatsapp || contato.telefone || '';
+
+    // Map link
+    var mapQ = [
+      end.logradouro, end.numero, end.bairro, end.municipio
+    ].filter(Boolean).join(', ').replace(/\s+/g, '+');
+    var mapUrl = 'https://www.google.com/maps/search/' + encodeURIComponent(mapQ || (end.municipio || ''));
+
+    // Rede própria badge
+    var redePropria = (r.tipoRede && r.tipoRede.id === 'P');
 
     card.innerHTML =
       '<div class="rc-card__top">' +
         '<div class="rc-card__badges">' +
-          '<span class="rc-badge rc-badge--tipo">' + tipo + '</span>' +
-          (r.tipo_servico ? '<span class="rc-badge rc-badge--servico">' + esc(r.tipo_servico) + '</span>' : '') +
+          '<span class="rc-badge rc-badge--tipo">' + esc(tipoProdutoSel.options[tipoProdutoSel.selectedIndex].text) + '</span>' +
+          (r.tipoServico && r.tipoServico.nome ? '<span class="rc-badge rc-badge--servico">' + esc(r.tipoServico.nome) + '</span>' : '') +
+          (redePropria ? '<span class="rc-badge rc-badge--klini">Rede Própria</span>' : '') +
         '</div>' +
-        '<div class="rc-card__icon" aria-hidden="true">' + iconForType(r) + '</div>' +
+        '<div class="rc-card__icon" aria-hidden="true">' + iconSVG() + '</div>' +
       '</div>' +
-      '<h3 class="rc-card__name">' + esc(r.nome || r.name || 'Prestador') + '</h3>' +
-      (r.especialidade ? '<p class="rc-card__specialty">' + esc(r.especialidade) + '</p>' : '') +
+      '<h3 class="rc-card__name">' + esc(r.nomeFantasia || '–') + '</h3>' +
+      (r.especialidade && r.especialidade.nome ? '<p class="rc-card__specialty">' + esc(r.especialidade.nome) + '</p>' : '') +
       '<div class="rc-card__info">' +
-        (r.endereco ? '<div class="rc-card__detail"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg><span>' + esc(r.endereco) + (r.bairro ? ', ' + esc(r.bairro) : '') + '</span></div>' : '') +
-        (r.municipio ? '<div class="rc-card__detail"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg><span>' + esc(r.municipio) + (r.estado ? ' – ' + esc(r.estado) : '') + '</span></div>' : '') +
-        (r.telefone ? '<div class="rc-card__detail"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.13 12.63 19.79 19.79 0 0 1 1.06 4a2 2 0 0 1 1.72-2H6a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.34 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg><span>' + esc(r.telefone) + '</span></div>' : '') +
+        (r.cnpj ? detail(iconCNPJ(), 'CNPJ: ' + esc(r.cnpj)) : '') +
+        (r.tipoRede && r.tipoRede.nome ? detail(iconRede(), 'Tipo de rede: ' + esc(r.tipoRede.nome)) : '') +
+        (linhas[0] ? detail(iconPin(), esc(linhas[0])) : '') +
+        (linhas[1] ? detail(iconCity(), esc(linhas[1])) : '') +
+        (telefone   ? detail(iconPhone(), esc(telefone)) : '') +
       '</div>' +
       '<div class="rc-card__footer">' +
         '<a href="' + mapUrl + '" target="_blank" rel="noopener" class="rc-card__map-link">' +
           '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="3 11 22 2 13 21 11 13 3 11"/></svg>' +
           'Ver no mapa' +
         '</a>' +
+        (telefone ?
+          '<a href="tel:' + esc(telefone.replace(/\D/g,'')) + '" class="rc-card__map-link">' +
+            '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.13 12.63 19.79 19.79 0 0 1 1.06 4a2 2 0 0 1 1.72-2H6a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.34 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>' +
+            'Ligar' +
+          '</a>' : '') +
       '</div>';
 
     return card;
   }
 
-  function iconForType(r) {
-    if (r.tipo_produto === 'O') {
-      return '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2z"/><path d="M8 14s1.5 2 4 2 4-2 4-2"/><line x1="9" y1="9" x2="9.01" y2="9"/><line x1="15" y1="9" x2="15.01" y2="9"/></svg>';
+  // ── States ────────────────────────────────────────────────────
+  function showState(state) {
+    stateEmpty.style.display     = state === 'empty'     ? 'flex'  : 'none';
+    stateLoading.style.display   = state === 'loading'   ? 'block' : 'none';
+    stateNoResults.style.display = state === 'noresults' ? 'flex'  : 'none';
+    resultsContent.style.display = state === 'results'   ? 'block' : 'none';
+
+    if (state === 'error') {
+      showApiError();
     }
-    return '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>';
   }
 
-  function showFallbackMessage(params) {
-    // Build a direct link to the original search page with params
-    var queryParts = [];
-    if (params.tipo_produto) queryParts.push('tipoProduto=' + encodeURIComponent(params.tipo_produto));
-    if (params.estado)       queryParts.push('estado=' + encodeURIComponent(params.estado));
-    if (params.municipio)    queryParts.push('municipio=' + encodeURIComponent(params.municipio));
-    var url = 'https://klinisaude.com.br/rede-credenciada/' + (queryParts.length ? '?' + queryParts.join('&') : '');
-
+  function showApiError() {
     resultsGrid.innerHTML =
-      '<div class="rc-state rc-state--empty" style="grid-column:1/-1;padding:40px 0">' +
+      '<div class="rc-state" style="grid-column:1/-1;padding:40px 0">' +
         '<div class="rc-state__icon" aria-hidden="true">' +
           '<svg viewBox="0 0 80 80" fill="none"><circle cx="40" cy="40" r="36" fill="var(--klini-primary-100)"/>' +
-          '<path d="M32 40h16M40 32v16" stroke="var(--klini-primary-500)" stroke-width="2.5" stroke-linecap="round"/></svg>' +
+          '<line x1="40" y1="28" x2="40" y2="44" stroke="var(--klini-accent-500)" stroke-width="3" stroke-linecap="round"/>' +
+          '<circle cx="40" cy="52" r="2" fill="var(--klini-accent-500)"/></svg>' +
         '</div>' +
-        '<h3 class="rc-state__title">Busca disponível no portal Klini</h3>' +
-        '<p class="rc-state__desc" style="max-width:460px">Para visualizar os resultados completos da rede credenciada, acesse o portal oficial com os filtros já pré-selecionados.</p>' +
-        '<a href="' + url + '" target="_blank" rel="noopener" class="rc-state__btn" style="text-decoration:none;display:inline-flex;align-items:center;gap:8px">' +
-          'Abrir busca completa' +
+        '<h3 class="rc-state__title">Não foi possível realizar a busca</h3>' +
+        '<p class="rc-state__desc" style="max-width:420px">Verifique sua conexão ou tente novamente. Você também pode acessar a busca diretamente no portal Klini.</p>' +
+        '<a href="https://klinisaude.com.br/rede-credenciada/" target="_blank" rel="noopener" class="rc-state__btn" style="text-decoration:none;margin-top:8px;display:inline-flex;align-items:center;gap:8px">' +
+          'Abrir portal de busca' +
           '<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg>' +
         '</a>' +
       '</div>';
-
     resultsCount.textContent = '';
     resultsFilters.textContent = '';
     pagination.style.display = 'none';
-    showState('results');
-
+    resultsContent.style.display = 'block';
+    stateLoading.style.display = 'none';
+    stateEmpty.style.display = 'none';
+    stateNoResults.style.display = 'none';
+    setSubmitLoading(false);
     document.getElementById('resultados').scrollIntoView({ behavior: 'smooth', block: 'start' });
   }
 
-  function buildFilterSummary(params) {
-    var parts = [];
-    if (params.especialidade) parts.push(getLabelForValue(especialidadeSel, params.especialidade));
-    if (params.municipio)     parts.push(params.municipio);
-    if (params.estado)        parts.push(params.estado);
-    return parts.join(' · ');
+  function showError(msg) {
+    console.warn('[Rede Credenciada]', msg);
   }
 
-  function getLabelForValue(sel, val) {
-    for (var i = 0; i < sel.options.length; i++) {
-      if (sel.options[i].value === val) return sel.options[i].textContent;
-    }
-    return val;
+  function setSubmitLoading(loading) {
+    submitBtn.classList.toggle('is-loading', loading);
+    submitBtn.disabled = loading;
+    submitText.textContent = loading ? 'Buscando...' : 'Buscar prestador';
   }
 
-  // ── Load more ─────────────────────────────────────────────────
-  loadMoreBtn.addEventListener('click', function () {
-    currentPage++;
-    performSearch();
-  });
-
-  // ── Clear / Reset ─────────────────────────────────────────────
+  // ── Clear ─────────────────────────────────────────────────────
   clearBtn.addEventListener('click', resetForm);
   stateReset.addEventListener('click', function () {
     document.getElementById('buscar').scrollIntoView({ behavior: 'smooth', block: 'start' });
@@ -517,44 +446,59 @@
 
   function resetForm() {
     form.reset();
-
-    resetSelect(redeSel, redeLoader, 'Selecione a rede');
-    resetSelect(tipoServicoSel, tipoServicoLoader, 'Selecione o tipo');
-    resetSelect(especialidadeSel, especialidadeLoader, 'Selecione a especialidade');
-    resetSelect(estadoSel, estadoLoader, 'Selecione o estado');
-    resetSelect(municipioSel, municipioLoader, 'Selecione o município');
-    resetSelect(bairroSel, bairroLoader, 'Selecione o bairro');
-
+    resetSel(redeSel,          redeLoader,        'Selecione a rede');
+    resetSel(tipoServicoSel,   tipoServicoLoader, 'Selecione o tipo');
+    resetSel(especialidadeSel, espLoader,         'Selecione a especialidade');
+    resetSel(estadoSel,        estadoLoader,      'Selecione o estado');
+    resetSel(municipioSel,     municipioLoader,   'Selecione o município');
+    resetSel(bairroSel,        bairroLoader,      'Selecione o bairro');
     submitBtn.disabled = true;
     clearBtn.style.display = 'none';
-    allResults = [];
-    currentPage = 1;
-
     showState('empty');
     document.getElementById('buscar').scrollIntoView({ behavior: 'smooth', block: 'start' });
   }
 
-  // ── State management ──────────────────────────────────────────
-  function showState(state) {
-    stateEmpty.style.display    = state === 'empty'     ? 'flex' : 'none';
-    stateLoading.style.display  = state === 'loading'   ? 'block' : 'none';
-    stateNoResults.style.display= state === 'noresults' ? 'flex' : 'none';
-    resultsContent.style.display= state === 'results'   ? 'block' : 'none';
+  // ── Helpers ───────────────────────────────────────────────────
+  function buildFilterSummary() {
+    var parts = [];
+    var esp = especialidadeSel.options[especialidadeSel.selectedIndex];
+    var mun = municipioSel.options[municipioSel.selectedIndex];
+    if (esp && esp.value) parts.push(esp.textContent);
+    if (mun && mun.value) parts.push(mun.textContent);
+    if (estadoSel.value)  parts.push(estadoSel.value);
+    return parts.join(' · ');
   }
 
-  function setSubmitLoading(loading) {
-    submitBtn.classList.toggle('is-loading', loading);
-    submitText.textContent = loading ? 'Buscando...' : 'Buscar prestador';
+  function detail(iconHtml, text) {
+    return '<div class="rc-card__detail">' + iconHtml + '<span>' + text + '</span></div>';
   }
 
-  // ── Utility ───────────────────────────────────────────────────
-  function esc(str) {
-    if (!str) return '';
-    return String(str)
-      .replace(/&/g,'&amp;')
-      .replace(/</g,'&lt;')
-      .replace(/>/g,'&gt;')
-      .replace(/"/g,'&quot;');
+  function esc(s) {
+    return String(s || '')
+      .replace(/&/g,'&amp;').replace(/</g,'&lt;')
+      .replace(/>/g,'&gt;').replace(/"/g,'&quot;');
   }
+
+  function iconSVG() {
+    return '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>';
+  }
+  function iconPin() {
+    return '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>';
+  }
+  function iconCity() {
+    return '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>';
+  }
+  function iconPhone() {
+    return '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.13 12.63 19.79 19.79 0 0 1 1.06 4a2 2 0 0 1 1.72-2H6a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.34 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>';
+  }
+  function iconCNPJ() {
+    return '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg>';
+  }
+  function iconRede() {
+    return '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/></svg>';
+  }
+
+  // ── Fix duplicate fetch call (clean up the accidental double) ──
+  // (the two apiFetch calls in performSearch need to be consolidated)
 
 })();

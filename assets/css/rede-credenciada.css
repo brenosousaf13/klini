@@ -524,6 +524,11 @@
   color: var(--klini-support-500, #6AA7AE);
 }
 
+.rc-badge--klini {
+  background: var(--klini-accent-100, #F5E4D3);
+  color: var(--klini-accent-500, #CD7925);
+}
+
 .rc-card__icon {
   width: 36px;
   height: 36px;
